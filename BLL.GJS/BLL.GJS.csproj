@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{157CF798-F960-428C-9AD9-6CA9798E905A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BLL.GJS</RootNamespace>
+    <AssemblyName>BLL.GJS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CkdmkBLL.cs" />
+    <Compile Include="ClcddmBLL.cs" />
+    <Compile Include="CljcdBLL.cs" />
+    <Compile Include="CljckBLL.cs" />
+    <Compile Include="ClkBLL.cs" />
+    <Compile Include="Db1BLL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StoreLocBLL.cs" />
+    <Compile Include="UomBLL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CC.Infrustructure\CC.Infrustructure.csproj">
+      <Project>{6cb35a05-6b20-4ca4-a262-c7e5c7ce98a6}</Project>
+      <Name>CC.Infrustructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL.GJS\DAL.GJS.csproj">
+      <Project>{6c55059b-4a8c-4ff0-a0f2-f8624db7af66}</Project>
+      <Name>DAL.GJS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL.SYS\DAL.SYS.csproj">
+      <Project>{fd656692-c34d-405b-ba88-a4b45fc0724b}</Project>
+      <Name>DAL.SYS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DM.GJS\DM.GJS.csproj">
+      <Project>{b701d1bc-511e-47a4-bec6-91c5ccad2e41}</Project>
+      <Name>DM.GJS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

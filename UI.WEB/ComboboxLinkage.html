@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="JS/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="JS/themes/icon.css" />
+    <script type="text/javascript" src="JS/jquery.min.js"></script>
+    <script type="text/javascript" src="JS/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="JS/locale/easyui-lang-zh_CN.js"></script>
+    <script src="JS/common/common.help.content.js" type="text/javascript"></script>
+    <script src="JS/common/common.helper.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            var data = [0, 1, 2, 3];//后台获得的数据
+            var defaultPlantName = '137e5ffd-b49b-4862-ab73-bd2ff966582a';//获取右上角的工厂combobox parent.$('#cboPlant').combobox('getValue');
+            //var defaultPlantName = '';
+            initCombobox(data, defaultPlantName);//初始化combobox
+        });
+
+        function initCombobox(data, defaultPlantName) {
+            var dataList = convertDataTableList(data);//后台数据进行转换
+            //创建div
+            $('<div />', {
+                id:'searchForm'
+            }).appendTo('body');
+
+            for (var i = 0; i < dataList.length; i++) {
+                //创建label
+                $('<label>', {
+                    text: dataList[i].labelName
+                }).appendTo($('#searchForm'));
+                //创建combobox
+                $('<input />', {
+                    id: dataList[i].tableName,
+                    type: 'text'
+                }).appendTo($('#searchForm'));
+            }
+            //easyui-combobox控件初始化
+            for (var i = 0; i < dataList.length; i++) {
+                $('#' + dataList[i].tableName).combobox({
+                    required: true,
+                    editable:false,
+                    valueField: 'value',
+                    textField: 'text',
+                    onSelect: function (record) {
+                        var index = parseInt(record.index, 10);
+                        if (index != 3) {
+                            var fid = record.value;
+                            //清空子节点
+                            for (var j = 0; j < dataList.length; j++) {
+                                if (index < dataList[j].index) {
+                                    $('#' + dataList[j].tableName).combobox('clear').combobox('loadData', []);
+                                }
+                            }
+                            //重新获取数据
+                            ajax(record.sonTableName, fid);
+                        }
+                    }
+                });
+            }
+            switch (dataList[0].index) {
+                case 0:
+                    ajax('tm_bas_plant', '');
+                    if (defaultPlantName != ''){   
+                        $('#tm_bas_plant').combobox('select', defaultPlantName);
+                    }
+                    break;
+                case 1:
+                    ajax('tm_bas_workshop', '');
+                    break;
+                case 2:
+                    ajax('tm_bas_prodLine', '');
+                    break;
+                case 3:
+                    ajax('tm_bas_workCell', '');
+                    break;
+                default: 
+                    break;
+            }
+          
+        }
+
+        function ajax(tableName, fid) {
+            var method = '';
+            switch (tableName) {
+                case 'tm_bas_plant':
+                    method = 'getComboboxPlants';
+                    break;
+                case 'tm_bas_workshop':
+                    method = 'getComboboxWorkShop';
+                    break;
+                case 'tm_bas_prodLine':
+                    method = 'getComboboxProdLine';
+                    break;
+                case 'tm_bas_workCell':
+                    method = 'getComboboxWorkCell';
+                    break;
+                default:
+                    break;
+            }
+            var dataParams = 'method=' + method + '&PAGE_URL=' + escape(this.pathName) + '&ENTITY_NAME=' + this.entityName + '&fid=' + fid;
+            var ajaxUrl = 'HANDLER/mainHandler.ashx?';
+            $.ajax({
+                url: ajaxUrl,
+                async: false,
+                type: "POST",
+                data: dataParams,
+                datatype: 'json',
+                success: function (data) {
+                    data = eval('(' + data + ')');
+                    $('#' + tableName).combobox('loadData', data);
+                }
+            });
+        }
+
+        function convertDataTableList(data) {
+            var dataTableList= new Array(data.length);
+            for (var i = 0; i < data.length; i++) {
+                var singleData = {};
+                switch (data[i]) {
+                    case 0:
+                        singleData.labelName = '工厂：';
+                        singleData.tableName = 'tm_bas_plant';
+                        break;
+                    case 1:
+                        singleData.labelName = '车间：';
+                        singleData.tableName = 'tm_bas_workshop';
+                        break;
+                    case 2:
+                        singleData.labelName = '产线：';
+                        singleData.tableName = 'tm_bas_prodLine';
+                        break;
+                    case 3:
+                        singleData.labelName = '工作单元：';
+                        singleData.tableName = 'tm_bas_workCell';
+                        break;
+                    default: break;
+                }
+                singleData.index = data[i];
+                dataTableList[i] = singleData;
+            }
+            return dataTableList;
+        }
+    </script>
+</head>
+<body>
+   
+</body>
+</html>

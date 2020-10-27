@@ -1,0 +1,3 @@
+﻿CREATE SCHEMA [GJS]
+    AUTHORIZATION [dbo];
+

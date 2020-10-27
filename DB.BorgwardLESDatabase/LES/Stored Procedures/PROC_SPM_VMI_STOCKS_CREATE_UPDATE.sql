@@ -1,0 +1,333 @@
+﻿/********************************************************************/
+/*                                                                  */
+/*   Project Name:  LES System                         */
+/*   Program Name:  [PROC_SPM_VMI_STOCKS_CREATE_UPDATE]             */
+/*   Called By:     by the Page							*/
+/*   Purpose:       VMI库存导入       */
+/*   author:       Scott     				       */
+/*   更新时间:       2017-09-12  				       */
+/********************************************************************/
+CREATE PROCEDURE [LES].[PROC_SPM_VMI_STOCKS_CREATE_UPDATE]
+ @UserLoginName nvarchar(50)
+AS
+BEGIN
+
+/********************************************************************
+VMI调整类型为InventoryAdjustment和Initialize
+*********************************************************************/
+--插入不存在的库存记录数
+INSERT INTO [LES].[TT_WMS_STOCKS]
+	(
+	[PLANT]
+	,[WM_NO]
+	,[ZONE_NO]
+	,[DLOC]
+	,[PART_NO]
+	,[PART_CNAME]
+	,[PACKAGE]
+	,[PACKAGE_MODEL]
+	,[PART_CLS]
+	,[MAX]
+	,[MIN]
+	,[SAFE_STOCK]
+	,[IS_REPACK]
+	,[IS_BATCH]
+	,[BARCODE_DATA]
+	,[STOCKS_NUM]--总件数
+	,[STOCKS]--总箱数
+	,[FROZEN_STOCKS]--冻结件数
+	,[AVAILBLE_STOCKS]--可用件数
+	,[FRAGMENT_NUM]--散件数
+	,[SUPPLIER_NUM]
+	,[CREATE_USER]
+	,[CREATE_DATE]
+	)
+	SELECT distinct 
+        PS.[PLANT]
+        ,PS.[WM_NO]
+        ,PS.[ZONE_NO]
+        ,PS.[DLOC]
+		,PS.[PART_NO]
+		,PS.[PART_CNAME]
+		,PS.[PACKAGE]
+		,PS.[PACKAGE_MODEL]
+		,PS.[PART_CLS]
+		,PS.[MAX]
+		,PS.[MIN]
+		,PS.[SAFE_STOCK]
+		,PS.[IS_REPACK]
+		,0--[IS_BATCH]
+		,''--[BARCODE_DATA]
+		,TE.STOCKS_NUM
+		,(CASE 
+			WHEN PS.PACKAGE is null or PS.PACKAGE=0
+			THEN 0
+			ELSE (case when TE.STOCKS_NUM>=0 then ceiling(cast(TE.STOCKS_NUM as float)/cast(PS.[PACKAGE] as float)) else floor(cast(TE.STOCKS_NUM as float)/cast(PS.[PACKAGE] as float)) end)
+			END)--[STOCKS]
+		,TE.FROZEN_STOCKS
+		,ISNULL(TE.STOCKS_NUM,0)-ISNULL(TE.FROZEN_STOCKS,0)--[AVAILBLE_STOCKS]
+		,(ISNULL(TE.STOCKS_NUM,0)-ISNULL(TE.FROZEN_STOCKS,0)) % ISNULL(PS.PACKAGE,1)--[FRAGMENT_NUM]
+		,TE.[SUPPLIER_NUM]
+		,TE.[CREATE_USER]
+		,TE.[CREATE_DATE]
+	FROM 
+		[LES].[TE_SPM_VMI_STOCKS_TEMP] TE,
+		[LES].[TM_BAS_PARTS_STOCK] PS
+	WHERE 
+		TE.VALID_FLAG = 1
+		AND TE.MODIFICATION_CODE in (N'InventoryAdjustment',N'Initialize')
+		AND TE.D_PLANT = PS.PLANT
+		AND PS.WM_NO = TE.D_WM_NO
+		AND PS.ZONE_NO = TE.D_ZONE_NO
+		AND PS.PART_NO = TE.PART_NO 
+		AND (SELECT COUNT(*) FROM 
+				[LES].[TT_WMS_STOCKS] ST
+			 WHERE 
+				TE.D_PLANT = ST.PLANT
+				AND TE.D_WM_NO = ST.WM_NO
+				AND TE.D_ZONE_NO = ST.ZONE_NO
+				AND TE.PART_NO = ST.PART_NO
+				AND TE.[SUPPLIER_NUM]=ST.[SUPPLIER_NUM]
+				) < 1
+	
+--更新存在的库存记录数		
+UPDATE 
+	 TS
+SET
+	STOCKS_NUM = TE.STOCKS_NUM
+	,[STOCKS] = (CASE 
+			WHEN TS.PACKAGE is null or TS.PACKAGE=0
+			THEN 0
+			ELSE (case when TE.STOCKS_NUM>=0 then ceiling(cast(TE.STOCKS_NUM as float)/cast(TS.[PACKAGE] as float)) else floor(cast(TE.STOCKS_NUM as float)/cast(TS.[PACKAGE] as float)) end)
+			END)--[STOCKS]
+	,FROZEN_STOCKS = TE.FROZEN_STOCKS
+	,[AVAILBLE_STOCKS] = ISNULL(TE.STOCKS_NUM,0)-ISNULL(TE.FROZEN_STOCKS,0)
+	,[FRAGMENT_NUM] = (ISNULL(TE.STOCKS_NUM,0)-ISNULL(TE.FROZEN_STOCKS,0)) % ISNULL(TS.PACKAGE,1)
+	,[UPDATE_USER] = TE.CREATE_USER
+	,[UPDATE_DATE] = TE.CREATE_DATE
+FROM	
+		[LES].[TE_SPM_VMI_STOCKS_TEMP] TE,
+		[LES].[TT_WMS_STOCKS] TS 
+WHERE 
+	TE.VALID_FLAG = 1
+	AND TE.D_PLANT = TS.PLANT
+	AND TE.D_WM_NO = TS.WM_NO
+	AND TE.D_ZONE_NO = TS.ZONE_NO
+	AND TE.PART_NO = TS.PART_NO
+	AND TE.MODIFICATION_CODE in (N'InventoryAdjustment',N'Initialize')
+	AND TE.[SUPPLIER_NUM]=TS.[SUPPLIER_NUM]
+
+/********************************************************************
+VMI调整类型为DefectOuptput
+*********************************************************************/
+--更新存在的库存记录数		
+UPDATE 
+	 TS
+SET
+	STOCKS_NUM = TE.STOCKS_NUM
+	,[STOCKS] = (CASE 
+			WHEN TS.PACKAGE is null or TS.PACKAGE=0
+			THEN 0
+			ELSE (case when ISNULL(TS.STOCKS_NUM,0)-ISNULL(TE.STOCKS_NUM,0)>=0 then ceiling(cast(ISNULL(TS.STOCKS_NUM,0)-ISNULL(TE.STOCKS_NUM,0) as float)/cast(TS.[PACKAGE] as float)) else floor(cast(ISNULL(TS.STOCKS_NUM,0)-ISNULL(TE.STOCKS_NUM,0) as float)/cast(TS.[PACKAGE] as float)) end)
+			END)--[STOCKS]
+	,[AVAILBLE_STOCKS] = ISNULL(TS.STOCKS_NUM,0)-ISNULL(TE.STOCKS_NUM,0)-ISNULL(TS.FROZEN_STOCKS,0)
+	,[FRAGMENT_NUM] = (ISNULL(TS.STOCKS_NUM,0)-ISNULL(TE.STOCKS_NUM,0)-ISNULL(TS.FROZEN_STOCKS,0)) % ISNULL(TS.PACKAGE,1)
+	,[UPDATE_USER] = TE.CREATE_USER
+	,[UPDATE_DATE] = TE.CREATE_DATE
+FROM	
+		[LES].[TE_SPM_VMI_STOCKS_TEMP] TE,
+		[LES].[TT_WMS_STOCKS] TS 
+WHERE 
+	TE.VALID_FLAG = 1
+	AND TE.D_PLANT = TS.PLANT
+	AND TE.D_WM_NO = TS.WM_NO
+	AND TE.D_ZONE_NO = TS.ZONE_NO
+	AND TE.PART_NO = TS.PART_NO
+	AND TE.MODIFICATION_CODE =N'DefectOuptput'
+	AND TE.[SUPPLIER_NUM]=TS.[SUPPLIER_NUM]
+
+--如果是导入初始化和盘点差异调整，那么用已经存在于库存中的库存件数减去当前调整件数，作为VMI交易明细表的调整件数
+UPDATE [LES].[TE_SPM_VMI_STOCKS_TEMP]
+SET STOCKS_NUM=ISNULL(STOCKS_NUM_BEFORE,0)-ISNULL(STOCKS_NUM,0)
+WHERE MODIFICATION_CODE IN (N'InventoryAdjustment',N'Initialize')
+AND STOCKS_NUM_BEFORE IS NOT NULL
+
+--将InventoryAdjustment和Initialize和DefectOuptput的库存调整数据记录到VMI交易明细表
+INSERT INTO [LES].[TT_SPM_VMI_TRAN_DETAIL]
+	([PLANT],[WM_NO],[ZONE_NO],[D_PLANT],[D_WM_NO],[D_ZONE_NO],[PART_NO],[PART_CNAME],[PACKAGE_MODEL],[DLOC],[D_DLOC],[PACKAGE],[NUM],[BOX_NUM],[MODIFICATION_CODE],[CREATE_USER],[CREATE_DATE])
+select 
+	TE.[D_PLANT]
+	,TE.[D_WM_NO]
+	,TE.[D_ZONE_NO]
+	,TE.[D_PLANT]
+	,TE.[D_WM_NO]
+	,TE.[D_ZONE_NO]
+	,TE.[PART_NO]
+	,TS.[PART_CNAME]
+	,TS.[PACKAGE_MODEL]
+	,TS.DLOC
+	,TS.DLOC
+	,TS.[PACKAGE]
+	,TE.STOCKS_NUM
+	,(CASE 
+			WHEN TS.PACKAGE is null or TS.PACKAGE=0
+			THEN 0
+			ELSE (case when TE.STOCKS_NUM>=0 then ceiling(cast(TE.STOCKS_NUM as float)/cast(TS.[PACKAGE] as float)) else floor(cast(TE.STOCKS_NUM as float)/cast(TS.[PACKAGE] as float)) end)
+			END)--[STOCKS]
+	,TE.[MODIFICATION_CODE]
+	,@UserLoginName
+	,getdate()
+FROM 
+	[LES].[TE_SPM_VMI_STOCKS_TEMP] TE,
+	[LES].[TT_WMS_STOCKS] TS
+WHERE 
+	TE.VALID_FLAG = 1
+	AND TE.D_PLANT = TS.PLANT
+	AND TE.D_WM_NO = TS.WM_NO
+	AND TE.D_ZONE_NO = TS.ZONE_NO
+	AND TE.PART_NO = TS.PART_NO
+	AND TE.MODIFICATION_CODE in (N'InventoryAdjustment',N'Initialize',N'DefectOuptput')
+	AND TE.[SUPPLIER_NUM]=TS.[SUPPLIER_NUM]
+
+/********************************************************************
+VMI调整类型为InternalTran
+*********************************************************************/
+--插入目的存储区库存件数
+INSERT INTO [LES].[TT_WMS_STOCKS]
+	(
+	[PLANT]
+	,[WM_NO]
+	,[ZONE_NO]
+	,[DLOC]
+	,[PART_NO]
+	,[PART_CNAME]
+	,[PACKAGE]
+	,[PACKAGE_MODEL]
+	,[PART_CLS]
+	,[MAX]
+	,[MIN]
+	,[SAFE_STOCK]
+	,[IS_REPACK]
+	,[IS_BATCH]
+	,[BARCODE_DATA]
+	,[STOCKS_NUM]--总件数
+	,[STOCKS]--总箱数
+	,[FROZEN_STOCKS]--冻结件数
+	,[AVAILBLE_STOCKS]--可用件数
+	,[FRAGMENT_NUM]--散件数
+	,[SUPPLIER_NUM]
+	,[CREATE_USER]
+	,[CREATE_DATE]
+	)
+	SELECT distinct 
+        PS.[PLANT]
+        ,PS.[WM_NO]
+        ,PS.[ZONE_NO]
+        ,PS.[DLOC]
+		,PS.[PART_NO]
+		,PS.[PART_CNAME]
+		,PS.[PACKAGE]
+		,PS.[PACKAGE_MODEL]
+		,PS.[PART_CLS]
+		,PS.[MAX]
+		,PS.[MIN]
+		,PS.[SAFE_STOCK]
+		,PS.[IS_REPACK]
+		,0--[IS_BATCH]
+		,''--[BARCODE_DATA]
+		,TE.STOCKS_NUM
+		,(CASE 
+			WHEN PS.PACKAGE is null or PS.PACKAGE=0
+			THEN 0
+			ELSE (case when TE.STOCKS_NUM>=0 then ceiling(cast(TE.STOCKS_NUM as float)/cast(PS.[PACKAGE] as float)) else floor(cast(TE.STOCKS_NUM as float)/cast(PS.[PACKAGE] as float)) end)
+			END)--[STOCKS]
+		,TE.FROZEN_STOCKS
+		,ISNULL(TE.STOCKS_NUM,0)-ISNULL(TE.FROZEN_STOCKS,0)--[AVAILBLE_STOCKS]
+		,(ISNULL(TE.STOCKS_NUM,0)-ISNULL(TE.FROZEN_STOCKS,0)) % ISNULL(PS.PACKAGE,1)--[FRAGMENT_NUM]
+		,TE.[SUPPLIER_NUM]
+		,TE.[CREATE_USER]
+		,TE.[CREATE_DATE]
+	FROM 
+		[LES].[TE_SPM_VMI_STOCKS_TEMP] TE,
+		[LES].[TM_BAS_PARTS_STOCK] PS
+	WHERE 
+		TE.VALID_FLAG = 1
+		AND TE.MODIFICATION_CODE =N'InternalTran'
+		AND TE.D_PLANT = PS.PLANT
+		AND PS.WM_NO = TE.D_WM_NO
+		AND PS.ZONE_NO = TE.D_ZONE_NO
+		AND PS.PART_NO = TE.PART_NO 
+		AND (SELECT COUNT(*) FROM 
+				[LES].[TT_WMS_STOCKS] ST
+			 WHERE 
+				TE.D_PLANT = ST.PLANT
+				AND TE.D_WM_NO = ST.WM_NO
+				AND TE.D_ZONE_NO = ST.ZONE_NO
+				AND TE.PART_NO = ST.PART_NO
+				AND TE.[SUPPLIER_NUM]=ST.[SUPPLIER_NUM]
+				) < 1
+
+--增加目的存储区库存件数
+UPDATE
+[LES].[TT_WMS_STOCKS]
+SET
+STOCKS_NUM=ISNULL(W.STOCKS_NUM,0)+TE.STOCKS_NUM,
+AVAILBLE_STOCKS=ISNULL(W.STOCKS_NUM,0)+TE.STOCKS_NUM-ISNULL(W.[FROZEN_STOCKS],0),
+STOCKS=(CASE 
+			WHEN W.PACKAGE is null or W.PACKAGE=0
+			THEN 0
+			ELSE (case when ISNULL(W.STOCKS_NUM,0)+TE.STOCKS_NUM>=0 then ceiling(cast(ISNULL(W.STOCKS_NUM,0)+TE.STOCKS_NUM as float)/cast(W.[PACKAGE] as float)) else floor(cast(ISNULL(W.STOCKS_NUM,0)+TE.STOCKS_NUM as float)/cast(W.[PACKAGE] as float)) end)
+			END),--[STOCKS]
+[FRAGMENT_NUM] = (ISNULL(W.STOCKS_NUM,0)+TE.STOCKS_NUM-ISNULL(W.[FROZEN_STOCKS],0)) % ISNULL(W.PACKAGE,1)
+FROM [LES].[TT_WMS_STOCKS] AS W
+INNER JOIN [LES].[TE_SPM_VMI_STOCKS_TEMP] TE
+ON W.PLANT=TE.D_PLANT AND W.WM_NO=TE.D_WM_NO AND W.ZONE_NO=TE.D_ZONE_NO AND W.PART_NO=TE.PART_NO AND TE.MODIFICATION_CODE=N'InternalTran' AND TE.VALID_FLAG=1
+
+--扣减源存储区库存件数
+UPDATE
+[LES].[TT_WMS_STOCKS]
+SET
+STOCKS_NUM=ISNULL(W.STOCKS_NUM,0)-TE.STOCKS_NUM,
+AVAILBLE_STOCKS=ISNULL(W.STOCKS_NUM,0)-TE.STOCKS_NUM-ISNULL(W.[FROZEN_STOCKS],0),
+STOCKS=(CASE 
+			WHEN W.PACKAGE is null or W.PACKAGE=0
+			THEN 0
+			ELSE (case when ISNULL(W.STOCKS_NUM,0)-TE.STOCKS_NUM>=0 then ceiling(cast(ISNULL(W.STOCKS_NUM,0)-TE.STOCKS_NUM as float)/cast(W.[PACKAGE] as float)) else floor(cast(ISNULL(W.STOCKS_NUM,0)-TE.STOCKS_NUM as float)/cast(W.[PACKAGE] as float)) end)
+			END),--[STOCKS]
+[FRAGMENT_NUM] = (ISNULL(W.STOCKS_NUM,0)-TE.STOCKS_NUM-ISNULL(W.[FROZEN_STOCKS],0)) % ISNULL(W.PACKAGE,1)
+FROM [LES].[TT_WMS_STOCKS] AS W
+INNER JOIN [LES].[TE_SPM_VMI_STOCKS_TEMP] TE
+ON W.PLANT=TE.PLANT AND W.WM_NO=TE.WM_NO AND W.ZONE_NO=TE.ZONE_NO AND W.PART_NO=TE.PART_NO AND TE.MODIFICATION_CODE=N'InternalTran' AND TE.VALID_FLAG=1
+
+--将移库数据插入VMI交易明细记录表
+INSERT INTO [LES].[TT_SPM_VMI_TRAN_DETAIL]
+	([SUPPLIER_NUM],PLANT,[WM_NO],[ZONE_NO],[D_PLANT],[D_WM_NO],[D_ZONE_NO],[PART_NO],[PART_CNAME],[PACKAGE_MODEL],[DLOC],[D_DLOC],[PACKAGE],[NUM],[BOX_NUM],[MODIFICATION_CODE],[CREATE_USER],[CREATE_DATE])
+SELECT 
+	TE.SUPPLIER_NUM,
+	WS.PLANT,
+	WS.WM_NO,
+	WS.ZONE_NO,
+	WD.PLANT,
+	WD.WM_NO,
+	WD.ZONE_NO,
+	TE.PART_NO,
+	WS.PART_CNAME,
+	WS.PACKAGE_MODEL,
+	WS.DLOC,
+	WD.DLOC,
+	WS.PACKAGE,
+	TE.STOCKS_NUM,
+	(CASE 
+			WHEN WS.PACKAGE is null or WS.PACKAGE=0
+			THEN 0
+			ELSE (case when TE.STOCKS_NUM>=0 then ceiling(cast(TE.STOCKS_NUM as float)/cast(WS.[PACKAGE] as float)) else floor(cast(TE.STOCKS_NUM as float)/cast(WS.[PACKAGE] as float)) end)
+			END),--[STOCKS]
+	TE.MODIFICATION_CODE,
+	@UserLoginName,
+	getdate()
+FROM [LES].[TE_SPM_VMI_STOCKS_TEMP] TE 
+INNER JOIN LES.[TT_WMS_STOCKS] WS ON TE.PLANT=WS.PLANT AND TE.WM_NO=WS.WM_NO AND TE.ZONE_NO=WS.ZONE_NO AND TE.PART_NO=WS.PART_NO 
+INNER JOIN LES.[TT_WMS_STOCKS] WD ON TE.D_PLANT=WD.PLANT AND TE.D_WM_NO=WD.WM_NO AND TE.D_ZONE_NO=WD.ZONE_NO AND TE.PART_NO=WD.PART_NO 
+WHERE TE.MODIFICATION_CODE=N'InternalTran' AND TE.VALID_FLAG=1
+
+END

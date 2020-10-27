@@ -1,0 +1,194 @@
+﻿/********************************************************************/
+/*   Project Name:  PDA												*/
+/*   Program Name:  [LES].[PROC_WMM_OUTPUT_UPDATE_BARCODE_TRANS]  	*/
+/*   Called By:     window service									*/
+/*   Author:        孙述霄											*/
+/*   Date:			2017-05-18										*/
+/*   Note:			零星或紧急出库更新标签及交易记录				*/
+/********************************************************************/
+CREATE PROCEDURE [LES].[PROC_WMM_OUTPUT_UPDATE_BARCODE_TRANS]
+(
+    @OUTPUT_NO NVARCHAR(20),	--出库单编号
+	@LOGINAME NVARCHAR(50)		--处理人
+)
+AS
+BEGIN
+
+	SET XACT_ABORT ON
+	SET NOCOUNT ON
+	BEGIN TRY
+		BEGIN TRANSACTION
+			DECLARE @BARCODE_DATA NVARCHAR(50)
+			DECLARE @BARCODENO NVARCHAR(32)
+			DECLARE @NUM INT
+			DECLARE @BARCODE_NUM INT
+			DECLARE @rowCount INT
+			DECLARE @flag INT
+
+			--定义标签号临时表
+			DECLARE @BARCODETABLE TABLE
+			(
+				[ID] INT IDENTITY,				--序号
+				[BARCODE_DATA] NVARCHAR(50),	--标签号
+				[NUM] INT,						--交易数量
+				[BARCODE_NUM] INT				--标签数量
+			)
+
+			INSERT INTO @BARCODETABLE
+			SELECT
+				A.[BARCODE_DATA],
+				CAST(A.[NUM] AS INT) AS [NUM],
+				B.[REQUIRED_INBOUND_PACKAGE_QTY] AS [BARCODE_NUM]
+			FROM [LES].[TM_WMM_TRAN_DETAILS] A WITH (NOLOCK)
+			INNER JOIN [LES].[TT_SPM_DELIVERY_RUNSHEET_BARCODE] B WITH (NOLOCK) ON A.[BARCODE_DATA] = B.[BARCODE_DATA]
+			WHERE A.[TRAN_NO] = @OUTPUT_NO AND A.[TRAN_TYPE] = 2 AND A.[TRAN_STATE] = 0
+			AND CAST(A.[NUM] AS INT) <> B.[REQUIRED_INBOUND_PACKAGE_QTY]
+			--------------------------------------------------------------------------
+			SET @flag = 1
+			SELECT @rowCount = COUNT(1) FROM @BARCODETABLE
+			--循环拉动的零件
+					PRINT  @flag 
+					PRINT @rowCount
+			WHILE (@flag <= @rowCount)
+				BEGIN
+				
+					SELECT
+						@BARCODE_DATA = [BARCODE_DATA],
+						@NUM = [NUM],
+						@BARCODE_NUM = [BARCODE_NUM]
+					FROM @BARCODETABLE
+					WHERE [ID] = @flag
+					
+					SET @BARCODENO = ''
+					EXEC LES.[PROC_SYS_GET_NEXT_BARCODE_SEQUENCE] 'BARCODE', @BARCODENO OUTPUT
+					SELECT @BARCODENO
+					SELECT ID,BARCODE_DATA,NUM,BARCODE_NUM,@BARCODENO FROM @BARCODETABLE
+					--生成新的标签
+					IF @BARCODE_NUM<>@NUM
+					BEGIN
+					INSERT INTO [LES].[TT_SPM_DELIVERY_RUNSHEET_BARCODE]
+					(
+						[PLAN_ASN_RUNSHEET_NO],
+						[SUPPLIER_NUM],
+						[PART_NO],
+						[BARCODE_DATA],
+						[IDENTIFY_PART_NO],
+						[PART_CNAME],
+						[BOX_PARTS],
+						[PICKUP_SEQ_NO],
+						[RDC_DLOC],
+						[MEASURING_UNIT_NO],
+						[INNER_LOCATION],
+						[LOCATION],
+						[STORAGE_LOCATION],
+						[INHOUSE_PACKAGE_MODEL],
+						[REQUIRED_INBOUND_PACKAGE_QTY],
+						[PRINT_TIMES],
+						[PRINT_DATE],
+						[WMS_SEND_TIME],
+						[WMS_SEND_STATUS],
+						[BARCODE_TYPE],
+						[REQUIRED_DATE],
+						[BATTH_NO],
+						[PACHAGE_TYPE],
+						[LINE_POSITION],
+						[TWD_RUNSHEET_NO],
+						[PART_NICKNAME],
+						[SUPPLIER_NAME],
+						[PLANT],
+						[DOCK],
+						[SUPPLIER_SNAME],
+						[COMMENTS],
+						[CREATE_DATE],
+						[UPDATE_DATE],
+						[UPDATE_USER],
+						[CREATE_USER],
+						[PRODUCT_LINE],
+						[BAG_NUM],
+						[NET_WEIGHT],
+						[IS_PRINTED],-----
+						[PRINT_SUPPLEMENT],
+						[IN_BATCH_NO],
+						[PRODUCTION_BATCH_NO],
+						[WM_NO],
+						[ZONE_NO],
+						[DLOC],
+						[BARCODE_STATUS],
+						[TIME_AND],
+						[RFID_NO]
+					)
+					SELECT
+						@BARCODE_DATA AS [PLAN_ASN_RUNSHEET_NO],
+						[SUPPLIER_NUM],
+						[PART_NO],
+						@BARCODENO AS [BARCODE_DATA],
+						[IDENTIFY_PART_NO],
+						[PART_CNAME],
+						[BOX_PARTS],
+						[PICKUP_SEQ_NO],
+						[RDC_DLOC],
+						[MEASURING_UNIT_NO],
+						[INNER_LOCATION],
+						[LOCATION],
+						[STORAGE_LOCATION],
+						[INHOUSE_PACKAGE_MODEL],
+						@NUM AS [REQUIRED_INBOUND_PACKAGE_QTY],
+						0 AS [PRINT_TIMES],
+						NULL AS [PRINT_DATE],
+						NULL AS [WMS_SEND_TIME],
+						NULL AS [WMS_SEND_STATUS],
+						[BARCODE_TYPE],
+						[REQUIRED_DATE],
+						[BATTH_NO],
+						[PACHAGE_TYPE],
+						[LINE_POSITION],
+						[TWD_RUNSHEET_NO],
+						[PART_NICKNAME],
+						[SUPPLIER_NAME],
+						[PLANT],
+						[DOCK],
+						[SUPPLIER_SNAME],
+						[COMMENTS],
+						GETDATE() AS [CREATE_DATE],
+						GETDATE() AS [UPDATE_DATE],
+						@LOGINAME AS [UPDATE_USER],
+						@LOGINAME AS [CREATE_USER],
+						[PRODUCT_LINE],
+						[BAG_NUM],
+						[NET_WEIGHT],
+						3 AS [IS_PRINTED],----- 20171218 lm 将新生成的箱标签状态 从0未打印给为3已关闭
+						0 AS [PRINT_SUPPLEMENT],
+						[IN_BATCH_NO],
+						[PRODUCTION_BATCH_NO],
+						[WM_NO],
+						[ZONE_NO],
+						[DLOC],
+						[BARCODE_STATUS],
+						[TIME_AND],
+						'' AS [RFID_NO]
+					FROM [LES].[TT_SPM_DELIVERY_RUNSHEET_BARCODE] WITH (NOLOCK)
+					WHERE [BARCODE_DATA] = @BARCODE_DATA
+
+					--更新交易记录中的标签信息
+					UPDATE [LES].[TM_WMM_TRAN_DETAILS] WITH (ROWLOCK)
+					SET [BARCODE_DATA] = @BARCODENO
+					WHERE [TRAN_NO] = @OUTPUT_NO AND [TRAN_TYPE] = 2 AND [TRAN_STATE] = 0 AND [BARCODE_DATA] = @BARCODE_DATA	
+					END
+				
+					--更新原标签数量
+					UPDATE [LES].[TT_SPM_DELIVERY_RUNSHEET_BARCODE] WITH (ROWLOCK)
+					SET [REQUIRED_INBOUND_PACKAGE_QTY] = [REQUIRED_INBOUND_PACKAGE_QTY] - @NUM
+					WHERE [BARCODE_DATA] = @BARCODE_DATA
+
+					SET @flag = @flag + 1
+				END
+		COMMIT TRANSACTION
+	END TRY
+	BEGIN CATCH
+		--出错，则返回执行不成功，回滚事务
+		ROLLBACK TRANSACTION
+		--记录错误信息
+		INSERT INTO [LES].[TS_SYS_EXCEPTION] ([TIME_STAMP], [APPLICATION], [METHOD], [CLASS], [EXCEPTION_MESSAGE], [ERROR_CODE])
+		SELECT GETDATE(), 'PDA', '[LES].[PROC_WMM_OUTPUT_UPDATE_BARCODE_TRANS]', 'Procedure', ERROR_MESSAGE(), ERROR_LINE()
+	END CATCH
+END

@@ -1,0 +1,26 @@
+﻿CREATE TABLE [LES].[RP_TWD_RUNSHEET_SEFR_temp] (
+    [SEFRID]          INT            IDENTITY (1, 1) NOT NULL,
+    [PLANT]           NVARCHAR (5)   NOT NULL,
+    [ASSEMBLY_LINE]   NVARCHAR (10)  NOT NULL,
+    [ZONENO]          NVARCHAR (10)  NULL,
+    [WORKSHOP]        NVARCHAR (4)   NULL,
+    [TWD_RUNSHEET_NO] VARCHAR (22)   NOT NULL,
+    [SHEET_STATUS]    INT            NULL,
+    [RUNSHEET_TYPE]   INT            NOT NULL,
+    [PART_NO]         NVARCHAR (20)  NOT NULL,
+    [PART_CNAME]      NVARCHAR (100) NULL,
+    [SUPPLIER_NUM]    NVARCHAR (12)  NOT NULL,
+    [SUPPLIER_NAME]   NVARCHAR (100) NULL,
+    [BOX_PARTS]       NVARCHAR (10)  NOT NULL,
+    [REQUIRED_NUMBER] INT            NULL,
+    [ACTUAL_NUMBER]   INT            NULL,
+    [SEFR]            VARCHAR (10)   NULL,
+    [BYYEAR]          INT            NULL,
+    [BYMONTH]         INT            NULL,
+    [COMMENTS]        NVARCHAR (200) NULL,
+    [UPDATE_DATE]     DATETIME       NULL,
+    [UPDATE_USER]     NVARCHAR (50)  NULL,
+    [CREATE_DATE]     DATETIME       NULL,
+    [CREATE_USER]     NVARCHAR (50)  NULL
+);
+

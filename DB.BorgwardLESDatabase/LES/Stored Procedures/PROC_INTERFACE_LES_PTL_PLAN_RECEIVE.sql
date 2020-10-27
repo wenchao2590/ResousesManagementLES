@@ -1,0 +1,211 @@
+﻿/****************************************************************/
+/*   Project Name:  PTL											*/
+/*   Program Name:  [LES].[PROC_INTERFACE_LES_PTL_PLAN_RECEIVE]	*/
+/*   Called By:     window service								*/
+/*   Author:        孙述霄										*/
+/*   Date:			2017-11-15									*/
+/*   Note:			同步PTL计划接收信息							*/
+--EXEC [LES].[PROC_INTERFACE_LES_PTL_PLAN_RECEIVE]
+/****************************************************************/
+CREATE PROCEDURE [LES].[PROC_INTERFACE_LES_PTL_PLAN_RECEIVE]
+AS
+BEGIN
+	SET XACT_ABORT ON
+	SET NOCOUNT ON
+	BEGIN TRY
+		BEGIN TRANSACTION
+			DECLARE @FID UNIQUEIDENTIFIER
+
+			--定义单号临时表
+			DECLARE @RUNSHEETSN TABLE
+			(
+				[SPS_RUNSHEET_SN] INT
+			)
+
+			--定义计划接收临时表
+			DECLARE @PLANRECEIVE TABLE
+			(
+				[ID] INT IDENTITY,
+				[FID] UNIQUEIDENTIFIER,
+				[PLANT] NVARCHAR(5),
+				[ASSEMBLY_LINE] NVARCHAR(10),
+				[VIN] NVARCHAR(32),
+				[SEQNO] NVARCHAR(16),
+				[PARTNO] NVARCHAR(20),
+				[PARTNAME] NVARCHAR(100),
+				[QTY] DECIMAL(18, 2),
+				[BOXPART] NVARCHAR(16),
+				[ORDERTYPE] NVARCHAR(2),
+				[ORDERNO] NVARCHAR(32),
+				[RUNSHEETTYPE] INT,
+				[ZORDNO] NVARCHAR(36),
+				[FARBIN] NVARCHAR(30),
+				[ZCOLORE_D] NVARCHAR(30),
+				[ZCOLORI_D] NVARCHAR(30)
+
+			)
+
+			--UPDATE XinPengZhang 缓存前五条未处理的拉动单 
+			SELECT DISTINCT TOP 5 A.[SPS_RUNSHEET_SN],A.BOX_PARTS INTO #SPS_RUNSHEET
+			FROM [LES].[TT_SPS_RUNSHEET] A WITH (NOLOCK)
+			--INNER JOIN [LES].[TT_SPS_RUNSHEET_DETAIL] B WITH (NOLOCK) ON A.[SPS_RUNSHEET_SN] = B.[SPS_RUNSHEET_SN]
+			WHERE [PTL_SEND_STATUS] IS NULL OR [PTL_SEND_STATUS] = 0
+
+			--ADD XinPengZhang 查询拉动形式
+			SELECT A.*,B.INHOUSE_SYSTEM_MODE INTO #SPS_RUNSHEET_MODE FROM #SPS_RUNSHEET A 
+			LEFT JOIN 
+			(
+				SELECT DISTINCT INHOUSE_PART_CLASS,INHOUSE_SYSTEM_MODE 
+				FROM LES.TM_BAS_MAINTAIN_INHOUSE_LOGISTIC_STANDARD 
+				WHERE 
+				INHOUSE_PART_CLASS IN (SELECT BOX_PARTS FROM #SPS_RUNSHEET)	
+				AND DELETE_FLAG = 0			
+			)B ON A.BOX_PARTS = B.INHOUSE_PART_CLASS
+
+			--ADD XinPengZhang 更新不需要发送给PTL的单据状态
+			UPDATE [LES].[TT_SPS_RUNSHEET] WITH (ROWLOCK)
+					SET [PTL_SEND_STATUS] = 1,
+						[PTL_SEND_TIME] = GETDATE()
+					WHERE [SPS_RUNSHEET_SN] IN (SELECT [SPS_RUNSHEET_SN] FROM #SPS_RUNSHEET_MODE WHERE ISNULL(INHOUSE_SYSTEM_MODE,'') <> 'SPS')
+
+			--UPDATE XinPengZhang 生成单号临时表数据
+			INSERT INTO @RUNSHEETSN
+			(
+				[SPS_RUNSHEET_SN]
+			)
+			SELECT SPS_RUNSHEET_SN FROM #SPS_RUNSHEET_MODE WHERE INHOUSE_SYSTEM_MODE = 'SPS'
+			
+			IF EXISTS (SELECT TOP 1 [SPS_RUNSHEET_SN] FROM @RUNSHEETSN)
+				BEGIN
+					SET @FID = NEWID()
+
+					--更新标识
+					UPDATE [LES].[TT_SPS_RUNSHEET] WITH (ROWLOCK)
+					SET [PTL_SEND_STATUS] = 1,
+						[PTL_SEND_TIME] = GETDATE()
+					WHERE [SPS_RUNSHEET_SN] IN (SELECT [SPS_RUNSHEET_SN] FROM @RUNSHEETSN)
+
+					--生成临时计划接收表数据
+					INSERT INTO @PLANRECEIVE
+					(
+						[FID],
+						[PLANT],
+						[ASSEMBLY_LINE],
+						[VIN],
+						[SEQNO],
+						[PARTNO],
+						[PARTNAME],
+						[QTY],
+						[BOXPART],
+						[ORDERTYPE],
+						[ORDERNO],
+						[RUNSHEETTYPE],
+						[ZORDNO],
+						[FARBIN],
+						[ZCOLORE_D],
+						[ZCOLORI_D]
+					)
+					SELECT
+						@FID,
+						A.[PLANT],
+						A.[ASSEMBLY_LINE],
+						A.[VIN],
+						'' AS [SEQNO],
+						B.[PART_NO] AS [PARTNO],
+						B.[PART_CNAME] AS [PARTNAME],
+						CAST(B.[REQUIRED_INBOUND_PACKAGE_QTY] AS DECIMAL) AS [QTY],
+						--使用目标存储区
+						A.PLANT_ZONE AS [BOXPART],
+						'N' AS [ORDERTYPE],
+						A.[SPS_RUNSHEET_NO] AS [ORDERNO],
+						A.[RUNSHEET_TYPE] AS [RUNSHEETTYPE],
+						ZORDNO=A.ORDER_NO,
+						C.FARBIN,
+						ZCOLORE_D=C.MODEL,
+						C.ZCOLORI_D
+					FROM [LES].[TT_SPS_RUNSHEET] A WITH (NOLOCK)
+					INNER JOIN [LES].[TT_SPS_RUNSHEET_DETAIL] B WITH (NOLOCK) ON A.[SPS_RUNSHEET_SN] = B.[SPS_RUNSHEET_SN]
+					JOIN [LES].[TT_BAS_PULL_ORDERS] C WITH (NOLOCK) ON A.ORDER_NO = C.ORDER_NO AND A.VIN = C.VIN
+					WHERE (A.[RUNSHEET_TYPE] = 1 OR A.[RUNSHEET_TYPE] = 2)
+					AND A.[SPS_RUNSHEET_SN] IN (SELECT [SPS_RUNSHEET_SN] FROM @RUNSHEETSN)
+					ORDER BY A.[SPS_RUNSHEET_SN]					
+					
+					UPDATE A
+					SET A.[SEQNO] = B.[RUNNING_NO]
+					FROM @PLANRECEIVE A
+					INNER JOIN [LES].[TT_SPS_CALCULATE_POINT] B WITH (NOLOCK)
+					ON A.[PLANT] = B.[PLANT] AND A.[ASSEMBLY_LINE] = B.[ASSEMBLY_LINE] AND A.[VIN] = B.[VIN]
+
+					--UPDATE @PLANRECEIVE
+					--SET [VIN] = '',
+					--	[SEQNO] = ''
+					--WHERE [RUNSHEETTYPE] <> 1
+
+					--插入计划接收中间表
+					INSERT INTO [LES].[TI_MID_PTL_PLAN_RECEVIE]
+					(
+						[FID],
+						[VIN],
+						[SeqNo],
+						[PartNo],
+						[PartName],
+						[Qty],
+						[BoxPart],
+						[CreateTime],
+						[OrderType],
+						[OrderNo],
+						[ZordNO],
+						[Farbin],
+						[Zcolore_D],
+						[Zcolori_D]
+					)
+					SELECT
+						[FID],
+						[VIN],
+						[SEQNO],
+						[PARTNO],
+						[PARTNAME],
+						[QTY],
+						[BOXPART],
+						GETDATE(),
+						[ORDERTYPE],
+						[ORDERNO],
+						[ZORDNO],
+						[FARBIN],
+						[ZCOLORE_D],
+						[ZCOLORI_D]
+					FROM @PLANRECEIVE
+					ORDER BY [ID]
+
+					--插入服务中间表
+					INSERT INTO [LES].[TI_SYS_OUTBOUND]
+					(
+						[FID],
+						[TRANS_NO],
+						[METHORD_NAME],
+						[EXECUTE_RESULT],
+						[KEY_VALUE],
+						[VALID_FLAG],
+						[CREATE_USER],
+						[CREATE_DATE]
+					)
+					SELECT
+						@FID,
+						'007',
+						'TI_MID_PTL_PLAN_RECEVIE',
+						0,
+						'',
+						1,
+						'admin',
+						GETDATE()
+				END
+		COMMIT TRANSACTION
+	END TRY
+	BEGIN CATCH
+		--出错，则返回执行不成功，回滚事务
+		ROLLBACK TRANSACTION
+		--记录错误信息
+		INSERT INTO [LES].[TS_SYS_EXCEPTION] ([TIME_STAMP], [APPLICATION], [METHOD], [CLASS], [EXCEPTION_MESSAGE], [ERROR_CODE])
+		SELECT GETDATE(), 'PTL', '[LES].[PROC_INTERFACE_LES_PTL_PLAN_RECEIVE]', 'Procedure', ERROR_MESSAGE(), ERROR_LINE()
+	END CATCH
+END

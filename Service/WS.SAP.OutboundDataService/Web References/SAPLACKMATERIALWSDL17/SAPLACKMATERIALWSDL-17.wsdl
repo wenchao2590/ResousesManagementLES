@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:n0="urn:sap-com:document:sap:rfc:functions" xmlns:tns="urn:sap-com:document:sap:soap:functions:mc-style" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:sap-com:document:sap:soap:functions:mc-style" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:tns="urn:sap-com:document:sap:rfc:functions" attributeFormDefault="qualified" elementFormDefault="unqualified" targetNamespace="urn:sap-com:document:sap:rfc:functions">
+      <xsd:simpleType name="char10">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char12">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="12" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char255">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="255" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char4">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="4" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char40">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="40" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char50">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+    <xsd:schema attributeFormDefault="qualified" elementFormDefault="unqualified" targetNamespace="urn:sap-com:document:sap:soap:functions:mc-style">
+      <xsd:import namespace="urn:sap-com:document:sap:rfc:functions" />
+      <xsd:complexType name="Zsles003">
+        <xsd:sequence>
+          <xsd:element name="Id" type="n0:char40" />
+          <xsd:element name="Enterprise" type="n0:char4" />
+          <xsd:element name="SiteNo" type="n0:char4" />
+          <xsd:element name="AreaNo" type="n0:char4" />
+          <xsd:element name="DmsNo" type="n0:char12" />
+          <xsd:element name="MaterialCheck" type="n0:char10" />
+          <xsd:element name="SendTime" type="n0:char50" />
+          <xsd:element name="Datuv" type="n0:char50" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Zfles003">
+        <xsd:sequence>
+          <xsd:element name="Id" type="n0:char40" />
+          <xsd:element name="Msg" type="n0:char255" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TableOfZsles003">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Zsles003" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TableOfZfles003">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Zfles003" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Zles003">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Itab" type="tns:TableOfZsles003" />
+            <xsd:element name="Return" type="tns:TableOfZfles003" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Zles003Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Itab" type="tns:TableOfZsles003" />
+            <xsd:element name="LNum" type="xsd:int" />
+            <xsd:element name="Return" type="tns:TableOfZfles003" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Zles003">
+    <wsdl:part name="parameters" element="tns:Zles003" />
+  </wsdl:message>
+  <wsdl:message name="Zles003Response">
+    <wsdl:part name="parameters" element="tns:Zles003Response" />
+  </wsdl:message>
+  <wsdl:portType name="ZLES003">
+    <wsdl:operation name="Zles003">
+      <wsdl:input message="tns:Zles003" />
+      <wsdl:output message="tns:Zles003Response" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ZLES003SoapBinding" type="tns:ZLES003">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Zles003">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ZLES003Service">
+    <wsdl:port name="ZLES003SoapBinding" binding="tns:ZLES003SoapBinding">
+      <soap:address location="http://bidev.foton.com.cn:8000/sap/bc/srt/rfc/sap/ZLES003?sap-client=800" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

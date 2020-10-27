@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [sa_dev]
+    WITH PASSWORD = N'zsdNCfuq<vxxggzpw$|oLgaemsFT7_&#$!~<sVqit2>|igkc', SID = 0x5FB13825B2A12B4486B2B3E202A4C7FC, DEFAULT_LANGUAGE = [简体中文], CHECK_POLICY = OFF;
+

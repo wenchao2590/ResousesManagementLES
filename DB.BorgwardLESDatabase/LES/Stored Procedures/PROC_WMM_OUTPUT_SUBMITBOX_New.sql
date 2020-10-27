@@ -1,0 +1,104 @@
+﻿
+
+
+
+
+CREATE PROC [LES].[PROC_WMM_OUTPUT_SUBMITBOX_New] 
+	@OUTPUT_ID int,
+	@PART_NO nvarchar(50),
+	@BARCODE_DATA NVARCHAR(50),
+	@ActualQty int,
+	@Create_User NVARCHAR(50),
+	@OutputDetailID int
+AS
+BEGIN
+BEGIN TRAN
+BEGIN TRY
+	set @ActualQty = isnull(@ActualQty,0)
+	IF EXISTS(SELECT * FROM LES.TT_WMM_OUTPUT_DETAIL WHERE OUTPUT_ID=@OUTPUT_ID AND PART_NO=@PART_NO)
+	BEGIN
+		IF EXISTS(SELECT 1 FROM [LES].[TM_WMM_TRAN_DETAILS] WHERE BARCODE_DATA=@BARCODE_DATA AND TRAN_TYPE=2 AND TRAN_STATE=0)
+		BEGIN
+			DECLARE @LASTNUM DECIMAL(18,2)
+			SELECT @LASTNUM=NUM FROM [LES].[TM_WMM_TRAN_DETAILS] WHERE BARCODE_DATA=@BARCODE_DATA  AND TRAN_TYPE=2 AND TRAN_STATE=0
+			
+			UPDATE LES.TT_WMM_OUTPUT_DETAIL with (rowlock) SET ACTUAL_QTY=ISNULL(ACTUAL_QTY,0)-@LASTNUM+@ActualQty
+			WHERE OUTPUT_DETAIL_ID=@OutputDetailID 
+			
+			DECLARE @OUTPUT_NO NVARCHAR(50)
+			SELECT @OUTPUT_NO=OUTPUT_NO FROM LES.TT_WMM_OUTPUT WHERE OUTPUT_ID=@OUTPUT_ID
+
+			UPDATE LES.TM_WMM_TRAN_DETAILS with (rowlock) SET NUM=@ActualQty
+			WHERE TRAN_NO=@OUTPUT_NO AND BARCODE_DATA=@BARCODE_DATA
+		END
+		ELSE
+		BEGIN
+			UPDATE LES.TT_WMM_OUTPUT_DETAIL with (rowlock) SET 
+			ACTUAL_QTY=ISNULL(ACTUAL_QTY,0)+@ActualQty,
+			ACTUAL_BOX_NUM=ISNULL(ACTUAL_BOX_NUM,0)+1
+			WHERE OUTPUT_DETAIL_ID=@OutputDetailID 
+
+			INSERT INTO LES.TM_WMM_TRAN_DETAILS (
+				BARCODE_DATA ,
+				PART_NO,
+				BOX_NUM ,
+				Num ,
+				Plant ,
+				WM_NO ,
+				ZONE_NO,
+				Dloc,
+				PACKAGE_MODEL,
+				PACKAGE,
+				Tran_State ,
+				Supplier_Num,
+				BOX_PARTS,
+				Part_Cname,
+				MEASURING_UNIT_NO,
+				Tran_Type,
+				Tran_No,
+				Create_Date,
+				Create_User,
+				Tran_Date,
+				TARGET_WM,
+				TARGET_ZONE,
+				TARGET_DLOC,
+				RUNSHEET_NO)
+				select
+				@BARCODE_DATA,--BARCODE_DATA
+				@PART_NO,--PART_NO
+				1,--BOX_NUM
+				@ActualQty,--Num
+				A.PLANT,--Plant
+				A.WM_NO,--WM_NO
+				A.ZONE_NO,--ZONE_NO
+				B.DLOC,--Dloc
+				B.PACKAGE_MODEL,--PACKAGE_MODEL
+				B.PACKAGE,--PACKAGE
+				0,--Tran_State
+				A.SUPPLIER_NUM,--Supplier_Num
+				B.BOX_PARTS,--BOX_PARTS
+				B.PART_CNAME,--Part_Cname
+				B.MEASURING_UNIT_NO,--MEASURING_UNIT_NO
+				2,--Tran_Type
+				A.OUTPUT_NO,--Tran_No
+				GETDATE(),--Create_Date
+				@Create_User,--Create_User
+				GETDATE(),--Tran_Date
+				C.WM_NO,
+				C.ZONE_NO,
+				C.DLOC,
+				@OutputDetailID
+				from les.TT_WMM_OUTPUT A with (nolock)
+					inner join les.TT_WMM_OUTPUT_DETAIL B with (nolock) on A.OUTPUT_ID=B.OUTPUT_ID AND B.OUTPUT_DETAIL_ID=@OutputDetailID
+					LEFT JOIN LES.TM_BAS_PARTS_STOCK C with (nolock) ON C.ZONE_NO=A.PLANT_ZONE AND C.PART_NO=@PART_NO
+					where A.OUTPUT_ID=@OUTPUT_ID
+		END
+	END
+END TRY   
+BEGIN CATCH   
+IF @@trancount > 0   
+ROLLBACK TRAN   
+END CATCH  
+if @@trancount > 0   
+COMMIT TRAN  
+END

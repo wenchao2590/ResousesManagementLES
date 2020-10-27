@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FD656692-C34D-405B-BA88-A4B45FC0724B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DAL.SYS</RootNamespace>
+    <AssemblyName>DAL.SYS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\Reference\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+      <HintPath>..\Reference\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder">
+      <HintPath>C:\Users\杜鑫鑫\Desktop\Microsoft.Practices.ObjectBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="microsoft.practices.objectbuilder2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\杜鑫鑫\Desktop\Microsoft.Practices.ObjectBuilder2.dll下载\microsoft.practices.objectbuilder2_dll\2.2.0.0\microsoft.practices.objectbuilder2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActionDAL.cs" />
+    <Compile Include="ActionDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AutoPrintTaskDAL.cs" />
+    <Compile Include="AutoPrintTaskDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChartDAL.cs" />
+    <Compile Include="ChartDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeDAL.cs" />
+    <Compile Include="CodeDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeItemDAL.cs" />
+    <Compile Include="CodeItemDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommonDAL.cs" />
+    <Compile Include="ConfigDAL.cs" />
+    <Compile Include="ConfigDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityDAL.cs" />
+    <Compile Include="EntityDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFieldDAL.cs" />
+    <Compile Include="EntityFieldDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HandlerDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HelpDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ImageResourceDAL.cs" />
+    <Compile Include="ImageResourceDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ImageSourceDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InterfaceConfigDAL.cs" />
+    <Compile Include="InterfaceConfigDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MenuActionDAL.cs" />
+    <Compile Include="MenuActionDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MenuDAL.cs" />
+    <Compile Include="MenuDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MessageDAL.cs" />
+    <Compile Include="MessageDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OperationLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizationDAL.cs" />
+    <Compile Include="OrganizationDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PrintConfigDAL.cs" />
+    <Compile Include="PrintConfigDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PrinterConfigDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessScheduleDAL.cs" />
+    <Compile Include="ProcessScheduleDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RangeAuthConditionDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReportColumnDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReportDAL.cs" />
+    <Compile Include="ReportDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoleAuthDAL.cs" />
+    <Compile Include="RoleAuthDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoleDAL.cs" />
+    <Compile Include="RoleDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoleUserConditionDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SearchModelConditionDAL.cs" />
+    <Compile Include="SearchModelConditionDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SearchModelDAL.cs" />
+    <Compile Include="SearchModelDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SeqCurrentValueDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SeqDefineDAL.cs" />
+    <Compile Include="SeqDefineDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SeqSectionDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserDAL.cs" />
+    <Compile Include="UserDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserFavoritesDAL.cs" />
+    <Compile Include="UserFavoritesDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserLoginDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RangeAuthConditionDAL.cs" />
+    <Compile Include="UserMobileDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserRoleConditionDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserRoleDAL.cs" />
+    <Compile Include="UserRoleDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserRoleRangeAuthDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserTokenDAL.cs" />
+    <Compile Include="UserTokenDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DAL.CommonMgrGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DAL.CommonMgrGenerator.txt</LastGenOutput>
+    </Content>
+    <Content Include="DAL.CommonMgrGenerator.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CC.Infrustructure\CC.Infrustructure.csproj">
+      <Project>{6cb35a05-6b20-4ca4-a262-c7e5c7ce98a6}</Project>
+      <Name>CC.Infrustructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DM.LES\DM.LES.csproj">
+      <Project>{C8E22C5F-01CF-4026-8885-CFBE1C5A5B8D}</Project>
+      <Name>DM.LES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DM.SYS\DM.SYS.csproj">
+      <Project>{4c291eb1-e4e3-431c-937c-c056483f891d}</Project>
+      <Name>DM.SYS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

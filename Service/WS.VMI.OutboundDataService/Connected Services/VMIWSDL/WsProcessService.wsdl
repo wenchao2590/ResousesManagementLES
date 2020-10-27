@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://ws.web.dove.sie.com/" name="WsProcessService" targetNamespace="http://ws.web.dove.sie.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:tns="http://ws.web.dove.sie.com/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://ws.web.dove.sie.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="runProcess" type="tns:runProcess" />
+      <xs:element name="runProcessResponse" type="tns:runProcessResponse" />
+      <xs:element name="runProcessWithAction" type="tns:runProcessWithAction" />
+      <xs:element name="runProcessWithActionResponse" type="tns:runProcessWithActionResponse" />
+      <xs:element name="runProcessWithContentType" type="tns:runProcessWithContentType" />
+      <xs:element name="runProcessWithContentTypeAndAction" type="tns:runProcessWithContentTypeAndAction" />
+      <xs:element name="runProcessWithContentTypeAndActionResponse" type="tns:runProcessWithContentTypeAndActionResponse" />
+      <xs:element name="runProcessWithContentTypeResponse" type="tns:runProcessWithContentTypeResponse" />
+      <xs:complexType name="runProcessWithContentTypeAndAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="appKey" type="xs:string" />
+          <xs:element minOccurs="0" name="tenantId" type="xs:long" />
+          <xs:element minOccurs="0" name="processCode" type="xs:string" />
+          <xs:element minOccurs="0" name="data" type="xs:string" />
+          <xs:element minOccurs="0" name="contentType" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="runProcessWithContentTypeAndActionResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="runProcessWithContentType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="appKey" type="xs:string" />
+          <xs:element minOccurs="0" name="tenantId" type="xs:long" />
+          <xs:element minOccurs="0" name="processCode" type="xs:string" />
+          <xs:element minOccurs="0" name="data" type="xs:string" />
+          <xs:element minOccurs="0" name="contentType" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="runProcessWithContentTypeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="runProcess">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="appKey" type="xs:string" />
+          <xs:element minOccurs="0" name="tenantId" type="xs:long" />
+          <xs:element minOccurs="0" name="processCode" type="xs:string" />
+          <xs:element minOccurs="0" name="data" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="runProcessResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="runProcessWithAction">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="appKey" type="xs:string" />
+          <xs:element minOccurs="0" name="tenantId" type="xs:long" />
+          <xs:element minOccurs="0" name="processCode" type="xs:string" />
+          <xs:element minOccurs="0" name="data" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="runProcessWithActionResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="BusinessException" type="tns:BusinessException" />
+      <xs:complexType name="BusinessException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+          <xs:element minOccurs="0" name="errorMsg" type="xs:string" />
+          <xs:element minOccurs="0" name="message" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="runProcessWithContentTypeAndAction">
+    <wsdl:part name="parameters" element="ns1:runProcessWithContentTypeAndAction" />
+  </wsdl:message>
+  <wsdl:message name="runProcessWithAction">
+    <wsdl:part name="parameters" element="ns1:runProcessWithAction" />
+  </wsdl:message>
+  <wsdl:message name="runProcessWithContentTypeResponse">
+    <wsdl:part name="parameters" element="ns1:runProcessWithContentTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="runProcessWithContentTypeAndActionResponse">
+    <wsdl:part name="parameters" element="ns1:runProcessWithContentTypeAndActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="runProcessWithContentType">
+    <wsdl:part name="parameters" element="ns1:runProcessWithContentType" />
+  </wsdl:message>
+  <wsdl:message name="runProcess">
+    <wsdl:part name="parameters" element="ns1:runProcess" />
+  </wsdl:message>
+  <wsdl:message name="runProcessWithActionResponse">
+    <wsdl:part name="parameters" element="ns1:runProcessWithActionResponse" />
+  </wsdl:message>
+  <wsdl:message name="runProcessResponse">
+    <wsdl:part name="parameters" element="ns1:runProcessResponse" />
+  </wsdl:message>
+  <wsdl:message name="BusinessException">
+    <wsdl:part name="BusinessException" element="ns1:BusinessException" />
+  </wsdl:message>
+  <wsdl:portType name="WsProcessService">
+    <wsdl:operation name="runProcessWithContentTypeAndAction">
+      <wsdl:input name="runProcessWithContentTypeAndAction" message="ns1:runProcessWithContentTypeAndAction" />
+      <wsdl:output name="runProcessWithContentTypeAndActionResponse" message="ns1:runProcessWithContentTypeAndActionResponse" />
+      <wsdl:fault name="BusinessException" message="ns1:BusinessException" />
+    </wsdl:operation>
+    <wsdl:operation name="runProcessWithContentType">
+      <wsdl:input name="runProcessWithContentType" message="ns1:runProcessWithContentType" />
+      <wsdl:output name="runProcessWithContentTypeResponse" message="ns1:runProcessWithContentTypeResponse" />
+      <wsdl:fault name="BusinessException" message="ns1:BusinessException" />
+    </wsdl:operation>
+    <wsdl:operation name="runProcess">
+      <wsdl:input name="runProcess" message="ns1:runProcess" />
+      <wsdl:output name="runProcessResponse" message="ns1:runProcessResponse" />
+      <wsdl:fault name="BusinessException" message="ns1:BusinessException" />
+    </wsdl:operation>
+    <wsdl:operation name="runProcessWithAction">
+      <wsdl:input name="runProcessWithAction" message="ns1:runProcessWithAction" />
+      <wsdl:output name="runProcessWithActionResponse" message="ns1:runProcessWithActionResponse" />
+      <wsdl:fault name="BusinessException" message="ns1:BusinessException" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

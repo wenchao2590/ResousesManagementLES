@@ -1,0 +1,26 @@
+﻿CREATE TABLE [LES].[RP_STOCKOUT_INVENTORY_COMPARISON] (
+    [COMPARISONID]          INT             IDENTITY (1, 1) NOT NULL,
+    [PLAN_RUNSHEET_SN]      INT             NOT NULL,
+    [PLANT]                 NVARCHAR (5)    NULL,
+    [WM_NO]                 NVARCHAR (16)   NULL,
+    [ZONE_NO]               NVARCHAR (20)   NULL,
+    [PLANT_ZONE]            NCHAR (10)      NULL,
+    [SUPPLIER_NUM]          NVARCHAR (12)   NULL,
+    [SUPPLIER_NAME]         NVARCHAR (100)  NULL,
+    [PART_NO]               NVARCHAR (20)   NULL,
+    [PART_CNAME]            NVARCHAR (100)  NULL,
+    [STOCKOUT_NUM]          NUMERIC (18, 2) NULL,
+    [EXPECTED_ARRIVAL_TIME] DATETIME        NULL,
+    [DATE_DAY]              DATETIME        NULL,
+    [SHEET_STATUS]          INT             NOT NULL,
+    [RUNSHEET_TYPE]         INT             NOT NULL,
+    [AVAILBLE_STOCKS]       NUMERIC (18, 2) NULL,
+    [DISPO]                 NVARCHAR (20)   NULL,
+    [COMMENTS]              NVARCHAR (200)  NULL,
+    [UPDATE_DATE]           DATETIME        NULL,
+    [UPDATE_USER]           NVARCHAR (50)   NULL,
+    [CREATE_DATE]           DATETIME        NOT NULL,
+    [CREATE_USER]           NVARCHAR (50)   NOT NULL,
+    CONSTRAINT [IDX_RP_STOCKOUT_INVENTORY_COMPARISON] PRIMARY KEY CLUSTERED ([COMPARISONID] ASC)
+);
+

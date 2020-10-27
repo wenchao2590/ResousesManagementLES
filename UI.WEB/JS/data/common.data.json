@@ -1,0 +1,350 @@
+﻿{
+  "RoleAuth_cn": [
+    {
+      "field": "ck",
+      "title": "选择",
+      "checkbox": true,
+      "width": 50
+    },
+    {
+      "field": "AuthSourceName",
+      "title": "授权内容",
+      "width": 380
+    },
+    {
+      "field": "AuthTypeName",
+      "title": "授权类型",
+      "width": 80
+    },
+    {
+      "field": "IsAuth",
+      "title": "已授权",
+      "width": 60,
+      "formatter": "eval(function(value,row,index){var e = formatterCheckBoxByColumns(value,row,index); return e;})"
+    }
+  ],
+  "langu": [
+    {
+      "id": "zh-cn",
+      "text": "简体"
+    },
+    {
+      "id": "en-us",
+      "text": "English"
+    }
+  ],
+  "Icon_Item": [
+    {
+      "id": "icon-add",
+      "text": "Add",
+      "iconCls": "icon-add",
+      "iconImg": "JS/themes/icons/edit_add.png"
+    },
+    {
+      "id": "icon-remove",
+      "text": "Delete",
+      "iconCls": "icon-remove",
+      "iconImg": "JS/themes/icons/remove.png"
+    },
+    {
+      "id": "icon-save",
+      "text": "Save",
+      "iconCls": "icon-save",
+      "iconImg": "JS/themes/icons/filesave.png"
+    },
+    {
+      "id": "icon-cancel",
+      "text": "Cancel",
+      "iconCls": "icon-cancel",
+      "iconImg": "JS/themes/icons/cancel.png"
+    },
+    {
+      "id": "icon-search",
+      "text": "Search",
+      "iconCls": "icon-search",
+      "iconImg": "JS/themes/icons/search.png"
+    },
+    {
+      "id": "icon-ok",
+      "text": "OK",
+      "iconCls": "icon-ok",
+      "iconImg": "JS/themes/icons/ok.png"
+    },
+    {
+      "id": "icon-no",
+      "text": "No",
+      "iconCls": "icon-no",
+      "iconImg": "JS/themes/icons/no.png"
+    },
+    {
+      "id": "icon-print",
+      "text": "Print",
+      "iconCls": "icon-print",
+      "iconImg": "JS/themes/icons/print.png"
+    },
+    {
+      "id": "icon-help",
+      "text": "Help",
+      "iconCls": "icon-help",
+      "iconImg": "JS/themes/icons/help.png"
+    },
+    {
+      "id": "icon-undo",
+      "text": "Undo",
+      "iconCls": "icon-undo",
+      "iconImg": "JS/themes/icons/undo.png"
+    },
+    {
+      "id": "icon-redo",
+      "text": "Redo",
+      "iconCls": "icon-redo",
+      "iconImg": "JS/themes/icons/redo.png"
+    },
+    {
+      "id": "icon-blank",
+      "text": "Blank",
+      "iconCls": "icon-blank",
+      "iconImg": "JS/themes/icons/blank.gif"
+    },
+    {
+      "id": "icon-584486",
+      "text": "Menu",
+      "iconCls": "icon-584486",
+      "iconImg": "CSS/img/icons16/menu_item_16px_584486.png"
+    },
+    {
+      "id": "icon-509746",
+      "text": "Action",
+      "iconCls": "icon-509746",
+      "iconImg": "CSS/img/icons16/applications_system_16px_509746.ico"
+    },
+    {
+      "id": "icon-1134054",
+      "text": "User",
+      "iconCls": "icon-1134054",
+      "iconImg": "CSS/img/icons16/user_16px_1134054.ico"
+    },
+    {
+      "id": "icon-530755",
+      "text": "Role",
+      "iconCls": "icon-530755",
+      "iconImg": "CSS/img/icons16/Vcard_16px_530755.ico"
+    },
+    {
+      "id": "icon-0000001",
+      "text": "Plant",
+      "iconCls": "icon-0000001",
+      "iconImg": "CSS/img/icons16/industry.ico"
+    },
+    {
+      "id": "icon-0000002",
+      "text": "Workshop",
+      "iconCls": "icon-0000002",
+      "iconImg": "CSS/img/icons16/workshop.ico"
+    },
+    {
+      "id": "icon-0000003",
+      "text": "Organization",
+      "iconCls": "icon-0000003",
+      "iconImg": "CSS/img/icons16/menu_organization.ico"
+    },
+    {
+      "id": "icon-0000004",
+      "text": "MenuSearch",
+      "iconCls": "icon-0000004",
+      "iconImg": "CSS/img/icons16/menu_search.ico"
+    },
+    {
+      "id": "icon-0000005",
+      "text": "ActionAssemblyline",
+      "iconCls": "icon-0000005",
+      "iconImg": "CSS/img/icons16/action_assemblyline.ico"
+    },
+    {
+      "id": "icon-0000006",
+      "text": "ActionWorkshopsection",
+      "iconCls": "icon-0000006",
+      "iconImg": "CSS/img/icons16/action_workshopsection.ico"
+    },
+    {
+      "id": "icon-0000007",
+      "text": "ActionLocation",
+      "iconCls": "icon-0000007",
+      "iconImg": "CSS/img/icons16/action_location.ico"
+    },
+    {
+      "id": "icon-0000008",
+      "text": "MenuWorkschedule",
+      "iconCls": "icon-0000008",
+      "iconImg": "CSS/img/icons16/menu_workschedule.ico"
+    },
+    {
+      "id": "icon-0000009",
+      "text": "ButtonLogin",
+      "iconCls": "icon-0000009",
+      "iconImg": "CSS/img/icons16/button_login.ico"
+    },
+    {
+      "id": "icon-0000010",
+      "text": "ActionDownload",
+      "iconCls": "icon-0000010",
+      "iconImg": "CSS/img/icons16/action_download.ico"
+    },
+    {
+      "id": "icon-0000011",
+      "text": "ActionImport",
+      "iconCls": "icon-0000011",
+      "iconImg": "CSS/img/icons16/action_import.ico"
+    },
+    {
+      "id": "icon-0000012",
+      "text": "ActionExport",
+      "iconCls": "icon-0000012",
+      "iconImg": "CSS/img/icons16/action_export.ico"
+    },
+    {
+      "id": "icon-0000013",
+      "text": "ActionEdit",
+      "iconCls": "icon-0000013",
+      "iconImg": "CSS/img/icons16/action_edit.ico"
+    },
+    {
+      "id": "icon-0000014",
+      "text": "ActionAdd",
+      "iconCls": "icon-0000014",
+      "iconImg": "CSS/img/icons16/action_add.ico"
+    },
+    {
+      "id": "icon-0000015",
+      "text": "ActionDelete",
+      "iconCls": "icon-0000015",
+      "iconImg": "CSS/img/icons16/action_delete.ico"
+    },
+    {
+      "id": "icon-0000016",
+      "text": "ActionPrint",
+      "iconCls": "icon-0000016",
+      "iconImg": "CSS/img/icons16/action_print.ico"
+    },
+    {
+      "id": "icon-0000017",
+      "text": "ActionSave",
+      "iconCls": "icon-0000017",
+      "iconImg": "CSS/img/icons16/action_save.ico"
+    },
+    {
+      "id": "icon-0000018",
+      "text": "MenuWaitarea",
+      "iconCls": "icon-0000018",
+      "iconImg": "CSS/img/icons16/menu_waitarea.ico"
+    },
+    {
+      "id": "icon-0000019",
+      "text": "MenuDock",
+      "iconCls": "icon-0000019",
+      "iconImg": "CSS/img/icons16/menu_dock.ico"
+    },
+    {
+      "id": "icon-0000020",
+      "text": "MenuRoute",
+      "iconCls": "icon-0000020",
+      "iconImg": "CSS/img/icons16/menu_route.ico"
+    },
+    {
+      "id": "icon-0000021",
+      "text": "MenuWarehouse",
+      "iconCls": "icon-0000021",
+      "iconImg": "CSS/img/icons16/menu_warehouse.ico"
+    },
+    {
+      "id": "icon-0000022",
+      "text": "ActionZone",
+      "iconCls": "icon-0000022",
+      "iconImg": "CSS/img/icons16/action_zone.ico"
+    },
+    {
+      "id": "icon-0000023",
+      "text": "ActionWarehouseLocation",
+      "iconCls": "icon-0000023",
+      "iconImg": "CSS/img/icons16/action_warehouse_location.ico"
+    },
+    {
+      "id": "ActionBarcode",
+      "text": "ActionBarcode",
+      "iconCls": "ActionBarcode",
+      "iconImg": "CSS/img/png/barcode.png"
+    }
+  ],
+  "chartType": [
+    {
+      "id": "column",
+      "text": "柱状图"
+    },
+    {
+      "id": "spline",
+      "text": "线性图"
+    }
+  ],
+  "themes": [
+    {
+      "id": "black",
+      "text": "black"
+    },
+    {
+      "id": "bootstrap",
+      "text": "bootstrap"
+    },
+    {
+      "id": "default",
+      "text": "default"
+    },
+    {
+      "id": "gray",
+      "text": "gray"
+    },
+    {
+      "id": "material",
+      "text": "material"
+    },
+    {
+      "id": "metro",
+      "text": "metro"
+    },
+    {
+      "id": "metro-blue",
+      "text": "metro-blue"
+    },
+    {
+      "id": "metro-gray",
+      "text": "metro-gray"
+    },
+    {
+      "id": "metro-green",
+      "text": "metro-green"
+    },
+    {
+      "id": "metro-orange",
+      "text": "metro-orange"
+    },
+    {
+      "id": "metro-red",
+      "text": "metro-red"
+    },
+    {
+      "id": "ui-cupertino",
+      "text": "ui-cupertino"
+    },
+    {
+      "id": "ui-dark-hive",
+      "text": "ui-dark-hive"
+    },
+    {
+      "id": "ui-pepper-grinder",
+      "text": "ui-pepper-grinder"
+    },
+    {
+      "id": "ui-sunny",
+      "text": "ui-sunny"
+    }
+  ]
+}

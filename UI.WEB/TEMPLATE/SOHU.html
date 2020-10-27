@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>发运标签</title>
+    <style type="text/css">
+        /*上外边距是 10px
+          右外边距是 5px
+          下外边距是 15px
+          左外边距是 20px*/
+        body {
+            font-family: 微软雅黑;
+            margin-left: 0px;
+            margin-top: 0px;
+            width: 206mm;
+            height: 144mm;
+        }
+
+        #maindiv {
+            width: 200mm;
+            height: 138mm;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-left: 0px;
+            margin-top: 0px;
+        }
+
+        .leftborder1px {
+            border-left: 0.1mm solid #000;
+        }
+
+        .rightborder1px {
+            border-right: 0.1mm solid #000;
+        }
+
+        .topborder1px {
+            border-top: 0.1mm solid #000;
+        }
+
+        .bottomborder1px {
+            border-bottom: 0.1mm solid #000;
+        }
+
+        .divtitle {
+            font-size: 8px;
+            padding-left: 5px;
+        }
+
+        .divright {
+            vertical-align: middle;
+        }
+
+        .divcenter {
+            text-align: center;
+        }
+
+        .sheetBarcode {
+            display: inline-block;
+            text-align: center;
+            font-family: 'C39P36DmTt';
+        }
+    </style>
+</head>
+<body>
+    <!--$BarcodeTables$-->
+    <!--tempbegin-->
+    <div id="maindiv">
+        <div style="width:94.9mm;height:17.9mm;float:left;" class="rightborder1px bottomborder1px">
+            <div class="divtitle"><strong>Receiver</strong></div>
+            <div>
+                <span style="font-size:20px;vertical-align:middle;">
+                    <!--<b>$CustomerNum$&nbsp;</b>-->
+                    <b>LEVC&nbsp;</b>
+                </span>
+            </div>
+        </div>
+        <div style="width:105mm;height:17.9mm;float:left;" class="bottomborder1px">
+            <div class="divtitle"><strong>Dock/Gate</strong></div>
+            <div class="divright">
+                <span style="font-size:32px;">
+                    <!--<b>$Dock$&nbsp;</b>-->
+                    <b>Dock1&nbsp;</b>
+                </span>
+            </div>
+        </div>
+
+        <div style="width:94.9mm;height:25.9mm;float:left;" class="rightborder1px bottomborder1px">
+            <div class="divtitle"><strong>Advice Note No(N)</strong></div>
+            <div class="divcenter" style="vertical-align:bottom;">
+                <span style="font-size:24pt;">
+                    <b>$OutputNo$&nbsp;</b>
+                </span>
+            </div>
+            <div class="divcenter" style="vertical-align:top;font-size: 30pt;">
+                <span class="sheetBarcode" style="text-align:center; vertical-align : top;">$OutputNoBar$</span>&nbsp;
+            </div>
+        </div>
+        <div style="width:105mm;height:25.9mm;float:left;" class="bottomborder1px">
+            <div style="width:105mm;height:12.85mm;" class="bottomborder1px">
+                <div class="divtitle"><strong>Suppller Address</strong></div>
+                <div class="divcenter" style="vertical-align:bottom;">
+                    <span style="font-size:10pt;vertical-align:bottom;">
+                        <!--<b>$SupperAddress$</b>-->
+                        <b>GaoXin Zone FengMing Road NO.9 BAOJI Geely Engine Co.Ltd.</b>
+                    </span>
+                </div>
+            </div>
+
+            <div style="width:34.9mm;height:12.95mm;float:left;" class="rightborder1px">
+                <div class="divtitle"><strong>Net Weight(Kg)</strong></div>
+                <div class="divcenter" style="vertical-align:bottom;">
+                    <span style="vertical-align:bottom;font-size:14pt;">
+                        <b>$NetWeight$</b>
+                    </span>
+                </div>
+            </div>
+            <div style="width:34.9mm;height:12.95mm;float:left;" class="rightborder1px">
+                <div class="divtitle"><strong>Cross Weight(Kg)</strong></div>
+                <div class="divcenter" style="vertical-align:bottom;">
+                    <span style="font-size:14pt;vertical-align:bottom;">
+                        <b>$TotalWeight$</b>
+                    </span>
+                </div>
+            </div>
+            <div style="width:34.5mm;height:12.95mm;float:left;">
+                <div class="divtitle"><strong>No.of boxes</strong></div>
+                <div class="divcenter" style="vertical-align:bottom;">
+                    <span style="font-size:14pt;vertical-align:bottom;">
+                        <b>$BoxNum$&nbsp;</b>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="width:100%;height:26.9mm;float:left;" class="bottomborder1px">
+            <div class="divtitle"><strong>Part Number(P)</strong></div>
+            <div class="divcenter" style="vertical-align:bottom;">
+                <span style="font-size:25pt;">
+                    <b>$SupPartNo$&nbsp;</b>
+                </span>
+            </div>
+            <div class="divcenter" style="vertical-align:top;font-size: 32pt;">
+                <span class="sheetBarcode" style="text-align:center; vertical-align : top;">$SupPartNoBar$</span>&nbsp;
+            </div>
+        </div>
+
+        <div style="width:94.9mm;height:27.9mm;float:left;" class="rightborder1px bottomborder1px">
+            <div class="divtitle"><strong>Quantity</strong></div>
+            <div class="divcenter" style="vertical-align:bottom;">
+                <span style="font-size:25pt;">
+                    <b>$Num$&nbsp;</b>
+                </span>
+            </div>
+            <div class="divcenter" style="vertical-align:top;font-size: 35pt;">
+                <span class="sheetBarcode" style="text-align:center; vertical-align : top;">$NumBar$</span>&nbsp;
+            </div>
+        </div>
+        <div style="width:105mm;height:10.4mm;float:right;" class="bottomborder1px">
+            <div class="divtitle"><strong>Description</strong></div>
+            <div class="divright" style="text-align:center;vertical-align:middle;">
+                <span style=" font-size:18pt;">
+                    <!--<b>$CustomerPartName$&nbsp;</b>-->
+                    <b>JLH-3G15TD Engine&nbsp;</b>
+                </span>
+            </div>
+        </div>
+        <div style="width:105mm;height:27.9mm;float:right;" class="bottomborder1px">
+            <div class="divtitle"><strong>Loglstlc Reference</strong></div>
+            <div class="divright" style="text-align:center;vertical-align:middle;">
+                <span style=" font-size:25pt;">
+                    <b>$PartNo$&nbsp;</b>
+                </span>
+            </div>
+            <div class="divcenter" style="vertical-align:top;font-size: 30pt;">
+                <span class="sheetBarcode" style="text-align:center; vertical-align : top;">$PartNoBar$</span>&nbsp;
+            </div>
+        </div>
+        <div style="width:94.9mm;height:20.9mm;float:left;" class="rightborder1px bottomborder1px">
+            <div class="divtitle"><strong>Suppller ID(V)</strong></div>
+            <div class="divcenter" style="vertical-align:bottom;">
+                <span style="font-size:17pt;">
+                    <!--<b>$CustomerSupplierNum$&nbsp;</b>-->
+                    <b>BAOJI10&nbsp;</b>
+                </span>
+            </div>
+            <div class="divcenter" style="vertical-align:top;font-size: 25pt;">
+                <!--<span class="sheetBarcode" style="text-align:center; vertical-align : top;">$SupplierNumBar$</span>&nbsp;-->
+                <span class="sheetBarcode" style="text-align:center; vertical-align : top;">*BAOJI10*</span>
+            </div>
+        </div>
+        <div style="width:105mm;height:10.4mm;float:right;" class="bottomborder1px">
+            <div style="width:41.9mm;height:100%;float:left;" class="rightborder1px">
+                <div class="divtitle"><strong>Date</strong></div>
+                <div class="divcenter" style="vertical-align:bottom;">
+                    <span style="font-size:17pt;">
+                        <b>$SendDate$&nbsp;</b>
+                    </span>
+                </div>
+            </div>
+            <div style="width:62.9mm;height:100%;float:right;">
+                <div class="divtitle"><strong>Eng.Change</strong></div>
+                <div class="divcenter" style="vertical-align:bottom;">
+                    <span style="font-size:17pt;">
+                        <b>$EngineeringChange$&nbsp;</b>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div style="width:105mm;height:18mm;float:right;">
+            <div class="divtitle"><strong>Batch No(H)</strong></div>
+            <div class="divcenter" style="vertical-align:bottom;">
+                <span style="font-size:15pt;">
+                    <b>$BatchNo$&nbsp;</b>
+                </span>
+            </div>
+            <div class="divcenter" style="vertical-align:top;font-size: 17pt;">
+                <span class="sheetBarcode" style="text-align:center; vertical-align : top;">$BatchNoBar$</span>&nbsp;
+            </div>
+        </div>
+        <div style="width:94.9mm;height:18mm;float:left;" class="rightborder1px">
+            <div class="divtitle"><strong>Serlal Number(S)</strong></div>
+            <div class="divcenter" style="vertical-align:bottom;">
+                <span style="font-size:15pt;">
+                    <b>$HuId$&nbsp;</b>
+                </span>
+            </div>
+            <div class="divcenter" style="vertical-align:top;font-size: 17pt;">
+                <span class="sheetBarcode" style="text-align:center; vertical-align : top;">$HuIdBar$</span>&nbsp;
+            </div>
+        </div>
+    </div>
+    <!--tempend-->
+</body>
+</html>

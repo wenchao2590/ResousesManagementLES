@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link id="themesId" rel="stylesheet" type="text/css" href="JS/themes/bootstrap/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="JS/themes/icon.css" />
+    <script type="text/javascript" src="JS/jquery.min.js"></script>
+    <script type="text/javascript" src="JS/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="JS/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="JS/datagrid-detailview.js"></script>
+    <script type="text/javascript" src="JS/common/common.create.control.js"></script>
+    <script type="text/javascript" src="JS/common/common.help.content.js"></script>
+    <script type="text/javascript" src="JS/common/common.helper.js"></script>
+    <script type="text/javascript" src="SYS/JS/home.js"></script>
+    <style>
+        .menuDiv {
+            width: 100px;
+            height: 100px;
+            background: honeydew;
+            border: 0px solid #ccc;
+            margin: 10px;
+            float: left;
+            background-repeat: no-repeat;
+            cursor: pointer;
+        }
+
+        .menuContent {
+            font-family: "微软雅黑";
+            font-size: 12px;
+            vertical-align: middle;
+            margin-top: 71px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .menuTitle {
+            padding: 0px;
+            background: #ccc;
+            color: #ccc;
+        }
+
+        .menuClose {
+            float: right;
+            font-size: large;
+            vertical-align: top;
+            width: 16px;
+            height: 16px;
+            color: black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body onload="loadUserFavorites()">
+    <div style="margin:20px 0;"></div>
+    <div class="easyui-panel" id="newMessage" style="position:relative;overflow:visible;width:98%;height:50px;vertical-align:middle;display:none;">
+        <br /><span style="margin-left:10px;font-family:微软雅黑;font-size:12px">最新消息：没有消息，今天休息</span>
+    </div>
+    <br />
+    <div class="easyui-panel" id="menuItem" style="position:relative;overflow:visible;width:98%;height:300px">
+        <!--<div class="easyui menuDiv">
+            <div id="title" class="menuTitle">
+                <a class="icon-cancel menuClose">×</a>
+            </div>
+
+        </div>-->
+    </div>
+    <br />
+    <div class="easyui-panel" id="userRole" style="position:relative;overflow:visible;width:98%;height:130px"></div>
+</body>
+</html>

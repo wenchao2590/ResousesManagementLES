@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="../../scripts/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../scripts/themes/icon.css">
+    
+    <!--<script type="text/javascript" src="scripts/jquery.min.js"></script>-->
+ 
+
+    <script src="../../scripts/hCharts/HCHenryGantt.js"></script>
+    <script src="../../scripts/hCharts/HighChartsConfig.js"></script>
+    <script type="text/javascript" src="../../scripts/jquery.easyui.min.js"></script>
+    <style>
+        .liger-button {
+            margin-bottom: 3px;
+            margin-left: 7px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div id="test"></div>
+    <form id="ff" method="post">
+        <table>
+            <tr>
+                <td>
+                    <div id="container"></div>
+                </td>
+                <td>
+                    <br />
+                    <br />
+                    <div class="easyui-panel" title="属性" style="width:180px;padding-bottom:20px;padding-left:10px;">
+                        <div style="margin-bottom:20px">
+                            <div>标题:</div>
+                            <input class="easyui-textbox" style="width:150px;height:32px" id="title">
+                        </div>
+                        <div style="margin-bottom:20px">
+                            <div>开始时间:</div>
+                            <input class="easyui-datetimebox" value="" style="width:150px;height:32px" id="beginTime">
+                        </div>
+                        <div style="margin-bottom:20px">
+                            <div>结束时间:</div>
+                            <input class="easyui-datetimebox" value="" style="width:150px;height:32px" id="endTime">
+                        </div>
+                        <div style="margin-bottom:20px">
+                            <div>产量:</div>
+                            <input class="easyui-textbox" style="width:150px;height:32px" id="sum">
+                        </div>
+
+                        <div>
+                            <a href="javascript:UpdateChartDate()" class="easyui-linkbutton" iconCls="icon-ok" style="width:150px;height:32px">更新</a>
+                        </div>
+                    </div>
+
+
+                </td>
+            </tr>
+
+        </table>
+    </form>
+</body>
+
+<script type="text/javascript">
+
+
+
+
+    LoadCharts("container", null, null, "生产计划甘特图", "ColumnClick", Souce)
+
+
+
+
+</script>
+
+</html>

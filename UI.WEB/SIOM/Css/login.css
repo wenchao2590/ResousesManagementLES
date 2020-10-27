@@ -1,0 +1,43 @@
+﻿
+body {
+    background-image: url('../../SIOM/Images/loginbj.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 99%;
+    height: 99%;
+    margin: 0px 0px 0px 0px;
+}
+
+.loginImage {
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+    top: -240px;
+    left: 720px;
+}
+
+.loginBox {
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    padding-top: 140px;
+    padding-left: 60px;
+}
+
+.loginDiv {
+    padding: 20px 0px 40px 80px;
+    box-shadow: 0 2px 3px rgba(0,0,0,.55);
+    border: 1px solid rgba(0,0,0,.4);
+    background-color: #fff;
+    width: 290px;
+    height: 200px;
+    z-index: auto;
+}
+
+.loginLogo {
+    height: 80px;
+    width: 200px;
+    background-image: url('../../CSS/img/MS_LES.JPG');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}

@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="OverPointData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Enterprise" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SiteNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AreaNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UnitNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DMSSeq" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="DMSNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="VIN" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SendTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="Flag" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OverPointDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OverPointDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PBSVehicleMaterialInventory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Enterprise" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SiteNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AreaNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DMSNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SendTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PBSVehicleMaterialInventoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PBSVehicleMaterialInventoryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PBSOrderMissingParts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Enterprise" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SiteNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AreaNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DMSNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SendTime" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="StationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="MaterCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="QTY" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PBSOrderMissingPartsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PBSOrderMissingPartsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssemblePlanMissDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AssemblePlanMissDetails" type="tns:ArrayOfAssemblePlanMissDetail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAssemblePlanMissDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AssemblePlanMissDetail" nillable="true" type="tns:AssemblePlanMissDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AssemblePlanMissDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ENTERPRISE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SITE_NO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AREA_NO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DMS_NO" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MATERIAL_CHECK" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SEND_TIME" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAssemblePlanMissDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssemblePlanMissDetailResult" type="tns:InterfaceCallbackInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InterfaceCallbackInfo">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RESULT" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSGNO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSG" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetReplacementRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReplacementRecords" type="tns:ArrayOfReplacementRecord" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfReplacementRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ReplacementRecord" nillable="true" type="tns:ReplacementRecord" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReplacementRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ORDERNO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NEWPARTNO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OLDPARTNO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OLDSUPPLIER" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NEWSUPPLIER" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OLDSTATION" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NEWSTATION" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OLDQTY" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="NEWQTY" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="REPLACETIME" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetReplacementRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReplacementRecordResult" type="tns:InterfaceCallbackInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InformationBasicData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Enterprise" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SiteNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AreaNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SendTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InformationBasicDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InformationBasicDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessRouteBasicData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Enterprise" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SiteNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AreaNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StationCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SeqNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="LineFlag" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="LiduiFlag" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="GuiduiFlag" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="PBSFlag" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="SendTime" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessRouteBasicDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessRouteBasicDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="OverPointDataSoapIn">
+    <wsdl:part name="parameters" element="tns:OverPointData" />
+  </wsdl:message>
+  <wsdl:message name="OverPointDataSoapOut">
+    <wsdl:part name="parameters" element="tns:OverPointDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="PBSVehicleMaterialInventorySoapIn">
+    <wsdl:part name="parameters" element="tns:PBSVehicleMaterialInventory" />
+  </wsdl:message>
+  <wsdl:message name="PBSVehicleMaterialInventorySoapOut">
+    <wsdl:part name="parameters" element="tns:PBSVehicleMaterialInventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="PBSOrderMissingPartsSoapIn">
+    <wsdl:part name="parameters" element="tns:PBSOrderMissingParts" />
+  </wsdl:message>
+  <wsdl:message name="PBSOrderMissingPartsSoapOut">
+    <wsdl:part name="parameters" element="tns:PBSOrderMissingPartsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAssemblePlanMissDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssemblePlanMissDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetAssemblePlanMissDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssemblePlanMissDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReplacementRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReplacementRecord" />
+  </wsdl:message>
+  <wsdl:message name="GetReplacementRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReplacementRecordResponse" />
+  </wsdl:message>
+  <wsdl:message name="InformationBasicDataSoapIn">
+    <wsdl:part name="parameters" element="tns:InformationBasicData" />
+  </wsdl:message>
+  <wsdl:message name="InformationBasicDataSoapOut">
+    <wsdl:part name="parameters" element="tns:InformationBasicDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProcessRouteBasicDataSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessRouteBasicData" />
+  </wsdl:message>
+  <wsdl:message name="ProcessRouteBasicDataSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessRouteBasicDataResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LESWebServiceSoap">
+    <wsdl:operation name="OverPointData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">过点数据接口</wsdl:documentation>
+      <wsdl:input message="tns:OverPointDataSoapIn" />
+      <wsdl:output message="tns:OverPointDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PBSVehicleMaterialInventory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">PBS车辆物料排查</wsdl:documentation>
+      <wsdl:input message="tns:PBSVehicleMaterialInventorySoapIn" />
+      <wsdl:output message="tns:PBSVehicleMaterialInventorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PBSOrderMissingParts">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">PBS订单缺件明细</wsdl:documentation>
+      <wsdl:input message="tns:PBSOrderMissingPartsSoapIn" />
+      <wsdl:output message="tns:PBSOrderMissingPartsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssemblePlanMissDetail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">总装计划缺件清单</wsdl:documentation>
+      <wsdl:input message="tns:GetAssemblePlanMissDetailSoapIn" />
+      <wsdl:output message="tns:GetAssemblePlanMissDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReplacementRecord">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">断点管理替换记录</wsdl:documentation>
+      <wsdl:input message="tns:GetReplacementRecordSoapIn" />
+      <wsdl:output message="tns:GetReplacementRecordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InformationBasicData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">信息点基础数据</wsdl:documentation>
+      <wsdl:input message="tns:InformationBasicDataSoapIn" />
+      <wsdl:output message="tns:InformationBasicDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ProcessRouteBasicData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">工艺路线基础数据</wsdl:documentation>
+      <wsdl:input message="tns:ProcessRouteBasicDataSoapIn" />
+      <wsdl:output message="tns:ProcessRouteBasicDataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LESWebServiceSoap" type="tns:LESWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="OverPointData">
+      <soap:operation soapAction="http://tempuri.org/OverPointData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PBSVehicleMaterialInventory">
+      <soap:operation soapAction="http://tempuri.org/PBSVehicleMaterialInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PBSOrderMissingParts">
+      <soap:operation soapAction="http://tempuri.org/PBSOrderMissingParts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssemblePlanMissDetail">
+      <soap:operation soapAction="http://tempuri.org/GetAssemblePlanMissDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReplacementRecord">
+      <soap:operation soapAction="http://tempuri.org/GetReplacementRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformationBasicData">
+      <soap:operation soapAction="http://tempuri.org/InformationBasicData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessRouteBasicData">
+      <soap:operation soapAction="http://tempuri.org/ProcessRouteBasicData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LESWebServiceSoap12" type="tns:LESWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="OverPointData">
+      <soap12:operation soapAction="http://tempuri.org/OverPointData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PBSVehicleMaterialInventory">
+      <soap12:operation soapAction="http://tempuri.org/PBSVehicleMaterialInventory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PBSOrderMissingParts">
+      <soap12:operation soapAction="http://tempuri.org/PBSOrderMissingParts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssemblePlanMissDetail">
+      <soap12:operation soapAction="http://tempuri.org/GetAssemblePlanMissDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReplacementRecord">
+      <soap12:operation soapAction="http://tempuri.org/GetReplacementRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InformationBasicData">
+      <soap12:operation soapAction="http://tempuri.org/InformationBasicData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProcessRouteBasicData">
+      <soap12:operation soapAction="http://tempuri.org/ProcessRouteBasicData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LESWebService">
+    <wsdl:port name="LESWebServiceSoap" binding="tns:LESWebServiceSoap">
+      <soap:address location="http://172.17.81.126:8001/LESWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LESWebServiceSoap12" binding="tns:LESWebServiceSoap12">
+      <soap12:address location="http://172.17.81.126:8001/LESWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

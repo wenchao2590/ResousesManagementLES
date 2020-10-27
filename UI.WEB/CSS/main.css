@@ -1,0 +1,13 @@
+﻿.containerDivCls {
+    margin-left: 10px;
+    float: left;
+    padding-Top: 3px;
+    padding-Bottom: 3px;
+}
+
+.searchControlDivCls {
+    margin-right: 10px;
+    float: left;
+    padding-Top: 4px;
+    padding-Bottom: 4px;
+}

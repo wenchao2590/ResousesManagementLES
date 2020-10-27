@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{31B1A4CB-0B62-40F6-80CB-AB7A3A26AA1D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>WS.MES.OutboundDataService</RootNamespace>
+    <AssemblyName>WS.MES.OutboundDataService</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\BFDAMesBreakpointReplacementRecordBLL.cs" />
+    <Compile Include="Business\BFDAMesMissingpartsInfluenceOrderscopeBLL.cs" />
+    <Compile Include="Connected Services\BFDALesMes\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\LESMESlocal\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Handle.cs" />
+    <Compile Include="OutboundDataService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="OutboundDataService.Designer.cs">
+      <DependentUpon>OutboundDataService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutboundDataThread.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="ProjectInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProjectInstaller.Designer.cs">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL.LES\BLL.LES.csproj">
+      <Project>{547891A0-8129-40BE-BB74-7299AB18B908}</Project>
+      <Name>BLL.LES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL.SYS\BLL.SYS.csproj">
+      <Project>{e7f4dcd8-48ac-4a9b-8289-3180a6d74811}</Project>
+      <Name>BLL.SYS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CC.Infrustructure\CC.Infrustructure.csproj">
+      <Project>{6CB35A05-6B20-4CA4-A262-C7E5C7CE98A6}</Project>
+      <Name>CC.Infrustructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL.SYS\DAL.SYS.csproj">
+      <Project>{FD656692-C34D-405B-BA88-A4B45FC0724B}</Project>
+      <Name>DAL.SYS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DM.LES\DM.LES.csproj">
+      <Project>{C8E22C5F-01CF-4026-8885-CFBE1C5A5B8D}</Project>
+      <Name>DM.LES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DM.SYS\DM.SYS.csproj">
+      <Project>{4C291EB1-E4E3-431C-937C-C056483F891D}</Project>
+      <Name>DM.SYS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Connected Services\BFDALesMes\MES-LES.wsdl" />
+    <None Include="Connected Services\BFDALesMes\WS.MES.OutboundDataService.BFDALesMes.InterfaceCallbackInf.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\LESMESlocal\LESMESlocal.wsdl" />
+    <None Include="Connected Services\LESMESlocal\WS.MES.OutboundDataService.LESMESlocal.InterfaceCallbackInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ProjectInstaller.resx">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\BFDALesMes\" />
+    <WCFMetadataStorage Include="Connected Services\LESMESlocal\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BFDALesMes\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BFDALesMes\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\BFDALesMes\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\LESMESlocal\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\LESMESlocal\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\LESMESlocal\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

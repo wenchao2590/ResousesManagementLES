@@ -1,0 +1,14 @@
+﻿CREATE TABLE [dbo].[TT_SYS_USER_TOKEN] (
+    [ID]           BIGINT           IDENTITY (1, 1) NOT NULL,
+    [FID]          UNIQUEIDENTIFIER NULL,
+    [USER_ID]      BIGINT           NULL,
+    [TOKEN]        NVARCHAR (32)    NULL,
+    [CREATE_DATE]  DATETIME         NULL,
+    [MODIFY_DATE]  DATETIME         NULL,
+    [VALID_FLAG]   BIT              NULL,
+    [DISABLE_DATE] DATETIME         NULL,
+    [CREATE_USER]  NVARCHAR (32)    NULL,
+    [MODIFY_USER]  NVARCHAR (32)    NULL,
+    CONSTRAINT [PK_TT_SYS_USER_TOKEN] PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+

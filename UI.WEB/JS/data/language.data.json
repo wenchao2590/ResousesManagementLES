@@ -1,0 +1,38 @@
+﻿{
+  "delmsg": [
+    {
+      "msg_type": 1,
+      "msg_cn": "删除失败",
+      "msg_en": "Delete failed"
+    },
+    {
+      "msg_type": 0,
+      "msg_cn": "删除成功",
+      "msg_en": "Delete succeed"
+    }
+  ],
+  "savemsg": [
+    {
+      "msg_type": 1,
+      "msg_cn": "保存失败",
+      "msg_en": "Save failed"
+    },
+    {
+      "msg_type": 0,
+      "msg_cn": "保存成功",
+      "msg_en": "Save succeed"
+    }
+  ],
+  "searchmsg": [
+    {
+      "msg_type": 1,
+      "msg_cn": "查询失败",
+      "msg_en": "Search failed"
+    },
+    {
+      "msg_type": 0,
+      "msg_cn": "查询成功",
+      "msg_en": "Search succeed"
+    }
+  ]
+}

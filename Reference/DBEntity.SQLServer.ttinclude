@@ -1,0 +1,121 @@
+﻿<#@ include file="DBEntity.Common.ttinclude" #>
+<#+
+
+const string EntitySQL= @"
+WITH Entities AS (
+	SELECT 
+		Table_catalog AS [Database]
+		, table_schema [Owner]
+		, table_name [Name]
+		, 'Table' [Type]
+		,OBJECT_ID(TABLE_SCHEMA + '.' + TABLE_NAME) ID
+	FROM  
+		INFORMATION_SCHEMA.TABLES
+	WHERE 
+		TABLE_TYPE='BASE TABLE'
+
+	UNION ALL
+
+	SELECT
+		Table_catalog
+		, table_schema
+		, table_name
+		, 'View'
+		, OBJECT_ID(TABLE_SCHEMA + '.' + TABLE_NAME) ID
+	FROM
+		information_schema.views
+		
+	
+	UNION ALL
+	
+	SELECT 
+		DB_NAME()
+		, SCHEMA_NAME(schema_id)
+		, name
+		, 'TableType'
+		, user_type_id
+	FROM 
+		sys.table_types	
+)		
+SELECT 
+	E.*
+	, P.value AS [DESC]
+FROM 
+	Entities E
+	LEFT JOIN sys.extended_properties P ON E.ID = P.major_id AND P.minor_id = 0
+";
+
+
+const string ColumnSQL = @"
+With Entities AS
+( 
+SELECT 
+	DB_NAME() AS [Database]
+	,COALESCE( SCHEMA_NAME(T.Schema_id), OBJECT_SCHEMA_NAME(C.object_id)) AS Owner
+	,COALESCE( T.Name, OBJECT_NAME(c.OBJECT_ID)) AS Parent
+	,C.column_id AS OrdinalPosition	
+	,C.name AS Name
+	,TYPE_NAME(c.user_type_id) AS DataType
+	,D.definition AS DefaultSetting
+	, C.is_nullable AS IsNullable
+	, C.max_length AS MaxLength
+	, COLUMNPROPERTY( C.OBJECT_ID , C.Name ,'PRECISION') AS [Precision] -- 用于判断 NVARCHAR 实际长度的
+	--,C.Object_id, P.major_id, P.minor_id
+	,P.Value AS [DESC]
+	,C.is_identity as IsIdentity	
+	,C.column_id
+	,C.object_id	
+FROM 
+	sys.columns C	
+	LEFT JOIN sys.table_types T ON T.type_table_object_id = C.object_ID
+	LEFT JOIN sys.default_constraints D ON C.object_id = D.parent_object_id AND D.parent_column_id = C.Column_id
+	LEFT JOIN sys.extended_properties P ON (P.major_id = C.OBJECT_ID OR P.major_id = T.User_type_id ) AND P.minor_id = C.COLUMN_ID AND P.name = 'MS_Description'	
+WHERE
+	COALESCE( SCHEMA_NAME(T.Schema_id), OBJECT_SCHEMA_NAME(C.object_id)) in ('dbo','LES','GJS')	
+)
+SELECT E.*
+	,isnull(IC.is_unique,0) as IsUnique
+	,isnull(IC.is_primary_key,0) as IsPrimaryKey
+FROM Entities E
+LEFT JOIN
+(SELECT a.object_Id, a.index_id,b.column_id,a.is_unique,a.is_primary_key FROM sys.indexes a, sys.index_columns b
+	WHERE a.object_id=b.object_id AND a.is_primary_key =1
+	AND a.index_id=b.index_id) IC
+	ON E.object_id = IC.object_id AND E.column_id = IC.column_id
+";
+
+const string SysCodeSql=@"select top 1 '' as EnumValue,[CODE_NAME] as EnumName,[CODE_NAME_CN] as EnumDescription from dbo.TS_SYS_CODE with(nolock) where [VALID_FLAG] = 1";
+const string SysCodeDetailSql=@"select CONVERT(nvarchar,[ITEM_VALUE]) as EnumValue,[ITEM_NAME_EN] as EnumName,[ITEM_NAME] as EnumDescription FROM dbo.TS_SYS_CODE_ITEM with(nolock) where [VALID_FLAG] = 1";
+
+public class DBExporter : IDBExporter{
+	public List<Entity> LoadEntities(){
+		var idr = Helper.GetReader(EntitySQL);
+		var entities = Helper.ToList<Entity>(idr);
+		idr.Close();
+		idr = Helper.GetReader(ColumnSQL);
+		var columns = Helper.ToList<Column>(idr);
+		idr.Close();
+		
+		entities.ForEach((e) => {
+			e.Columns = columns.Where(c => string.Format("{0}.{1}.{2}", c.Database, c.Owner, c.Parent) == string.Format("{0}.{1}.{2}", e.Database, e.Owner, e.Name));
+		});
+		
+		return entities;
+	}
+
+	public List<SysCodeEntity> GetSysCodeData(string codeName){ 
+		var idr = Helper.GetReader(SysCodeSql+" and [CODE_NAME] = '"+codeName+"' ");
+		var entitie = Helper.ToList<SysCodeEntity>(idr);
+		idr.Close(); 
+		return entitie;
+	}
+
+	public List<SysCodeEntity> GetSysCodeItemData(string codeName){
+		var idr = Helper.GetReader(SysCodeDetailSql+" and [CODE_FID] in (select [FID] from dbo.TS_SYS_CODE with(nolock) where [VALID_FLAG] = 1 and [CODE_NAME] = '"+codeName+"')");
+		var entities = Helper.ToList<SysCodeEntity>(idr);
+		idr.Close(); 
+		return entities;
+	} 
+}
+
+#>

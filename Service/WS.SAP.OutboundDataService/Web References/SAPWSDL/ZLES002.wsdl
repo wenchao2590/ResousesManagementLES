@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:n0="urn:sap-com:document:sap:rfc:functions" xmlns:tns="urn:sap-com:document:sap:soap:functions:mc-style" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:sap-com:document:sap:soap:functions:mc-style" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns:tns="urn:sap-com:document:sap:rfc:functions" attributeFormDefault="qualified" elementFormDefault="unqualified" targetNamespace="urn:sap-com:document:sap:rfc:functions">
+      <xsd:simpleType name="char1">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char10">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char12">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="12" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char18">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="18" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char4">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="4" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char40">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="40" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="date">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10" />
+          <xsd:pattern value="\d\d\d\d-\d\d-\d\d" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="numeric10">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10" />
+          <xsd:pattern value="\d*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="numeric4">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="4" />
+          <xsd:pattern value="\d*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="numeric5">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="5" />
+          <xsd:pattern value="\d*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="quantum13.3">
+        <xsd:restriction base="xsd:decimal">
+          <xsd:totalDigits value="13" />
+          <xsd:fractionDigits value="3" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+    <xsd:schema attributeFormDefault="qualified" elementFormDefault="unqualified" targetNamespace="urn:sap-com:document:sap:soap:functions:mc-style">
+      <xsd:import namespace="urn:sap-com:document:sap:rfc:functions" />
+      <xsd:complexType name="Zsles002">
+        <xsd:sequence>
+          <xsd:element name="Lifnr" type="n0:char10" />
+          <xsd:element name="Kosrt" type="n0:char10" />
+          <xsd:element name="Unwrk" type="n0:char10" />
+          <xsd:element name="Werks" type="n0:char4" />
+          <xsd:element name="Id" type="n0:char40" />
+          <xsd:element name="Matnr" type="n0:char18" />
+          <xsd:element name="Menge" type="n0:quantum13.3" />
+          <xsd:element name="Rsnum" type="n0:numeric10" />
+          <xsd:element name="Rspos" type="n0:numeric4" />
+          <xsd:element name="Bwart" type="n0:char10" />
+          <xsd:element name="Kostl" type="n0:char10" />
+          <xsd:element name="Aufnr" type="n0:char12" />
+          <xsd:element name="Ebeln" type="n0:char10" />
+          <xsd:element name="Ebelp" type="n0:numeric5" />
+          <xsd:element name="Budat" type="n0:date" />
+          <xsd:element name="Lgort" type="n0:char4" />
+          <xsd:element name="Umlgo" type="n0:char10" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TableOfZsles002">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:Zsles002" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="Zles002">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Itab" type="tns:TableOfZsles002" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Zles002Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Itab" type="tns:TableOfZsles002" />
+            <xsd:element name="LNum" type="xsd:int" />
+            <xsd:element name="Msg" type="n0:char40" />
+            <xsd:element name="Sapresult" type="n0:char1" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="Zles002">
+    <wsdl:part name="parameters" element="tns:Zles002" />
+  </wsdl:message>
+  <wsdl:message name="Zles002Response">
+    <wsdl:part name="parameters" element="tns:Zles002Response" />
+  </wsdl:message>
+  <wsdl:portType name="ZLES002">
+    <wsdl:operation name="Zles002">
+      <wsdl:input message="tns:Zles002" />
+      <wsdl:output message="tns:Zles002Response" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ZLES002SoapBinding" type="tns:ZLES002">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Zles002">
+      <soap:operation soapAction="" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ZLES002Service">
+    <wsdl:port name="ZLES002SoapBinding" binding="tns:ZLES002SoapBinding">
+      <soap:address location="http://omsapdev.foton.com.cn:8000/sap/bc/srt/rfc/sap/ZLES002?sap-client=900" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="E_00001" xml:space="preserve">
+    <value>系统出现异常</value>
+    <comment>E_00001至 E_00200 表示系统级异常</comment>
+  </data>
+  <data name="E_00201" xml:space="preserve">
+    <value>公共级异常</value>
+    <comment>E_00201 至 E_00500 表示公共级异常</comment>
+  </data>
+  <data name="E_00202" xml:space="preserve">
+    <value>参数不能为空</value>
+  </data>
+  <data name="E_00203" xml:space="preserve">
+    <value>用户输入的应用参数名已经存在</value>
+  </data>
+  <data name="E_00204" xml:space="preserve">
+    <value>用户未登录</value>
+  </data>
+  <data name="E_00205" xml:space="preserve">
+    <value>编辑页面QueryString参数错误</value>
+  </data>
+  <data name="E_00206" xml:space="preserve">
+    <value>用户输入的参数名已经存在</value>
+  </data>
+  <data name="E_00207" xml:space="preserve">
+    <value>无法根据主键找到记录</value>
+  </data>
+  <data name="E_00208" xml:space="preserve">
+    <value>没有数据可供导出，请先查询到数据后再进行导出</value>
+  </data>
+  <data name="E_00209" xml:space="preserve">
+    <value>导出的数据量太大，请联系IT管理员从其他途径获取当前数据</value>
+  </data>
+  <data name="E_00501" xml:space="preserve">
+    <value>系统管理异常</value>
+    <comment>E_00501 至 E_01000 表示系统系统管理异常</comment>
+  </data>
+  <data name="E_01001" xml:space="preserve">
+    <value>外部接口管理子系统异常</value>
+    <comment>E_01001 至 E_02000标识外部接口管理子系统异常</comment>
+  </data>
+  <data name="E_02001" xml:space="preserve">
+    <value>区域管理异常</value>
+    <comment>E_02001 至 E_02049标识区域管理异常</comment>
+  </data>
+  <data name="E_02002" xml:space="preserve">
+    <value>加载工厂列表失败</value>
+  </data>
+  <data name="E_02003" xml:space="preserve">
+    <value>加载车间列表失败</value>
+  </data>
+  <data name="E_02004" xml:space="preserve">
+    <value>加载路径列表失败</value>
+  </data>
+  <data name="E_02005" xml:space="preserve">
+    <value>加载位置列表失败</value>
+  </data>
+  <data name="E_02006" xml:space="preserve">
+    <value>加载区域列表失败</value>
+  </data>
+  <data name="E_02007" xml:space="preserve">
+    <value>加载DOCK列表失败</value>
+  </data>
+  <data name="E_02008" xml:space="preserve">
+    <value>工厂已经存在</value>
+  </data>
+  <data name="E_02009" xml:space="preserve">
+    <value>车间已经存在</value>
+  </data>
+  <data name="E_02010" xml:space="preserve">
+    <value>DOCK已经存在</value>
+  </data>
+  <data name="E_02011" xml:space="preserve">
+    <value>位置已经存在</value>
+  </data>
+  <data name="E_02012" xml:space="preserve">
+    <value>路径已经存在</value>
+  </data>
+  <data name="E_02013" xml:space="preserve">
+    <value>区域已经存在</value>
+  </data>
+  <data name="E_02014" xml:space="preserve">
+    <value>导入的文件格式不正确，请严格按照导出的预定格式填写</value>
+  </data>
+  <data name="E_02017" xml:space="preserve">
+    <value>该车间还存在用户和供应商与之关联，请先删除相关的供应商和用户关联</value>
+  </data>
+  <data name="E_02018" xml:space="preserve">
+    <value>该工厂还存在车间与之关联，请先删除相关的车间关联</value>
+  </data>
+  <data name="E_02050" xml:space="preserve">
+    <value>DD管理异常</value>
+    <comment>E_02050 至 E_02149代表DD管理异常</comment>
+  </data>
+  <data name="E_02051" xml:space="preserve">
+    <value>非按灯卡，不能扫描</value>
+  </data>
+  <data name="E_02052" xml:space="preserve">
+    <value>物料单数据错误，缺少零件记录</value>
+  </data>
+  <data name="E_02054" xml:space="preserve">
+    <value>没有卡组号，不能扫描</value>
+  </data>
+  <data name="E_02055" xml:space="preserve">
+    <value>非看板卡号，不能扫描</value>
+  </data>
+  <data name="E_02150" xml:space="preserve">
+    <value>EPS管理异常</value>
+    <comment>E_02150 至 E_02199代表EPS管理异常</comment>
+  </data>
+  <data name="E_02151" xml:space="preserve">
+    <value>无法根据拉动关系主键找到记录</value>
+  </data>
+  <data name="E_02152" xml:space="preserve">
+    <value>无法找到按钮记录</value>
+  </data>
+  <data name="E_02153" xml:space="preserve">
+    <value>无法取消任务,在任务已取消、空箱返回和任务已完成状态下不能取消</value>
+  </data>
+  <data name="E_02154" xml:space="preserve">
+    <value>终端编号已经存在</value>
+  </data>
+  <data name="E_02155" xml:space="preserve">
+    <value>按钮已经存在</value>
+  </data>
+  <data name="E_02156" xml:space="preserve">
+    <value>无法找到按钮</value>
+  </data>
+  <data name="E_02157" xml:space="preserve">
+    <value>无法找到终端</value>
+  </data>
+  <data name="E_02158" xml:space="preserve">
+    <value>待删除的拉动关系对应的零件卡已经建立了与卡片的关联关系，请先删除按钮与卡片的关联关系</value>
+  </data>
+  <data name="E_02200" xml:space="preserve">
+    <value>JIT管理异常</value>
+    <comment>E_02200 至 E_02249代表零件管理异常</comment>
+  </data>
+  <data name="E_02201" xml:space="preserve">
+    <value>加载料架列表失败</value>
+  </data>
+  <data name="E_02202" xml:space="preserve">
+    <value>加载成对料架列表失败</value>
+  </data>
+  <data name="E_02203" xml:space="preserve">
+    <value>料架已经存在</value>
+  </data>
+  <data name="E_02204" xml:space="preserve">
+    <value>成对料架已经存在</value>
+  </data>
+  <data name="E_02205" xml:space="preserve">
+    <value>无法找到JIT4位零件</value>
+  </data>
+  <data name="E_02206" xml:space="preserve">
+    <value>JIT零件4位对8位对应关系已经存在</value>
+  </data>
+  <data name="E_02207" xml:space="preserve">
+    <value>无法找到Runsheet特殊说明</value>
+  </data>
+  <data name="E_02208" xml:space="preserve">
+    <value>Runsheet特殊说明已经存在</value>
+  </data>
+  <data name="E_02209" xml:space="preserve">
+    <value>导入的料架数据格式不正确，建议先导出然后再导入</value>
+  </data>
+  <data name="E_02210" xml:space="preserve">
+    <value>在编辑FLEX零件号对应关系时输入的零件号码格式不正确，零件号码的后四位应该与FLEX零件号一致</value>
+  </data>
+  <data name="E_02250" xml:space="preserve">
+    <value>零件管理异常</value>
+    <comment>E_02250 至 E_02299代表零件管理异常</comment>
+  </data>
+  <data name="E_02251" xml:space="preserve">
+    <value>卡号位数不正确!请输入4位卡号!</value>
+  </data>
+  <data name="E_02252" xml:space="preserve">
+    <value>卡号位数不正确!请输入8位卡号!</value>
+  </data>
+  <data name="E_02253" xml:space="preserve">
+    <value>零件卡信息不存在！</value>
+  </data>
+  <data name="E_02254" xml:space="preserve">
+    <value>零件信息不存在！</value>
+  </data>
+  <data name="E_02255" xml:space="preserve">
+    <value>该卡未启用！</value>
+  </data>
+  <data name="E_02256" xml:space="preserve">
+    <value> 需要两级拉动的零件在RC车间无对应的卡号!</value>
+  </data>
+  <data name="E_02257" xml:space="preserve">
+    <value> 零件库存信息不存在!</value>
+  </data>
+  <data name="E_02258" xml:space="preserve">
+    <value> 零件与零件卡的关联关系不存在!</value>
+  </data>
+  <data name="E_02259" xml:space="preserve">
+    <value> 零件盘点记录不存在!</value>
+  </data>
+  <data name="E_02260" xml:space="preserve">
+    <value> 零件盘点记录已经存在!</value>
+  </data>
+  <data name="E_02261" xml:space="preserve">
+    <value>库存信息中的路径、零件号、库位与零件卡里的对应字段匹配不上</value>
+  </data>
+  <data name="E_02300" xml:space="preserve">
+    <value>PPS管理异常</value>
+    <comment>E_02300 至 E_02399代表PPS管理异常</comment>
+  </data>
+  <data name="E_02400" xml:space="preserve">
+    <value>打印机管理异常</value>
+    <comment>E_02400 至 E_02449代表打印机管理异常</comment>
+  </data>
+  <data name="E_02500" xml:space="preserve">
+    <value>报表管理异常</value>
+    <comment>E_02500 至 E_02599代表报表管理异常</comment>
+  </data>
+  <data name="E_02600" xml:space="preserve">
+    <value>供应商管理异常</value>
+    <comment>E_02600 至 E_02649代表供应商管理异常</comment>
+  </data>
+  <data name="E_02601" xml:space="preserve">
+    <value> 加载供应商列表失败</value>
+  </data>
+  <data name="E_02602" xml:space="preserve">
+    <value> 供应商已经存在</value>
+  </data>
+  <data name="E_02603" xml:space="preserve">
+    <value> 供应商工厂车间关系已经存在</value>
+  </data>
+  <data name="E_02604" xml:space="preserve">
+    <value>供应商窗口时间已经存在</value>
+  </data>
+  <data name="E_02650" xml:space="preserve">
+    <value>系统管理异常</value>
+    <comment>E_02650 至 E_02749代表系统管理异常</comment>
+  </data>
+  <data name="E_02651" xml:space="preserve">
+    <value> 用户输入的代码值和代码名称已经存在</value>
+  </data>
+  <data name="E_02652" xml:space="preserve">
+    <value> 用户输入的代码名称已经存在</value>
+  </data>
+  <data name="E_02653" xml:space="preserve">
+    <value> 用户输入的系统表示符已经存在</value>
+  </data>
+  <data name="E_02750" xml:space="preserve">
+    <value>监控管理异常</value>
+    <comment>E_02750 至 E_02849代表监控管理异常</comment>
+  </data>
+  <data name="E_02850" xml:space="preserve">
+    <value>接口查询异常</value>
+    <comment>E_02850 至 E_02899代表监控管理异常</comment>
+  </data>
+  <data name="E_02900" xml:space="preserve">
+    <value>备用异常</value>
+    <comment>E_02900 至 E_02999代表备用异常</comment>
+  </data>
+  <data name="E_02901" xml:space="preserve">
+    <value>无法根据Activity找到纪录</value>
+  </data>
+  <data name="E_02902" xml:space="preserve">
+    <value>Activity编号已经存在</value>
+  </data>
+  <data name="E_03001" xml:space="preserve">
+    <value>物流执行引擎子系统异常</value>
+    <comment>E_03001 至 E_04000 表示物流执行引擎子系统异常</comment>
+  </data>
+  <data name="E_04001" xml:space="preserve">
+    <value>EPS无线终端客户端应用子系统</value>
+    <comment>E_04001 至 E_05000 表示EPS无线终端客户端应用子系统异常</comment>
+  </data>
+  <data name="E_05001" xml:space="preserve">
+    <value>EPS任务发布子系统</value>
+    <comment>E_05001 至 E_06000表示EPS任务发布子系统异常</comment>
+  </data>
+  <data name="E_05002" xml:space="preserve">
+    <value> 无线按钮表中，没有指定按钮编号的配置信息</value>
+  </data>
+  <data name="E_06001" xml:space="preserve">
+    <value>RDC供应商客户端应用子系统</value>
+    <comment>E_06001 至 E_07000表示RDC供应商客户端应用子系统</comment>
+  </data>
+  <data name="E_07001" xml:space="preserve">
+    <value>外部供应商客户端应用子系统</value>
+    <comment>E_07001 至 E_08000表示外部供应商客户端应用子系统</comment>
+  </data>
+  <data name="E_08001" xml:space="preserve">
+    <value>JIT/DD发布子系统错误</value>
+    <comment>E_08001 至 E_09000 表示JIT/DD发布子系统错误</comment>
+  </data>
+  <data name="E_09001" xml:space="preserve">
+    <value>运营监控管理子系统</value>
+    <comment>E_09001 至 E_10000 表示产品管理模块的异常</comment>
+  </data>
+  <data name="E_10001" xml:space="preserve">
+    <value>基础服务子系统</value>
+    <comment>E_11001 至 E_12000 表示基础服务子系统的异常</comment>
+  </data>
+</root>

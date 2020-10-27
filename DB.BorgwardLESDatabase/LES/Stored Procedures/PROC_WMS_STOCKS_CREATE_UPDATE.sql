@@ -1,0 +1,126 @@
+﻿
+
+
+
+
+/********************************************************************/
+/*                                                                  */
+/*   Project Name:  LES System                         */
+/*   Program Name:  [PROC_WMS_STOCKS_CREATE_UPDATE]             */
+/*   Called By:     by the Page							*/
+/*   Purpose:       This is the main stored procedure for the       */
+/*   author:       andy	2015-06-09     				       */
+/*   更新人:     zhangheng							*/
+/*   更新原因:       之前判断不正确       */
+/*   更新时间:       2016-04-27   				       */
+/********************************************************************/
+CREATE PROCEDURE [LES].[PROC_WMS_STOCKS_CREATE_UPDATE]
+ 
+AS
+
+BEGIN
+
+INSERT INTO [LES].[TT_WMS_STOCKS]
+	(
+	[PLANT]
+	,[WM_NO]
+	,[ZONE_NO]
+	,[DLOC]
+	,[PART_NO]
+	,[PART_CNAME]
+	,[PACKAGE]
+	,[PACKAGE_MODEL]
+	,[PART_CLS]
+	,[MAX]
+	,[MIN]
+	,[SAFE_STOCK]
+	,[IS_REPACK]
+	,[IS_BATCH]
+	,[BARCODE_DATA]
+	,[STOCKS_NUM]--总件数
+	,[STOCKS]--总箱数
+	,[FROZEN_STOCKS]--冻结件数
+	,[AVAILBLE_STOCKS]--可用箱数
+	,[FRAGMENT_NUM]--可用余数
+	,[CREATE_USER]
+	,[CREATE_DATE]
+	)
+	SELECT distinct 
+        PS.[PLANT]
+        ,PS.[WM_NO]
+        ,PS.[ZONE_NO]
+        ,PS.[DLOC]
+		,PS.[PART_NO]
+		,PS.[PART_CNAME]
+		,PS.[PACKAGE]
+		,PS.[PACKAGE_MODEL]
+		,PS.[PART_CLS]
+		,PS.[MAX]
+		,PS.[MIN]
+		,PS.[SAFE_STOCK]
+		,PS.[IS_REPACK]
+		,ISNULL(PS.[IS_BATCH],0)
+		,(CASE 
+			WHEN ISNULL(PS.[IS_BATCH],0)=0 THEN '' 
+			ELSE TE.[BARCODE_DATA]
+			END)--[BARCODE_DATA] 非批次管理  条码号应为空
+		,TE.STOCKS_NUM-- 
+		,(CASE 
+			WHEN ISNULL(TE.STOCKS_NUM,0) >= PS.PACKAGE THEN CAST(ISNULL(TE.STOCKS_NUM,0) / PS.PACKAGE AS INT) 
+			ELSE 0 
+			END)--[STOCKS]
+		,TE.FROZEN_STOCKS
+		,(CASE 
+			WHEN (ISNULL(TE.STOCKS_NUM,0)-ISNULL(TE.FROZEN_STOCKS,0)) >= PS.PACKAGE 
+			THEN CAST((ISNULL(TE.STOCKS_NUM,0)-ISNULL(TE.FROZEN_STOCKS,0)) / PS.PACKAGE AS INT) 
+			ELSE 0 
+			END)--[AVAILBLE_STOCKS]
+		,(ISNULL(TE.STOCKS_NUM,0)-ISNULL(TE.FROZEN_STOCKS,0)) % PS.PACKAGE--[FRAGMENT_NUM]
+		,TE.[CREATE_USER]
+		,TE.[CREATE_DATE]
+	FROM 
+		[LES].[TE_WMS_STOCKS_TEMP] TE,
+		[LES].[TM_BAS_PARTS_STOCK] PS
+	WHERE 
+		TE.VALID_FLAG = 1
+		AND TE.PLANT = PS.PLANT
+		AND PS.WM_NO = TE.WM_NO
+		AND PS.ZONE_NO = TE.ZONE_NO
+		AND PS.PART_NO = TE.PART_NO 
+		AND (SELECT COUNT(*) FROM 
+				[LES].[TT_WMS_STOCKS] ST
+			 WHERE 
+				TE.PLANT = ST.PLANT
+				AND TE.WM_NO = ST.WM_NO
+				AND TE.ZONE_NO = ST.ZONE_NO
+				AND TE.PART_NO = ST.PART_NO
+				AND ((ST.IS_BATCH = 1 and TE.BARCODE_DATA = ST.BARCODE_DATA) OR ST.IS_BATCH = 0)) < 1
+				
+UPDATE 
+	 TS
+SET
+	STOCKS_NUM = TE.STOCKS_NUM
+	,[STOCKS] = (CASE 
+			WHEN ISNULL(TE.STOCKS_NUM,0) >= TS.PACKAGE THEN CAST(ISNULL(TE.STOCKS_NUM,0) / TS.PACKAGE AS INT) 
+			ELSE 0 
+			END)
+	,FROZEN_STOCKS = TE.FROZEN_STOCKS
+	,[AVAILBLE_STOCKS] = (CASE 
+			WHEN (ISNULL(TE.STOCKS_NUM,0)-ISNULL(TE.FROZEN_STOCKS,0)) >= TS.PACKAGE THEN CAST((ISNULL(TE.STOCKS_NUM,0)-ISNULL(TE.FROZEN_STOCKS,0)) / TS.PACKAGE AS INT) 
+			ELSE 0 
+			END)
+	,[FRAGMENT_NUM] = (ISNULL(TE.STOCKS_NUM,0)-ISNULL(TE.FROZEN_STOCKS,0)) % TS.PACKAGE
+	,[UPDATE_USER] = TE.CREATE_USER
+	,[UPDATE_DATE] = TE.CREATE_DATE
+FROM	
+		[LES].[TE_WMS_STOCKS_TEMP] TE,
+		[LES].[TT_WMS_STOCKS] TS 
+WHERE 
+	TE.VALID_FLAG = 1
+	AND TE.PLANT = TS.PLANT
+	AND TE.WM_NO = TS.WM_NO
+	AND TE.ZONE_NO = TS.ZONE_NO
+	AND TE.PART_NO = TS.PART_NO
+	AND ((TE.IS_BATCH=1 and TE.BARCODE_DATA = TS.BARCODE_DATA) OR TE.IS_BATCH = 0)
+
+END

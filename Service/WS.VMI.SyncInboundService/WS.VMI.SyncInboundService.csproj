@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E13519FB-8E5C-4299-891B-7E5347442E0A}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>WS.VMI.SyncInboundService</RootNamespace>
+    <AssemblyName>WS.VMI.SyncInboundService</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\SyncWmsVmiAsnRunsheetBLL.cs" />
+    <Compile Include="Business\SyncWmsVmiTranDetailBLL.cs" />
+    <Compile Include="Handle.cs" />
+    <Compile Include="ProjectInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProjectInstaller.Designer.cs">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SyncInboundService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SyncInboundService.Designer.cs">
+      <DependentUpon>SyncInboundService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SyncInboundThread.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL.LES\BLL.LES.csproj">
+      <Project>{547891A0-8129-40BE-BB74-7299AB18B908}</Project>
+      <Name>BLL.LES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL.SYS\BLL.SYS.csproj">
+      <Project>{E7F4DCD8-48AC-4A9B-8289-3180A6D74811}</Project>
+      <Name>BLL.SYS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CC.Infrustructure\CC.Infrustructure.csproj">
+      <Project>{6CB35A05-6B20-4CA4-A262-C7E5C7CE98A6}</Project>
+      <Name>CC.Infrustructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL.LES\DAL.LES.csproj">
+      <Project>{EC97326F-9562-4427-8052-89EF490C6E7D}</Project>
+      <Name>DAL.LES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DM.LES\DM.LES.csproj">
+      <Project>{C8E22C5F-01CF-4026-8885-CFBE1C5A5B8D}</Project>
+      <Name>DM.LES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DM.SYS\DM.SYS.csproj">
+      <Project>{4C291EB1-E4E3-431C-937C-C056483F891D}</Project>
+      <Name>DM.SYS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ProjectInstaller.resx">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

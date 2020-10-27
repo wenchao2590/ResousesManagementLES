@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--DbCreateType 10.Table 20.View-->
+<Entitys>
+  <!--业务管理-->
+  <Entity Name="PlanPullOrder" TableName="TT_MPM_PLAN_PULL_ORDER" Schema="LES" MenuFlag="true" PathName="业务管理-业务" DbCreateType="10"></Entity>
+  <Entity Name="BusinessExpenseIn" TableName="" Schema="" MenuFlag="false" PathName="业务管理-业务" DbCreateType="10"></Entity>
+  <Entity Name="BusinessExpenseOut" TableName="" Schema="" MenuFlag="false" PathName="业务管理-业务" DbCreateType="10"></Entity>
+  <Entity Name="ReceivePage" TableName="" Schema="" MenuFlag="false" PathName="业务管理-业务"  DbCreateType="10"></Entity>
+  <Entity Name="OutputPage" TableName="" Schema="" MenuFlag="false" PathName="业务管理-业务" DbCreateType="10"></Entity>
+  <Entity Name="BusinessFollow" TableName="TT_WMM_BUSINESS_FOLLOW" Schema="LES" MenuFlag="false" PathName="业务管理-业务" DbCreateType="10"></Entity>
+  <Entity Name="Receive" TableName="TT_WMM_RECEIVE" Schema="LES" MenuFlag="true" PathName="业务管理-进仓" DbCreateType="10"></Entity>
+  <Entity Name="ReceiveDetail" TableName="TT_WMM_RECEIVE_DETAIL" Schema="LES" MenuFlag="false" PathName="业务管理-进仓" DbCreateType="10"></Entity>
+  <Entity Name="Barcode" TableName="TT_WMM_BARCODE" Schema="LES" MenuFlag="true" PathName="业务管理-标签" DbCreateType="10"></Entity>
+  <Entity Name="BarcodeStatus" TableName="TT_WMM_BARCODE_STATUS" Schema="LES" MenuFlag="false" PathName="业务管理-标签" DbCreateType="10"></Entity>
+  <Entity Name="Output" TableName="TT_WMM_OUTPUT" Schema="LES" MenuFlag="true" PathName="业务管理-发货" DbCreateType="10"></Entity>
+  <Entity Name="OutputDetail" TableName="TT_WMM_OUTPUT_DETAIL" Schema="LES" MenuFlag="false" PathName="业务管理-发货" DbCreateType="10"></Entity>
+  <Entity Name="BarcodePage" TableName="" Schema="" MenuFlag="false" PathName="业务管理-发货" DbCreateType="10"></Entity>
+  <Entity Name="BusinessExpenseInPage" TableName="TT_FIM_BUSINESS_EXPENSE_IN" Schema="LES" MenuFlag="true" PathName="业务管理-收款" DbCreateType="10"></Entity>
+  <Entity Name="BusinessExpenseOutPage" TableName="TT_FIM_BUSINESS_EXPENSE_OUT" Schema="LES" MenuFlag="true" PathName="业务管理-收款" DbCreateType="10"></Entity>
+  <!--报表中心-->
+  <Entity Name="Shgx001" TableName="V_WMM_SHGX_001" Schema="LES" MenuFlag="true" PathName="报表中心-应收人民币" DbCreateType="20"></Entity>
+  <Entity Name="Shgx002" TableName="V_WMM_SHGX_002" Schema="LES" MenuFlag="true" PathName="报表中心-应收美金" DbCreateType="20"></Entity>
+  <Entity Name="Shgx003" TableName="V_WMM_SHGX_003" Schema="LES" MenuFlag="true" PathName="报表中心-应付人民币" DbCreateType="20"></Entity>
+  <Entity Name="Shgx004" TableName="V_WMM_SHGX_004" Schema="LES" MenuFlag="true" PathName="报表中心-应付美金" DbCreateType="20"></Entity>
+  <Entity Name="Shgx005" TableName="V_WMM_SHGX_005" Schema="LES" MenuFlag="true" PathName="报表中心-利润统计" DbCreateType="20"></Entity>
+  <!--基础数据-->
+  <Entity Name="Customer" TableName="TM_BAS_CUSTOMER" Schema="LES" MenuFlag="true" PathName="基础数据-客户" DbCreateType="10"></Entity>
+  <Entity Name="CustReceiveInfo" TableName="TM_BAS_CUST_RECEIVE_INFO" Schema="LES" MenuFlag="false" PathName="基础数据-客户" DbCreateType="10"></Entity>
+  <Entity Name="Warehouse" TableName="TM_BAS_WAREHOUSE" Schema="LES" MenuFlag="true" PathName="基础数据-国别" DbCreateType="10"></Entity>
+  <Entity Name="Zones" TableName="TM_WMM_ZONES" Schema="LES" MenuFlag="true" PathName="基础数据-地区" DbCreateType="10"></Entity>
+  <Entity Name="Route" TableName="TM_BAS_ROUTE" Schema="LES" MenuFlag="true" PathName="基础数据-运输路径" DbCreateType="10"></Entity>
+  <Entity Name="RouteMid" TableName="TM_BAS_ROUTE_MID" Schema="LES" MenuFlag="false" PathName="基础数据-运输路径" DbCreateType="10"></Entity>
+  <Entity Name="ExpenseItem" TableName="TM_BAS_EXPENSE_ITEM" Schema="LES" MenuFlag="true" PathName="基础数据-费用科目" DbCreateType="10"></Entity>
+  <Entity Name="Supplier" TableName="TM_BAS_SUPPLIER" Schema="LES" MenuFlag="true" PathName="基础数据-供应商" DbCreateType="10"></Entity>
+  <Entity Name="Currency" TableName="" Schema="" MenuFlag="true" PathName="基础数据-币种" DbCreateType="10"></Entity>
+  <Entity Name="InspectionMode" TableName="" Schema="" MenuFlag="true" PathName="基础数据-贸易方式" DbCreateType="10"></Entity>
+  <Entity Name="InboundType" TableName="" Schema="" MenuFlag="true" PathName="基础数据-进仓类型" DbCreateType="10"></Entity>
+  <!--系统管理-->
+  <Entity Name="Menu" TableName="TS_SYS_MENU" Schema="dbo" MenuFlag="true" PathName="系统管理-菜单管理" DbCreateType="10"></Entity>
+  <Entity Name="MenuAction" TableName="TS_SYS_MENU_ACTION" Schema="dbo" MenuFlag="false" PathName="系统管理-菜单管理" DbCreateType="10"></Entity>
+  <Entity Name="Action" TableName="TS_SYS_ACTION" Schema="dbo" MenuFlag="true" PathName="系统管理-动作管理" DbCreateType="10"></Entity>
+  <Entity Name="User" TableName="TS_SYS_USER" Schema="dbo" MenuFlag="true" PathName="系统管理-用户管理" DbCreateType="10"></Entity>
+  <Entity Name="User" TableName="TS_SYS_USER_MOBILE" Schema="dbo" MenuFlag="false" PathName="系统管理-用户管理" DbCreateType="10"></Entity>
+  <Entity Name="User" TableName="TS_SYS_USER_FAVORITES" Schema="dbo" MenuFlag="false" PathName="系统管理-用户管理" DbCreateType="10"></Entity>
+  <Entity Name="UserRole" TableName="TS_SYS_USER_ROLE" Schema="dbo" MenuFlag="false" PathName="系统管理-用户管理" DbCreateType="10"></Entity>
+  <Entity Name="RangeAuth" TableName="TS_SYS_USER_ROLE_RANGE_AUTH" Schema="dbo" MenuFlag="false" PathName="系统管理-用户管理" DbCreateType="10"></Entity>
+  <Entity Name="Role" TableName="TS_SYS_ROLE" Schema="dbo" MenuFlag="true" PathName="系统管理-角色管理" DbCreateType="10"></Entity>
+  <Entity Name="RoleAuth" TableName="TS_SYS_ROLE_AUTH" Schema="dbo" MenuFlag="false" PathName="系统管理-角色管理" DbCreateType="10"></Entity>
+  <Entity Name="Code" TableName="TS_SYS_CODE" Schema="dbo" MenuFlag="true" PathName="系统管理-系统代码" DbCreateType="10"></Entity>
+  <Entity Name="CodeItem" TableName="TS_SYS_CODE_ITEM" Schema="dbo" MenuFlag="false" PathName="系统管理-系统代码" DbCreateType="10"></Entity>
+  <Entity Name="Entity" TableName="TS_SYS_ENTITY" Schema="dbo" MenuFlag="true" PathName="系统管理-数据模型" DbCreateType="10"></Entity>
+  <Entity Name="EntityField" TableName="TS_SYS_ENTITY_FIELD" Schema="dbo" MenuFlag="false" PathName="系统管理-数据模型" DbCreateType="10"></Entity>
+  <Entity Name="SearchModel" TableName="TS_SYS_SEARCH_MODEL" Schema="dbo" MenuFlag="true" PathName="系统管理-检索条件" DbCreateType="10"></Entity>
+  <Entity Name="SearchModelCondition" TableName="TS_SYS_SEARCH_MODEL_CONDITION" Schema="dbo" MenuFlag="false" PathName="系统管理-检索条件" DbCreateType="10"></Entity>
+  <Entity Name="SeqDefine" TableName="TS_SYS_SEQ_DEFINE" Schema="dbo" MenuFlag="true" PathName="系统管理-序列号管理" DbCreateType="10"></Entity>
+  <Entity Name="SeqSection" TableName="TS_SYS_SEQ_SECTION" Schema="dbo" MenuFlag="false" PathName="系统管理-序列号管理" DbCreateType="10"></Entity>
+  <Entity Name="SeqSection" TableName="TS_SYS_SEQ_CURRENT_VALUE" Schema="dbo" MenuFlag="false" PathName="系统管理-序列号管理" DbCreateType="10"></Entity>
+  <Entity Name="Message" TableName="TS_SYS_MESSAGE" Schema="dbo" MenuFlag="true" PathName="系统管理-提示信息" DbCreateType="10"></Entity>
+  <Entity Name="Config" TableName="TS_SYS_CONFIG" Schema="dbo" MenuFlag="true" PathName="系统管理-系统配置" DbCreateType="10"></Entity>
+  <Entity Name="RangeAuthCondition" TableName="TS_SYS_RANGE_AUTH_CONDITION" Schema="dbo" MenuFlag="true" PathName="系统管理-权限条件" DbCreateType="10"></Entity>
+  <Entity Name="Organization" TableName="TS_SYS_ORGANIZATION" Schema="dbo" MenuFlag="true" PathName="系统管理-组织结构" DbCreateType="10"></Entity>
+  <Entity Name="Handler" TableName="TS_SYS_HANDLER" Schema="dbo" MenuFlag="true" PathName="系统管理-路由配置" DbCreateType="10"></Entity>
+  <Entity Name="PrintConfig" TableName="TS_SYS_PRINT_CONFIG" Schema="dbo" MenuFlag="true" PathName="系统管理-打印配置" DbCreateType="10"></Entity>
+  <Entity Name="PrintConfigUpload" TableName="" Schema="" MenuFlag="false" PathName="系统管理-打印配置" DbCreateType="10"></Entity>
+  <Entity Name="ImageResource" TableName="TS_SYS_IMAGE_RESOURCE" Schema="dbo" MenuFlag="true" PathName="系统管理-图片资源" DbCreateType="10"></Entity>
+</Entitys>

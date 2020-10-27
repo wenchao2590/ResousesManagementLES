@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="gb2312" />
+    <title>
+        Kanbna配送单
+    </title>
+    <!--media=print 这个属性可以在打印时有效-->
+    <style media=print>
+        .Noprint {
+            display: none;
+        }
+
+        .PageNext {
+            page-break-after: always;
+        }
+    </style>
+    <style type="text/css">
+        body {
+            font-family: 'Microsoft YaHei';
+            margin-top: 0mm 0mm;
+            width: 848px;
+            height: 724px;
+        }
+
+        #details {
+            margin: 0 auto;
+            padding: 0;
+            font-size: 8pt;
+            font-family: Arial, 宋体, Helvetica, sans-serif;
+            display: block;
+            width: 98%;
+            height: 60%;
+        }
+
+            #details > #detail, .detailcss {
+                display: block;
+                width: 98%;
+                height: 10%;
+                float: left;
+                overflow: hidden;
+                border-bottom: 1px solid;
+                border-left: 1px solid;
+                border-right: 1px solid;
+            }
+
+        .detailcell {
+            display: block;
+            float: left;
+            overflow: hidden;
+        }
+
+            .detailcell > p {
+                margin-top: -0.5mm;
+                height: 5%;
+                text-align: center;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+
+        #Top {
+            height: 20%;
+            margin: 0 auto;
+            padding: 0;
+            font-size: 10pt;
+            width: 98%;
+        }
+
+        #footer {
+            font-size: 8pt;
+            font-family: Arial, 宋体, Helvetica, sans-serif;
+            margin: 0 auto;
+            height: 15%;
+            width: 98%;
+            text-align: center;
+            font-size: 10pt;
+        }
+    </style>
+</head>
+<body>
+    <div id="maindiv">
+        <div id="Top">
+            <div style="width:80%;height:30%;text-align:center;vertical-align:middle;font-size:20px;float:left;">
+                Kanbna配送单
+                <br />
+                Supplyer Delivery Note
+                <!--Supplyer Delivery Note-->
+            </div>
+            <div style="width:20%;height:30%;text-align:center;font-size:10px;vertical-align:top;float:right;">
+                共$PageCount$页第$PageThis$页
+            </div>
+
+            <div style="width:33%;height:30%;font-size:13px;vertical-align:middle;float:left;">
+                <p>
+                    <strong><span>路径：</span><span>$RouteName$</span></strong>
+                    <span style="font-size:7pt;display:block">Route</span><span></span>
+                </p>
+            </div>
+            <div style="width:33%;height:30%;font-size:10pt;vertical-align:middle;float:left;">
+                <p>
+                    <strong><span>零部件类名称：</span><span>$PartBoxName$</span></strong>
+                    <span style="font-size:7pt;display:block">Part Box Name</span><span></span>
+                </p>
+            </div>
+
+            <div style="float:left;width:70%;">
+                <div style="width:66%;height:5%;font-size:7pt;vertical-align:middle;float:left;">
+                    <p>
+                        <span>目标存储区:</span><span>$TargetZoneNo$</span>
+                        <span style="font-size:7pt;display:block">Target Zone</span><span></span>
+                    </p>
+                </div>
+
+                <div style="width:36%;height:30%;font-size:7pt;vertical-align:middle;float:left;">
+                    <p>
+                        <span>生成时间：</span><span>$CreateDate$</span>
+                        <span style="font-size:7pt;display:block">Application Time</span><span></span>
+                    </p>
+                </div>
+
+                <div style="width:36%;height:30%;font-size:7pt;vertical-align:middle;float:left;">
+                    <p>
+                        <span>需求时间：</span><span>$CreateDate$</span>
+                        <span style="font-size:7pt;display:block">Application Time</span><span></span>
+                    </p>
+                </div>
+
+            </div>
+
+            <div style="width:30%;text-align:center;vertical-align:middle;float:right;margin-top:4%;">
+                <span style="font-size:18px;">$OrderCode$</span>
+                <img src="$OrderCodeBarCode$" style="width:198px;height:70px;" />
+            </div>
+
+        </div>
+        <div id="details">
+            <div class="detailcss" style="border-top:1px solid;">
+                <div class="detailcell" style="width:5%;text-align: center;border-right:1px solid;font-size:8pt;">序号<br />NO</div>
+                <div class="detailcell" style="width:15%;text-align: center;border-right:1px solid;font-size:8pt;">看板卡号<br />Card-No.</div>
+                <div class="detailcell" style="width:15%;text-align: center;border-right:1px solid;font-size:8pt;">零件号<br />Part No.</div>
+                <div class="detailcell" style="width:20%;text-align: center;border-right:1px solid;font-size:8pt;">零件名称<br />Part-Name-CHN</div>
+                <div class="detailcell" style="width:10%;text-align: center;border-right:1px solid;font-size:8pt;">包装型号<br />Cont. Number</div>
+                <div class="detailcell" style="width:10%;text-align: center;border-right:1px solid;font-size:8pt;">收容数<br />SNP</div>
+                <div class="detailcell" style="width:10%;text-align: center;border-right:1px solid;font-size:8pt;">工位<br />Req Qty</div>
+                <div class="detailcell" style="width:10%;text-align: center;font-size:8pt;">备注<br />Remarks</div>
+            </div>
+            <div id="detail">
+                <div class="detailcell" style="width:5%;text-align:center;border-right:1px solid;float:left   ">&nbsp;<p>$RowId$</p></div>
+                <div class="detailcell" style="width:15%;text-align:left;border-right:1px solid;float:left;">&nbsp;<p>$CardNo$</p></div>
+                <div class="detailcell" style="width:15%;text-align:left;border-right:1px solid;float:left;">&nbsp;<p>$PartNo$</p></div>
+                <div class="detailcell" style="width:20%;text-align:left;border-right:1px solid;float:left">&nbsp;<p>$PartName$</p></div>
+                <div class="detailcell" style="width:10%;text-align: left;border-right:1px solid;float:left">&nbsp;<p>$PackageCode$</p></div>
+                <div class="detailcell" style="width:10%;text-align: left;border-right:1px solid;float:left">&nbsp;<p>$PackageQty$</p></div>
+                <div class="detailcell" style="width:10%;text-align: left;border-right:1px solid;float:left">&nbsp;<p>&nbsp;</p></div>
+                <div class="detailcell" style="width:10%;text-align: left;float:left">&nbsp;<p>$Comments$</p></div>
+            </div>
+        </div>
+        <div id="footer">
+            <div>
+                <div style="width:33%;float:left;">
+                    供应商Supplier:
+                    <br />
+                    日期Date:
+                </div>
+                <div style="width:33%;float:left;">
+                    承运商Carrier:
+                    <br />
+                    日期Date:
+                </div>
+                <div style="width:31%;float:left;">
+                    收货人Receiver:
+                    <br />
+                    日期Date:
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

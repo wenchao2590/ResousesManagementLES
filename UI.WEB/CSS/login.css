@@ -1,0 +1,22 @@
+﻿
+body {
+    /*background: url(img/Loginbg.jpg) top repeat-x #e9edf1;*/
+}
+
+.loginImage {
+    text-align: center;
+}
+
+.loginBox {
+    width: 403px;
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+}
+
+.loginDiv {
+    padding: 0px 40px 40px 70px;
+    padding-top: 260px;
+}
+

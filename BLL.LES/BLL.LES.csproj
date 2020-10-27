@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{547891A0-8129-40BE-BB74-7299AB18B908}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BLL.LES</RootNamespace>
+    <AssemblyName>BLL.LES</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ATP\PorderLackMaterialBLL.cs" />
+    <Compile Include="ATP\PorderLackMaterialDetailBLL.cs" />
+    <Compile Include="ATP\PullOrderBomPageBLL.cs" />
+    <Compile Include="BAS\CustReceiveInfoBLL.cs" />
+    <Compile Include="BAS\ScanPointBLL.cs" />
+    <Compile Include="BAS\StatusPointBLL.cs" />
+    <Compile Include="BAS\SupplierPartQuotaBLL.cs" />
+    <Compile Include="BomChangeOrderBLL.cs" />
+    <Compile Include="BomChangeOrderDetailBLL.cs" />
+    <Compile Include="BomRepleaceConditionBLL.cs" />
+    <Compile Include="BomRepleaceConditionVehicleBLL.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\BarcodeBLL.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\BusinessExpenseInBillingBLL.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\BusinessExpenseInWriteoffBLL.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\BusinessExpenseInVerifyBLL.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\BusinessExpenseOutCheckBLL.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\BusinessExpenseOutWriteoffBLL.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\BusinessExpenseOutVerifyBLL.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\BusinessFollowBLL.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\CurrencyBLL.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\InspectionModeBLL.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\OutputBLL.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\OutputPageBLL.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\ReceiveBLL.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\BusinessExpenseOutPageBLL.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\ReceivePageBLL.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\Shgx001BLL.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\Shgx002BLL.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\Shgx003BLL.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\Shgx004BLL.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\Shgx005BLL.cs" />
+    <Compile Include="BasPackageApplianceBLL.cs" />
+    <Compile Include="IFM\MesInboundLogBLL.cs" />
+    <Compile Include="MesProductionOrderLackMaterialBLL.cs" />
+    <Compile Include="MPM\EmergencyPullingCartBLL.cs" />
+    <Compile Include="FIM\BusinessExpenseInBLL.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\BusinessExpenseInPageBLL.cs" />
+    <Compile Include="FIM\BusinessExpenseOutBLL.cs" />
+    <Compile Include="BAS\ExpenseItemBLL.cs" />
+    <Compile Include="BAS\RouteMidBLL.cs" />
+    <Compile Include="IFM\QmisOutboundLogBLL.cs" />
+    <Compile Include="IFM\SrmPullingOrderBLL.cs" />
+    <Compile Include="IFM\SrmPullingOrderDetailBLL.cs" />
+    <Compile Include="IFM\WmsInboundDataBLL.cs" />
+    <Compile Include="InventoryNoticeOrderBLL.cs" />
+    <Compile Include="PCMInventoryOrderPartBLL.cs" />
+    <Compile Include="InventoryOrderPartPageBLL.cs" />
+    <Compile Include="InventoryOrderPartBLL.cs" />
+    <Compile Include="JisCounterLogPageBLL.cs" />
+    <Compile Include="MPM\JisCounterBLL.cs" />
+    <Compile Include="MPM\JisCounterLogBLL.cs" />
+    <Compile Include="JisPartBoxBLL.cs" />
+    <Compile Include="JisPullOrderBLL.cs" />
+    <Compile Include="JisPullOrderDetailPageBLL.cs" />
+    <Compile Include="JisPullOrderDetailBLL.cs" />
+    <Compile Include="MesBreakpointReplacementRecordBLL.cs" />
+    <Compile Include="MesInformationPointBasicBLL.cs" />
+    <Compile Include="MesMissingpartsDetailBLL.cs" />
+    <Compile Include="MesMissingpartsInfluenceOrderscopeBLL.cs" />
+    <Compile Include="MesMissingpartsMainBLL.cs" />
+    <Compile Include="MesProductionlineProcessOrderBLL.cs" />
+    <Compile Include="MesVehiclePointScanBLL.cs" />
+    <Compile Include="MPM\SapPurchaseOrderBLL.cs" />
+    <Compile Include="MPM\SapPurchaseOrderDetailBLL.cs" />
+    <Compile Include="MPM\TwdCounterUpdateBLL.cs" />
+    <Compile Include="IFM\SrmDeliveryNoteBLL.cs" />
+    <Compile Include="IFM\SrmDeliveryNoteDetailBLL.cs" />
+    <Compile Include="PackageInvnoticeOrderBLL.cs" />
+    <Compile Include="SapBreakpointSupplyPlanBLL.cs" />
+    <Compile Include="SapInventoryCheckPlanBLL.cs" />
+    <Compile Include="PorderBomRepleaceRecordBLL.cs" />
+    <Compile Include="SapInventoryChekPlanBLL.cs" />
+    <Compile Include="SrmAsnRunsheetBLL.cs" />
+    <Compile Include="SrmAsnRunsheetDetailBLL.cs" />
+    <Compile Include="SrmPartReturnSheetBLL.cs" />
+    <Compile Include="SrmPartReturnSheetDetailBLL.cs" />
+    <Compile Include="VmiTransBLL.cs" />
+    <Compile Include="WMM\VmiOutputBLL.cs" />
+    <Compile Include="PackageBarcodeDetailBLL.cs" />
+    <Compile Include="PackageInboundDetailBLL.cs" />
+    <Compile Include="PackageOutboundBLL.cs" />
+    <Compile Include="PackageOutboundDetailBLL.cs" />
+    <Compile Include="MPM\PcsPullOrderBLL.cs" />
+    <Compile Include="MPM\PcsPullOrderDetailBLL.cs" />
+    <Compile Include="MPM\PcsPullOrderDetailPageBLL.cs" />
+    <Compile Include="SapBreakpointChangesBLL.cs" />
+    <Compile Include="SapBreakpointReplaceBLL.cs" />
+    <Compile Include="PackageInboundBLL.cs" />
+    <Compile Include="SapInventoryCheckReportBLL.cs" />
+    <Compile Include="SapMaterialReservationBLL.cs" />
+    <Compile Include="SapPlantStructureBLL.cs" />
+    <Compile Include="SapProductionOrderLackMaterialBLL.cs" />
+    <Compile Include="SmsInboundLogBLL.cs" />
+    <Compile Include="SmsOutboundDetailLogBLL.cs" />
+    <Compile Include="SmsOutboundLogBLL.cs" />
+    <Compile Include="SmsSupplyPlanBLL.cs" />
+    <Compile Include="SapPurchaseOrderDetailPageBLL.cs" />
+    <Compile Include="SpsPullOrderBLL.cs" />
+    <Compile Include="SpsPullOrderDetailBLL.cs" />
+    <Compile Include="SpsPullOrderDetailPageBLL.cs" />
+    <Compile Include="SrmTranOutBLL.cs" />
+    <Compile Include="SrmJisPullOrderDetailBLL.cs" />
+    <Compile Include="IFM\SrmVmiShippingNoteDetailBLL.cs" />
+    <Compile Include="MPM\TwdCounterBLL.cs" />
+    <Compile Include="MPM\TwdCounterLogPageBLL.cs" />
+    <Compile Include="MPM\TwdCounterLogBLL.cs" />
+    <Compile Include="MPM\TwdPartBoxBLL.cs" />
+    <Compile Include="MPM\TwdPullOrderBLL.cs" />
+    <Compile Include="MPM\TwdPullOrderDetailPageBLL.cs" />
+    <Compile Include="MPM\TwdPullOrderDetailBLL.cs" />
+    <Compile Include="MPM\TwdWindowTimeBLL.cs" />
+    <Compile Include="ATP\VehiclePointStatusBLL.cs" />
+    <Compile Include="VmiJisPullOrderReturnBLL.cs" />
+    <Compile Include="WMM\VmiOutputDetailBLL.cs" />
+    <Compile Include="VmiPrevSupplyPlanBLL.cs" />
+    <Compile Include="VmiPullOrderBLL.cs" />
+    <Compile Include="MPM\VmiPullOrderDetailPageBLL.cs" />
+    <Compile Include="MPM\VmiPullOrderDetailBLL.cs" />
+    <Compile Include="MPM\VmiShippingPartBLL.cs" />
+    <Compile Include="WMM\BarcodeBLL.cs" />
+    <Compile Include="BAS\AssemblyLineBLL.cs" />
+    <Compile Include="BAS\DockBLL.cs" />
+    <Compile Include="BAS\WorkScheduleBLL.cs" />
+    <Compile Include="BAS\CustomerBLL.cs" />
+    <Compile Include="MPM\KanbanPullOrderDetailPageBLL.cs" />
+    <Compile Include="ATP\LackOfMaterialBLL.cs" />
+    <Compile Include="ATP\LackOfMaterialDetailBLL.cs" />
+    <Compile Include="MPM\PlanPullOrderDetailPageBLL.cs" />
+    <Compile Include="PCM\PackageTranDetailBLL.cs" />
+    <Compile Include="BAS\PartInspectionModeBLL.cs" />
+    <Compile Include="IFM\QmisAsnPullSheetBLL.cs" />
+    <Compile Include="QmisCheckModeBLL.cs" />
+    <Compile Include="QmisCheckResultBLL.cs" />
+    <Compile Include="IFM\QmisInboundLogBLL.cs" />
+    <Compile Include="SapTranOutBLL.cs" />
+    <Compile Include="SapWorkCalendarBLL.cs" />
+    <Compile Include="CUSTOMIZED\SIOM\ContractBLL.cs" />
+    <Compile Include="MPM\KanbanCardBLL.cs" />
+    <Compile Include="MPM\KanbanPullOrderBLL.cs" />
+    <Compile Include="MPM\KanbanPullOrderDetailBLL.cs" />
+    <Compile Include="MPM\KanbanPartBoxBLL.cs" />
+    <Compile Include="BAS\MaintainInhouseLogisticStandardBLL.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IFM\MesOutboundDetailLogBLL.cs" />
+    <Compile Include="IFM\MesOutboundLogBLL.cs" />
+    <Compile Include="OrderBomInBLL.cs" />
+    <Compile Include="CUSTOMIZED\SIOM\EquipmentTypeBLL.cs" />
+    <Compile Include="CUSTOMIZED\SIOM\OutputBLL.cs" />
+    <Compile Include="CUSTOMIZED\SIOM\OutputDetailPageBLL.cs" />
+    <Compile Include="CUSTOMIZED\SIOM\ReceiveBLL.cs" />
+    <Compile Include="CUSTOMIZED\SIOM\ReceiveDetailPageBLL.cs" />
+    <Compile Include="SrmBarcodeBLL.cs" />
+    <Compile Include="SrmJisPullOrderBLL.cs" />
+    <Compile Include="IFM\SrmVmiShippingNoteBLL.cs" />
+    <Compile Include="SrmVmiSupplierPartBLL.cs" />
+    <Compile Include="VmiBasSupplierBLL.cs" />
+    <Compile Include="VmiJisPullOrderDetailsBLL.cs" />
+    <Compile Include="WMM\VmiReceiveBLL.cs" />
+    <Compile Include="WMM\VmiReceiveDetailBLL.cs" />
+    <Compile Include="WMM\BarcodePageBLL.cs" />
+    <Compile Include="WMM\BarcodeStatusBLL.cs" />
+    <Compile Include="WMM\MaterialPullingCommonBLL.cs" />
+    <Compile Include="WMM\OutputDetailBLL.cs" />
+    <Compile Include="PartsBoxBLL.cs" />
+    <Compile Include="MPM\PlanPartBoxBLL.cs" />
+    <Compile Include="PlanPullCreateStatusBLL.cs" />
+    <Compile Include="MPM\PlanPullOrderBLL.cs" />
+    <Compile Include="MPM\PlanPullOrderDetailBLL.cs" />
+    <Compile Include="MPM\PlanWindowTimeBLL.cs" />
+    <Compile Include="ReceiveAndOutputBLL.cs" />
+    <Compile Include="CUSTOMIZED\SIOM\InboundTypeBLL.cs" />
+    <Compile Include="CUSTOMIZED\SIOM\OutboundTypeBLL.cs" />
+    <Compile Include="CUSTOMIZED\SIOM\PartGroupBLL.cs" />
+    <Compile Include="CUSTOMIZED\SIOM\BusinessAccountProjectBLL.cs" />
+    <Compile Include="CUSTOMIZED\SIOM\PlaceOfOriginBLL.cs" />
+    <Compile Include="IFM\SrmPrevSupplyPlanBLL.cs" />
+    <Compile Include="IFM\SapProductOrderBLL.cs" />
+    <Compile Include="IFM\SapProductOrderBomBLL.cs" />
+    <Compile Include="ATP\PullOrderBomBLL.cs" />
+    <Compile Include="IFM\QmisOutboundDetailLogBLL.cs" />
+    <Compile Include="WMM\ReceiveDetailBLL.cs" />
+    <Compile Include="IFM\SapInboundLogBLL.cs" />
+    <Compile Include="IFM\SapOutboundDetailLogBLL.cs" />
+    <Compile Include="IFM\SapOutboundLogBLL.cs" />
+    <Compile Include="IFM\SapPartsBLL.cs" />
+    <Compile Include="IFM\SrmSupplyPlanBLL.cs" />
+    <Compile Include="IFM\SrmInboundLogBLL.cs" />
+    <Compile Include="IFM\SrmOutboundDetailLogBLL.cs" />
+    <Compile Include="IFM\SrmOutboundLogBLL.cs" />
+    <Compile Include="SapSupplierQuotaBLL.cs" />
+    <Compile Include="SupplyPlanBLL.cs" />
+    <Compile Include="WMM\TranDetailsBLL.cs" />
+    <Compile Include="ButtonBLL.cs" />
+    <Compile Include="ButtonRequestBLL.cs" />
+    <Compile Include="CostCenterBLL.cs" />
+    <Compile Include="DcpPointBLL.cs" />
+    <Compile Include="CounterBLL.cs" />
+    <Compile Include="DeliveryRunsheetBarcodeBLL.cs" />
+    <Compile Include="DeliveryScheduleBLL.cs" />
+    <Compile Include="DiffanalyseReportsBLL.cs" />
+    <Compile Include="FinancialAccountBLL.cs" />
+    <Compile Include="CommonBLL.cs" />
+    <Compile Include="CounterManager.cs" />
+    <Compile Include="InhouseBreakpointPartBLL.cs" />
+    <Compile Include="InternalOrderBLL.cs" />
+    <Compile Include="BAS\LocationBLL.cs" />
+    <Compile Include="BAS\MaintainPartsBLL.cs" />
+    <Compile Include="MaterialConsumeLogBLL.cs" />
+    <Compile Include="BAS\MeasuringUnitBLL.cs" />
+    <Compile Include="MaterialRequestsBLL.cs" />
+    <Compile Include="ModelqueryBLL.cs" />
+    <Compile Include="NotificationHeadBLL.cs" />
+    <Compile Include="OnboardEquipmentBLL.cs" />
+    <Compile Include="OnboardTaskBLL.cs" />
+    <Compile Include="OnboardTaskGroupBLL.cs" />
+    <Compile Include="OutbounddeliveryBLL.cs" />
+    <Compile Include="OutbounddeliveryreturnBLL.cs" />
+    <Compile Include="WMM\OutputBLL.cs" />
+    <Compile Include="BAS\PackageApplianceBLL.cs" />
+    <Compile Include="PackageBarcodeBLL.cs" />
+    <Compile Include="PackageNotificationHeadBLL.cs" />
+    <Compile Include="PackageStocksAdjustBLL.cs" />
+    <Compile Include="PackageStocksBLL.cs" />
+    <Compile Include="PackageTranBLL.cs" />
+    <Compile Include="PartBoxManager.cs" />
+    <Compile Include="PartPullBLL.cs" />
+    <Compile Include="BAS\PartsStockBLL.cs" />
+    <Compile Include="PartTrayStockBLL.cs" />
+    <Compile Include="BAS\PlantBLL.cs" />
+    <Compile Include="PlantEntryLogBLL.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PtlMaterialReduceHistoryBLL.cs" />
+    <Compile Include="ATP\PullOrdersBLL.cs" />
+    <Compile Include="RackBLL.cs" />
+    <Compile Include="WMM\ReceiveBLL.cs" />
+    <Compile Include="RegionBLL.cs" />
+    <Compile Include="RepackageHeadBLL.cs" />
+    <Compile Include="RepackageScheduleBLL.cs" />
+    <Compile Include="ReturnBLL.cs" />
+    <Compile Include="BAS\RouteBLL.cs" />
+    <Compile Include="RouteBoxPartsBLL.cs" />
+    <Compile Include="RpmPackageStocksViewBLL.cs" />
+    <Compile Include="WMM\StocksBLL.cs" />
+    <Compile Include="BAS\SupplierBLL.cs" />
+    <Compile Include="TaskBLL.cs" />
+    <Compile Include="TranDetailsLogBLL.cs" />
+    <Compile Include="TranHeadBLL.cs" />
+    <Compile Include="TrayInfoBLL.cs" />
+    <Compile Include="VechileConsumeLogBLL.cs" />
+    <Compile Include="VehicleStatusBLL.cs" />
+    <Compile Include="IFM\VmiInboundLogBLL.cs" />
+    <Compile Include="IFM\VmiOutboundDetailLogBLL.cs" />
+    <Compile Include="IFM\VmiOutboundLogBLL.cs" />
+    <Compile Include="BAS\VmiSupplierBLL.cs" />
+    <Compile Include="BAS\WaitingAreaBLL.cs" />
+    <Compile Include="BAS\WarehouseBLL.cs" />
+    <Compile Include="WmmTranReceiveDetailViewBLL.cs" />
+    <Compile Include="WmRfidDoorBLL.cs" />
+    <Compile Include="BAS\WorkshopBLL.cs" />
+    <Compile Include="BAS\WorkshopSectionBLL.cs" />
+    <Compile Include="BAS\WarehouseLocationBLL.cs" />
+    <Compile Include="BAS\ZonesBLL.cs" />
+    <Compile Include="WmsTranOutBLL.cs" />
+    <Compile Include="WmsVmiAsnRunsheetBLL.cs" />
+    <Compile Include="WmsVmiAsnRunsheetDetailBLL.cs" />
+    <Compile Include="WmsVmiBarcodeBLL.cs" />
+    <Compile Include="WmsVmiInboundDataBLL.cs" />
+    <Compile Include="IFM\WmsVmiInboundOrderBLL.cs" />
+    <Compile Include="IFM\WmsVmiInboundOrderDetailBLL.cs" />
+    <Compile Include="WmsVmiJisPullOrderBLL.cs" />
+    <Compile Include="WmsVmiJisPullOrderDetailBLL.cs" />
+    <Compile Include="WmsVmiJisPullOrderReturnBLL.cs" />
+    <Compile Include="WmsVmiPackageBLL.cs" />
+    <Compile Include="WmsVmiPackageInboundBLL.cs" />
+    <Compile Include="WmsVmiPackageOutboundBLL.cs" />
+    <Compile Include="WmsVmiPartStockLockBLL.cs" />
+    <Compile Include="IFM\WmsVmiProductOrderBLL.cs" />
+    <Compile Include="WmsVmiPullingOrderBLL.cs" />
+    <Compile Include="WmsVmiPullingOrderDetailBLL.cs" />
+    <Compile Include="WmsVmiSupplyPlanBLL.cs" />
+    <Compile Include="WmsVmiTranDetailBLL.cs" />
+    <Compile Include="WmsVmiTransitInventoryBLL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL.SYS\BLL.SYS.csproj">
+      <Project>{E7F4DCD8-48AC-4A9B-8289-3180A6D74811}</Project>
+      <Name>BLL.SYS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CC.Infrustructure\CC.Infrustructure.csproj">
+      <Project>{6cb35a05-6b20-4ca4-a262-c7e5c7ce98a6}</Project>
+      <Name>CC.Infrustructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contract.LES\Contract.LES.csproj">
+      <Project>{7c7bb64c-72f5-4ae3-8e2b-64421abfd0f5}</Project>
+      <Name>Contract.LES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL.LES\DAL.LES.csproj">
+      <Project>{ec97326f-9562-4427-8052-89ef490c6e7d}</Project>
+      <Name>DAL.LES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL.SYS\DAL.SYS.csproj">
+      <Project>{fd656692-c34d-405b-ba88-a4b45fc0724b}</Project>
+      <Name>DAL.SYS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DM.LES\DM.LES.csproj">
+      <Project>{c8e22c5f-01cf-4026-8885-cfbe1c5a5b8d}</Project>
+      <Name>DM.LES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DM.SYS\DM.SYS.csproj">
+      <Project>{4c291eb1-e4e3-431c-937c-c056483f891d}</Project>
+      <Name>DM.SYS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

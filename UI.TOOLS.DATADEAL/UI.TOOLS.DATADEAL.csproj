@@ -1,0 +1,332 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F76BE216-79DC-481D-9A7A-71F106435646}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UI.TOOLS.DATADEAL</RootNamespace>
+    <AssemblyName>UI.TOOLS.DATADEAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\Item File\TOOL\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <UpdateUrl>http://localhost/UI.TOOLS.DATADEAL/</UpdateUrl>
+    <ApplicationRevision>10</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>05F898F8FB313415F828D2519B51A2ED7334019A</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>UI.TOOLS.DATADEAL_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\Reference\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=e44a2bc38ed2c13c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+      <HintPath>..\Reference\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DialogAction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogAction.Designer.cs">
+      <DependentUpon>DialogAction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogBLL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogBLL.Designer.cs">
+      <DependentUpon>DialogBLL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogCombobox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogCombobox.Designer.cs">
+      <DependentUpon>DialogCombobox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogComboExtend.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogComboExtend.Designer.cs">
+      <DependentUpon>DialogComboExtend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogComboGridColumns.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogComboGridColumns.Designer.cs">
+      <DependentUpon>DialogComboGridColumns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogComplexFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogComplexFilter.Designer.cs">
+      <DependentUpon>DialogComplexFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogEntity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogEntity.Designer.cs">
+      <DependentUpon>DialogEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogEntityField.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogEntityField.Designer.cs">
+      <DependentUpon>DialogEntityField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogInput.Designer.cs">
+      <DependentUpon>DialogInput.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogMenu.Designer.cs">
+      <DependentUpon>DialogMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogSqlExport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogSqlExport.Designer.cs">
+      <DependentUpon>DialogSqlExport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DialogTables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogTables.Designer.cs">
+      <DependentUpon>DialogTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DialogAction.resx">
+      <DependentUpon>DialogAction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogBLL.resx">
+      <DependentUpon>DialogBLL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogCombobox.resx">
+      <DependentUpon>DialogCombobox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogComboExtend.resx">
+      <DependentUpon>DialogComboExtend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogComboGridColumns.resx">
+      <DependentUpon>DialogComboGridColumns.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogComplexFilter.resx">
+      <DependentUpon>DialogComplexFilter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogEntity.resx">
+      <DependentUpon>DialogEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogEntityField.resx">
+      <DependentUpon>DialogEntityField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogInput.resx">
+      <DependentUpon>DialogInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogMenu.resx">
+      <DependentUpon>DialogMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogSqlExport.resx">
+      <DependentUpon>DialogSqlExport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DialogTables.resx">
+      <DependentUpon>DialogTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL.LES\BLL.LES.csproj">
+      <Project>{547891A0-8129-40BE-BB74-7299AB18B908}</Project>
+      <Name>BLL.LES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL.SYS\BLL.SYS.csproj">
+      <Project>{e7f4dcd8-48ac-4a9b-8289-3180a6d74811}</Project>
+      <Name>BLL.SYS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CC.Infrustructure\CC.Infrustructure.csproj">
+      <Project>{6cb35a05-6b20-4ca4-a262-c7e5c7ce98a6}</Project>
+      <Name>CC.Infrustructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL.SYS\DAL.SYS.csproj">
+      <Project>{fd656692-c34d-405b-ba88-a4b45fc0724b}</Project>
+      <Name>DAL.SYS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DM.SYS\DM.SYS.csproj">
+      <Project>{4c291eb1-e4e3-431c-937c-c056483f891d}</Project>
+      <Name>DM.SYS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CONFIG\SHGX.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CONFIG\BFDA.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CONFIG\BFDA11.xml" />
+    <Content Include="icons\back.png" />
+    <Content Include="icons\blank.gif" />
+    <Content Include="icons\cancel.png" />
+    <Content Include="icons\clear.png" />
+    <Content Include="icons\cut.png" />
+    <Content Include="icons\edit_add.png" />
+    <Content Include="icons\edit_remove.png" />
+    <Content Include="icons\filesave.png" />
+    <Content Include="icons\filter.png" />
+    <Content Include="icons\help.png" />
+    <Content Include="icons\large_chart.png" />
+    <Content Include="icons\large_clipart.png" />
+    <Content Include="icons\large_picture.png" />
+    <Content Include="icons\large_shapes.png" />
+    <Content Include="icons\large_smartart.png" />
+    <Content Include="icons\lock.png" />
+    <Content Include="icons\man.png" />
+    <Content Include="icons\mini_add.png" />
+    <Content Include="icons\mini_edit.png" />
+    <Content Include="icons\mini_refresh.png" />
+    <Content Include="icons\more.png" />
+    <Content Include="icons\no.png" />
+    <Content Include="icons\ok.png" />
+    <Content Include="icons\pencil.png" />
+    <Content Include="icons\print.png" />
+    <Content Include="icons\redo.png" />
+    <Content Include="icons\reload.png" />
+    <Content Include="icons\search.png" />
+    <Content Include="icons\sum.png" />
+    <Content Include="icons\tip.png" />
+    <Content Include="icons\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

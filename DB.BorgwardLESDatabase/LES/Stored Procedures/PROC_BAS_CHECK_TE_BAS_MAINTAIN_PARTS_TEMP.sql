@@ -1,0 +1,65 @@
+﻿/********************************************************************/
+/*                                                                  */
+/*   Project Name:  LES System                          */
+/*   Program Name:  [PROC_BAS_CHECK_TE_BAS_MAINTAIN_PARTS_TEMP]                       */
+/*   Called By:     by the Page							*/
+/*   Purpose:       This is the main stored procedure for the       */
+/*   author:       andy	2015-06-09   				       */
+/********************************************************************/
+CREATE PROC [LES].[PROC_BAS_CHECK_TE_BAS_MAINTAIN_PARTS_TEMP]
+AS
+	BEGIN TRANSACTION;
+
+	
+	BEGIN TRY
+
+	UPDATE [LES].TE_BAS_MAINTAIN_PARTS_TEMP
+	SET VALID_FLAG = 0, ERROR_MSG = ERROR_MSG + '工厂长度超出;'
+	WHERE LEN([PLANT]) > 5
+
+	UPDATE [LES].TE_BAS_MAINTAIN_PARTS_TEMP
+	SET VALID_FLAG = 0, ERROR_MSG = ERROR_MSG + '零件号长度超出;'
+	WHERE LEN([PLANT]) > 20
+
+	UPDATE [LES].TE_BAS_MAINTAIN_PARTS_TEMP
+	SET VALID_FLAG = 0, ERROR_MSG = ERROR_MSG + '工厂不正确;'
+	WHERE [PLANT] NOT IN (SELECT [PLANT] FROM [LES].[TM_BAS_PLANT])
+
+	--更新业务主键
+	UPDATE [LES].TE_BAS_MAINTAIN_PARTS_TEMP
+	SET [LOGICAL_PK] = B.[PLANT] + A.[PART_NO]
+	FROM [LES].TE_BAS_MAINTAIN_PARTS_TEMP A
+	INNER JOIN [LES].[TM_BAS_PLANT] B ON B.[PLANT] = A.[PLANT]
+
+	UPDATE [LES].TE_BAS_MAINTAIN_PARTS_TEMP
+	SET VALID_FLAG = 0, ERROR_MSG = ERROR_MSG + '工厂、零件号重复;'
+	WHERE [LOGICAL_PK] IN (SELECT [LOGICAL_PK] FROM [LES].TE_BAS_MAINTAIN_PARTS_TEMP GROUP BY [LOGICAL_PK] HAVING(COUNT(*)) > 1)	
+
+	UPDATE [LES].TE_BAS_MAINTAIN_PARTS_TEMP
+	SET VALID_FLAG = 0, ERROR_MSG = ERROR_MSG + '零件类别不正确;'
+	WHERE PART_CLS NOT IN (SELECT DETAIL_VALUE FROM [LES].[TC_SYS_CODE_DETAIL] WHERE [CODE_NAME] = 'part_category')
+
+	UPDATE [LES].TE_BAS_MAINTAIN_PARTS_TEMP
+	SET VALID_FLAG = 0, ERROR_MSG = ERROR_MSG + '物料状态不正确;'
+	WHERE PART_STATE NOT IN (SELECT DETAIL_VALUE FROM [LES].[TC_SYS_CODE_DETAIL] WHERE [CODE_NAME] = 'active_status')
+
+	UPDATE [LES].TE_BAS_MAINTAIN_PARTS_TEMP
+	SET VALID_FLAG = 0, ERROR_MSG = ERROR_MSG + '删除标记不正确;'
+	WHERE DELETE_FLAG NOT IN (SELECT DETAIL_VALUE FROM [LES].[TC_SYS_CODE_DETAIL] WHERE [CODE_NAME] = 'delete_flag')
+
+	END TRY
+	BEGIN CATCH
+		SELECT 
+			ERROR_NUMBER() AS ErrorNumber
+			,ERROR_SEVERITY() AS ErrorSeverity
+			,ERROR_STATE() AS ErrorState
+			,ERROR_PROCEDURE() AS ErrorProcedure
+			,ERROR_LINE() AS ErrorLine
+			,ERROR_MESSAGE() AS ErrorMessage;
+
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+	END CATCH;
+
+	IF @@TRANCOUNT > 0
+		COMMIT TRANSACTION;

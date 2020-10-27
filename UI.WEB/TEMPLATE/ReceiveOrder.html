@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="gb2312" />
+    <title>看板拉动单</title>
+    <!--media=print 这个属性可以在打印时有效-->
+    <style media=print>
+        .Noprint {
+            display: none;
+        }
+
+        .PageNext {
+            page-break-after: always;
+        }
+    </style>
+    <style type="text/css">
+        body {
+            font-family: 'Microsoft YaHei';
+            margin-left: 2mm;
+            margin-top: 2mm;
+            /*margin: 5mm 5mm 5mm 5mm;*/
+            /*210*/ /*297*/
+        }
+
+        #maindiv {
+            width: 200mm;
+            height: 143.6mm;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-left: 0px;
+            margin-top: 0px;
+            /*border: 0.1mm solid;*/
+            align-items: center;
+        }
+
+            #maindiv > div {
+                text-align: left;
+                text-overflow: clip;
+            }
+
+        #Top {
+            width: 100%;
+            height: 28%;
+        }
+
+            #Top > div > span {
+                padding-left: 2mm;
+                font-size: 10pt;
+            }
+
+        #title {
+            width: 100%;
+            height: 10mm;
+        }
+
+            #title > div {
+                font-size: 10pt;
+                height: 10mm;
+                text-align: center;
+                display: flex; /*Flex布局*/
+                display: -webkit-flex; /*Safari*/
+                text-align: center;
+                align-items: center; /*指定垂直居中*/
+            }
+
+        #details {
+            width: 100%;
+            margin-left: 2mm;
+            height: 39.5%;
+        }
+
+        #detail > div {
+            width: 100%;
+            font-size: 6pt;
+            height: 7mm;
+            text-overflow: clip;
+            overflow: hidden;
+            display: flex; /*Flex布局*/
+            display: -webkit-flex; /*Safari*/
+            text-align: center;
+            align-items: center; /*指定垂直居中*/
+        }
+
+        .leftborder1px {
+            border-left: 0.1mm solid #000;
+        }
+
+        .rightborder1px {
+            border-right: 0.1mm solid #000;
+        }
+
+        .topborder1px {
+            border-top: 0.1mm solid #000;
+        }
+
+        .bottomborder1px {
+            border-bottom: 0.1mm solid #000;
+        }
+
+        #footer {
+            width: 100%;
+            height: 10%;
+            margin-left: 2mm;
+        }
+
+        #footers {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="maindiv">
+        <div id="Top">
+            <div style="width:100%;height:45%;text-align:center;">
+                <span style="padding-top:5mm;font-size:14pt;">
+                    中国科学院上海光学精密机械研究院
+                </span>
+                <br />
+                <span style="font-size:22pt;width:80%;float:right;">
+                    材料入库单 &nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:14pt;">№.$ReceiveNo$</span>
+                </span>
+
+            </div>
+            <div style="width:50%;height:11%;float:left;">
+                <span><strong>日期:</strong></span><span>$TranDate$</span>
+            </div>
+            <div style="width:50%;height:11%;float:left;">
+                <span><strong>仓库:</strong></span><span>$WmName$</span>
+            </div>
+            <div style="width:50%;height: 11%;float:left;">
+                <span><strong>部门:</strong></span><span>$Dept$</span>
+            </div>
+            <div style="width:50%;height: 11%;float:left;">
+                <span><strong>供应商:</strong></span><span>$SupplierName$</span>
+            </div>
+
+            <div style="width:50%;height: 11%;float:left;">
+                <span><strong>核算项目:</strong></span><span>$CostCenter$</span>
+            </div>
+            <div style="width:50%;height: 11%;float:left;">
+                <span><strong>责任人:</strong></span><span>$BookKeeper$</span>
+            </div>
+
+            <div style="width:50%;height: 12%;float:left;">
+                <span><strong>入库类型:</strong></span><span>$ReceiveType$</span>
+            </div>
+            <div style="width:50%;height: 12%;float:left;">
+                <span><strong>合同号:</strong></span><span>$ContactNo$</span>
+            </div>
+        </div>
+        <div id="title" style="padding-left:2mm;">
+            <div style="width:5%;float:left;" class="leftborder1px topborder1px rightborder1px bottomborder1px">&nbsp;&nbsp;序号</div>
+            <div style="width:25%;float:left;" class="topborder1px rightborder1px bottomborder1px">&nbsp;&nbsp;品种编号</div>
+            <div style="width:20%;float:left;" class="topborder1px rightborder1px bottomborder1px">&nbsp;&nbsp;品种名称</div>
+            <div style="width:22%;float:left;" class="topborder1px rightborder1px bottomborder1px">&nbsp;&nbsp;规格型号</div>
+            <div style="width:5%;float:left;" class="topborder1px rightborder1px bottomborder1px">&nbsp;单位</div>
+            <div style="width:7%;float:left;" class="topborder1px rightborder1px bottomborder1px">&nbsp;&nbsp;数量</div>
+            <div style="width:7%;float:left;" class="topborder1px rightborder1px bottomborder1px">&nbsp;&nbsp;单价</div>
+            <div style="width:6%;float:left;" class="topborder1px rightborder1px bottomborder1px">&nbsp;&nbsp;金额</div>
+        </div>
+        <div id="details">
+            <div id="detail">
+                <div style="width:5%;float:left;" class="leftborder1px  rightborder1px bottomborder1px">&nbsp;&nbsp;&nbsp;&nbsp;$RowNo$</div>
+                <div style="width:25%;float:left;" class="rightborder1px bottomborder1px">&nbsp;$PartNo$</div>
+                <div style="width:20%;float:left;" class="rightborder1px bottomborder1px">&nbsp;$PartCname$</div>
+                <div style="width:22%;float:left;" class="rightborder1px bottomborder1px">&nbsp;$PartCls$</div>
+                <div style="width:5%;float:left;" class="rightborder1px bottomborder1px">&nbsp;$Uom$</div>
+                <div style="width:7%;float:left;" class="rightborder1px bottomborder1px">&nbsp;$Qty$</div>
+                <div style="width:7%;float:left;" class="rightborder1px bottomborder1px">&nbsp;$UnitPrice$</div>
+                <div style="width:6%;float:left;" class="rightborder1px bottomborder1px">&nbsp;$Price$</div>
+            </div>
+        </div>
+        <div id="sumdetails" style="font-size:10pt;padding-left:2mm;">
+            <div style="float:left;width:77.9%;height:8mm;" class="leftborder1px  rightborder1px bottomborder1px">合计:</div>
+            <div style="float:left;width:7.2%;height:8mm;" class="rightborder1px bottomborder1px">$TotalQty$</div>
+            <div style="float:left;width:7%;height:8mm;" class="rightborder1px bottomborder1px">&nbsp;</div>
+            <div style="float:left;width:6.1%;height:8mm;" class="rightborder1px bottomborder1px">$TotalPrice$</div>
+        </div>
+        <div id="comment" style="font-size:10pt;padding-left:2mm;">
+            <div style="float:left;width:98.4%;height:8mm;" class="leftborder1px rightborder1px bottomborder1px"><span>备注:$Comments$</span>&nbsp;</div>
+        </div>
+        <div id="footer">
+            <div id="footers">
+                <div style="float:left;width:25%;">
+                    部门负责人:
+                </div>
+                <div style="float:left;width:25%;">
+                    课题负责人:
+                </div>
+                <div style="float:left;width:25%;">
+                    验收人:
+                </div>
+                <div style="float:left;width:25%;">
+                    经办人:
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Hello_x0020_World">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Enterprise" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Hello_x0020_WorldResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAssemblePlanMissDetail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AssemblePlanMissDetails" type="tns:ArrayOfAssemblePlanMissDetail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAssemblePlanMissDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AssemblePlanMissDetail" nillable="true" type="tns:AssemblePlanMissDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AssemblePlanMissDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ENTERPRISE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SITE_NO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AREA_NO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DMS_NO" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MATERIAL_CHECK" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SEND_TIME" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAssemblePlanMissDetailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssemblePlanMissDetailResult" type="tns:InterfaceCallbackInf" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="InterfaceCallbackInf">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RESULT" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSGNO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MSG" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetReplacementRecord">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReplacementRecords" type="tns:ArrayOfReplacementRecord" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfReplacementRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ReplacementRecord" nillable="true" type="tns:ReplacementRecord" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ReplacementRecord">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ORDERNO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NEWPARTNO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OLDPARTNO" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OLDSUPPLIER" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NEWSUPPLIER" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OLDSTATION" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NEWSTATION" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OLDQTY" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="NEWQTY" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="REPLACETIME" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetReplacementRecordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReplacementRecordResult" type="tns:InterfaceCallbackInf" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Hello_x0020_WorldSoapIn">
+    <wsdl:part name="parameters" element="tns:Hello_x0020_World" />
+  </wsdl:message>
+  <wsdl:message name="Hello_x0020_WorldSoapOut">
+    <wsdl:part name="parameters" element="tns:Hello_x0020_WorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAssemblePlanMissDetailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssemblePlanMissDetail" />
+  </wsdl:message>
+  <wsdl:message name="GetAssemblePlanMissDetailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssemblePlanMissDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReplacementRecordSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReplacementRecord" />
+  </wsdl:message>
+  <wsdl:message name="GetReplacementRecordSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReplacementRecordResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LESWebService1Soap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Hello World接口测试</wsdl:documentation>
+      <wsdl:input name="Hello_x0020_World" message="tns:Hello_x0020_WorldSoapIn" />
+      <wsdl:output name="Hello_x0020_World" message="tns:Hello_x0020_WorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssemblePlanMissDetail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">总装计划缺件清单</wsdl:documentation>
+      <wsdl:input message="tns:GetAssemblePlanMissDetailSoapIn" />
+      <wsdl:output message="tns:GetAssemblePlanMissDetailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReplacementRecord">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">断点管理替换记录</wsdl:documentation>
+      <wsdl:input message="tns:GetReplacementRecordSoapIn" />
+      <wsdl:output message="tns:GetReplacementRecordSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LESWebService1Soap" type="tns:LESWebService1Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/Hello World" style="document" />
+      <wsdl:input name="Hello_x0020_World">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Hello_x0020_World">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssemblePlanMissDetail">
+      <soap:operation soapAction="http://tempuri.org/GetAssemblePlanMissDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReplacementRecord">
+      <soap:operation soapAction="http://tempuri.org/GetReplacementRecord" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LESWebService1Soap12" type="tns:LESWebService1Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/Hello World" style="document" />
+      <wsdl:input name="Hello_x0020_World">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Hello_x0020_World">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssemblePlanMissDetail">
+      <soap12:operation soapAction="http://tempuri.org/GetAssemblePlanMissDetail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReplacementRecord">
+      <soap12:operation soapAction="http://tempuri.org/GetReplacementRecord" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LESWebService1">
+    <wsdl:port name="LESWebService1Soap" binding="tns:LESWebService1Soap">
+      <soap:address location="http://172.17.81.126:8001/LESWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LESWebService1Soap12" binding="tns:LESWebService1Soap12">
+      <soap12:address location="http://172.17.81.126:8001/LESWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

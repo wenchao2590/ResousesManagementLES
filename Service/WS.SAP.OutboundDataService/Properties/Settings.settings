@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="WS.SAP.OutboundDataService.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="WS_SAP_OutboundDataService_SAPWSDL_ZLES002Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://omsapdev.foton.com.cn:8000/sap/bc/srt/rfc/sap/ZLES002?sap-client=900</Value>
+    </Setting>
+    <Setting Name="WS_SAP_OutboundDataService_SAPLACKMATERIALWSDL17_ZLES003Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://bidev.foton.com.cn:8000/sap/bc/srt/rfc/sap/ZLES003?sap-client=800</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

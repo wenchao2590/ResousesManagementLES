@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [sa_test]
+    WITH PASSWORD = N'zsdfuqxxggg1zpw|VogU8aesmsFT7_&#$!~<it^z,xk|XSi6', SID = 0xF8BA5B90AF81C3488F1D71F4A4966970, DEFAULT_LANGUAGE = [简体中文], CHECK_POLICY = OFF;
+

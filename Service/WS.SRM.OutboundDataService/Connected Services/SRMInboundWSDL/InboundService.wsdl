@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WL5G3N0:definitions xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:WL5G3N1="http://www.foton.com.cn/Inbound" name="InboundService" targetNamespace="http://www.foton.com.cn/Inbound" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/">
+  <WL5G3N0:types>
+    <xsd:schema xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.foton.com.cn/Inbound" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" elementFormDefault="qualified" targetNamespace="http://www.foton.com.cn/Inbound" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:element name="InboundService">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="list" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getInboundResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ExecuteResult" type="xsd:string" />
+            <xsd:element name="ErrorCode" type="xsd:string" />
+            <xsd:element name="MessageContent" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="InboundService">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:InboundService" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="getInboundResponse">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:getInboundResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="InboundService_ptt">
+    <WL5G3N0:operation name="InboundService">
+      <WL5G3N0:input message="WL5G3N1:InboundService" />
+      <WL5G3N0:output message="WL5G3N1:getInboundResponse" />
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="InboundService_ptt-binding" type="WL5G3N1:InboundService_ptt">
+    <WL5G3N2:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <WL5G3N0:operation name="InboundService">
+      <WL5G3N2:operation soapAction="InboundService" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="InboundService_ptt-bindingQSService">
+    <WL5G3N0:port name="InboundService_ptt-bindingQSPort" binding="WL5G3N1:InboundService_ptt-binding">
+      <WL5G3N2:address location="http://192.168.0.216:8888/esb/am/Inbound" />
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>

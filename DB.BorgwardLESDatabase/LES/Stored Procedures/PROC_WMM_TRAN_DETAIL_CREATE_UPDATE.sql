@@ -1,0 +1,110 @@
+﻿
+
+
+
+/********************************************************************/
+/*                                                                  */
+/*   Project Name:  LES System                         */
+/*   Program Name:  [PROC_WMM_TRAN_DETAIL_CREATE_UPDATE]             */
+/*   Called By:     by the Page							*/
+/*   Purpose:       This is the main stored procedure for the       */
+/*   author:       andy	2015-06-09     				       */
+/********************************************************************/
+CREATE PROCEDURE [LES].[PROC_WMM_TRAN_DETAIL_CREATE_UPDATE]
+ 
+AS
+
+BEGIN
+
+INSERT INTO [LES].[TT_WMM_TRAN_DETAIL]
+	(
+	[TRAN_ID]
+	,[TRAN_NO]
+	,[PART_NO]
+	,[PART_CNAME]
+	,[BOX_NUM]
+	,[NUM]
+	,[S_DLOC]
+	,[D_DLOC]
+	,PACKAGE
+	,PACKAGE_MODEL
+	,[COMMENTS]
+	,[CREATE_USER]
+	,[CREATE_DATE]
+	,[UPDATE_USER]
+	,[UPDATE_DATE]
+	)
+	SELECT 
+		TT.[TRAN_ID]
+	    ,TT.[TRAN_NO]
+        ,TE.[PART_NO]
+        ,TM.[PART_CNAME]
+        ,TE.[BOX_NUM]
+        ,TE.[NUM]
+        ,TM.[DLOC]
+        ,ST.[DLOC]
+		,TM.PACKAGE
+		,TM.PACKAGE_MODEL
+		,TE.[COMMENTS]
+        ,TE.[CREATE_USER]
+        ,TE.[CREATE_DATE]
+        ,TE.[UPDATE_USER]
+        ,TE.[UPDATE_DATE]
+	FROM 
+		[LES].[TE_WMM_TRAN_DETAIL_TEMP] TE 
+		JOIN [LES].[TT_WMM_TRAN_HEAD] TT ON TE.VALID_FLAG = 1 AND (TT.TRAN_STATUS = 0 OR TT.TRAN_STATUS IS NULL) AND TE.TRAN_NO = TT.TRAN_NO
+		JOIN (SELECT t1.PART_NO, t1.PART_CNAME, t1.PLANT, t1.WM_NO, t1.ZONE_NO, t1.DLOC, t1.PACKAGE, t1.PACKAGE_MODEL FROM [LES].[TM_BAS_PARTS_STOCK] t1) TM ON TE.PART_NO = TM.PART_NO AND TT.PLANT=TM.PLANT AND TT.S_WM_NO = TM.WM_NO AND TT.S_ZONE_NO = TM.ZONE_NO 
+		JOIN (SELECT t1.PART_NO, t1.PART_CNAME, t1.PLANT, t1.WM_NO, t1.ZONE_NO, t1.DLOC FROM [LES].[TM_BAS_PARTS_STOCK] t1) ST ON TE.PART_NO = ST.PART_NO AND TT.PLANT=ST.PLANT AND TT.O_WM_NO = ST.WM_NO AND TT.O_ZONE_NO = ST.ZONE_NO 
+	WHERE 
+		(SELECT Count(*) FROM [LES].[TT_WMM_TRAN_DETAIL] t where t.TRAN_ID = TT.TRAN_ID and t.PART_NO = TE.PART_NO) = 0
+
+UPDATE 
+	[LES].[TT_WMM_TRAN_DETAIL]
+SET
+    [BOX_NUM] = TE.[BOX_NUM]
+    ,[NUM] = TE.[NUM]
+    ,[COMMENTS] = TT.[COMMENTS]
+    ,[UPDATE_USER] = TE.[CREATE_USER]
+    ,[UPDATE_DATE] =TE.[CREATE_DATE]
+FROM 
+	[LES].[TE_WMM_TRAN_DETAIL_TEMP] TE 
+	JOIN [LES].[TT_WMM_TRAN_HEAD] TT ON TE.VALID_FLAG = 1 AND (TT.TRAN_STATUS = 0 OR TT.TRAN_STATUS IS NULL) AND TE.TRAN_NO = TT.TRAN_NO
+	JOIN [LES].[TT_WMM_TRAN_DETAIL] DE ON TT.TRAN_ID = DE.TRAN_ID AND TE.PART_NO = DE.PART_NO
+
+DELETE FROM 
+	[LES].[TT_WMM_TRAN_DETAIL] 
+WHERE 
+	TRAN_DETAIL_ID IN (
+		Select 
+			T2.TRAN_DETAIL_ID 
+		from
+			(
+				SELECT 
+					TT.TRAN_ID, TE.PART_NO,TT.TRAN_NO 
+				FROM
+					[LES].[TT_WMM_TRAN_HEAD] TT JOIN [LES].[TE_WMM_TRAN_DETAIL_TEMP] TE 
+				ON 
+					TE.VALID_FLAG = 1 
+					AND TE.TRAN_NO = TT.TRAN_NO
+					AND (TT.TRAN_STATUS = 0 OR TT.TRAN_STATUS IS NULL)
+			) T1
+			RIGHT JOIN
+			(
+				SELECT 
+					TT.TRAN_ID, DE.PART_NO, DE.TRAN_DETAIL_ID, TT.TRAN_NO 
+				FROM 
+					[LES].[TT_WMM_TRAN_DETAIL] DE,
+					[LES].[TT_WMM_TRAN_HEAD] TT,
+					[LES].[TE_WMM_TRAN_DETAIL_TEMP] TE 
+				WHERE 
+					TT.TRAN_ID = DE.TRAN_ID
+					AND TE.TRAN_NO = TT.TRAN_NO
+					AND (TT.TRAN_STATUS = 0 OR TT.TRAN_STATUS IS NULL)
+			) T2
+			ON 
+				T1.TRAN_ID = T2.TRAN_ID
+				AND T1.PART_NO = T2.PART_NO
+		WHERE 
+			T1.PART_NO IS NULL
+	)
+END

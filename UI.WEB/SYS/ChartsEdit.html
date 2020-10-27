@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../Js/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../Js/themes/icon.css" />
+    <script type="text/javascript" src="../JS/jquery.min.js"></script>
+    <script type="text/javascript" src="../JS/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../JS/common/common.helper.js"></script>
+
+    <meta charset="utf-8" />
+    <style>
+        .ContainerDiv {
+            margin-left: 20px;
+            margin-bottom: 10px;
+            float: left;
+            width: 40%;
+        }
+
+        .SaveButton {
+            margin-left: 20px;
+            margin-bottom: 10px;
+            float: left;
+            margin-top: 50px;
+        }
+    </style>
+    <script type="text/javascript">
+        //acceptObj:接收对象控件ID
+        //tId:按钮ID
+        //DISPLAY_NAME_CN:字段描述
+        //CONTROL_TYPE:控件类型
+        //REGEX:验证类型
+        //tColType:字段类型
+        //EDIT_DISPLAY_WIDTH:宽
+        //tHeight:高    []
+        //Menu&idField=FID&textField=MENU_NAME
+        //var configJson = {
+        //    "entityName": "Menu",
+        //    "sortName": "fid",
+        //    "sortOrder": "desc",
+        //    "idField": "Fid",
+        //    "filter": "FILTER",
+        //    "textField": "MenuName",
+        //    "columns": "{ field: 'Fid', title: 'FID' }, { field: 'MenuName', title: 'Code'}, { field: 'DisplayOrder', title: 'display_order' }"
+        //};
+        // var configcomGridStr = "sql:对象名:Menu,排序名:Fid,排序方式:desc,绑定字段:Fid,显示字段:MenuName,条件:1=1,列:Fid-FID|MenuName-菜单名|DisplayOrder-显示|LinkUrl-链接名称";
+
+        var configcombox = "sql:Menu,Fid,MenuName,AN";//paramValue,命名空间名:AN
+        var configcomGridStr = "sql:对象名:Menu,绑定字段:Fid,显示字段:MenuName,列:MenuName-菜单名,命名空间名:AN";
+        var configcomTreeStr = "sql:Menu,Fid,ParentMenuFid,MenuNameCn,Fid,AN";//对象名。子ID，父ID，显示名，值名称,AN:对应BLL命名空间名 如 BLL.SYS
+        var configcomGridStr2 = "sql:对象名:Menu,绑定字段:Fid,显示字段:MenuName,列:MenuName-菜单名,命名空间名:AN";
+
+        var  Str1 = "sql:对象名:Menu,绑定字段:Fid,显示字段:MenuName,列:MenuName-菜单名,关联对象:null,关联条件:null,关联组名:k";
+        var Str2 = "sql:对象名:Action,绑定字段:Fid,显示字段:ActionName,列:ActionName-动作名,关联对象:Menu,关联条件:Fid,关联组名:k";
+        var Str3 = "sql:对象名:Entity,绑定字段:Fid,显示字段:EntityName,列:EntityName-实体名,关联对象:Action,关联条件:Fid，关联组名:k,最终子集:true";
+
+        var corJsonData = [
+         { "FieldName": "NAME", "DisplayNameCn": "图表名称", "ControlType": "text", "Regex": "notnull", "EditDisplayWidth": "420", "Editable": "true", "Extend3": configcomGridStr, "DefaultValue": "9d624d14-4ae5-47af-bf20-deb9d8096e7a" },
+         { "FieldName": "NAME_EN", "DisplayNameCn": "英文名称", "ControlType": "text", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": configcomTreeStr, "DefaultValue": "9d624d14-4ae5-47af-bf20-deb9d8096e7a" },
+         { "FieldName": "RECEIVER_LAYER", "DisplayNameCn": "接收层id", "ControlType": "text", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": configcomGridStr2, "DefaultValue": "" },
+         { "FieldName": "IS_AUTH", "DisplayNameCn": "是否授权", "ControlType": "Text", "Regex": "int", "EditDisplayWidth": "120", "Editable": "true", "Extend1": "CodeName", "Extend3": configcomBox, "DefaultValue": "" },
+
+
+
+         { "FieldName": "CHART_TYPE", "DisplayNameCn": "图表类型", "ControlType": "Linkcombogrid", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": Str1, "DefaultValue": "" },
+         { "FieldName": "MIX_CONDITION", "DisplayNameCn": "混合条件", "ControlType": "Linkcombogrid", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": Str2, "DefaultValue": "" },
+         { "FieldName": "CHART_LABEL_NAME", "DisplayNameCn": "标签名称", "ControlType": "Linkcombogrid", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3":Str3, "DefaultValue": "" },
+
+
+
+
+         { "FieldName": "CHART_STYLE", "DisplayNameCn": "图表样式", "ControlType": "Text", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+         { "FieldName": "TIP_FORMAT", "DisplayNameCn": "类型格式", "ControlType": "Text", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+         { "FieldName": "CHART_WIDTH", "DisplayNameCn": "图表宽度", "ControlType": "Text", "Regex": "int", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+         { "FieldName": "CHART_HIGHT", "DisplayNameCn": "图表高度", "ControlType": "Text", "Regex": "int", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+         { "FieldName": "CHART_COLUMN_NAME", "DisplayNameCn": "横坐标名", "ControlType": "Text", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+         { "FieldName": "CHART_ROW_NAME", "DisplayNameCn": "纵坐标名", "ControlType": "Text", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+         { "FieldName": "SQL_STRING", "DisplayNameCn": "数据SQL", "ControlType": "Text", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+         { "FieldName": "CHART_OTHER_FORMAT", "DisplayNameCn": "其他样式", "ControlType": "Text", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+         { "FieldName": "REMARK", "DisplayNameCn": "其他备注", "ControlType": "Text", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" }
+        ];
+        var processUrl = "../HANDLER/MainHandler.ashx";
+        var medthodName = "TS_SYS_CHART";
+        //默认保存方法
+        function save(operationType) {
+            defalutSave(processUrl, operationType + "-" + medthodName);
+        }
+        //数据处理结果方法
+        function alertResult(result) {
+            alert(result);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        ///////////////////////////////////////////////////////////////
+       
+        var data = [{ "PlantCode": "1200", "WorkShopCode": "1200-ZP03", "plCode": "12CI" },
+                          { "PlantCode": "1200", "WorkShopCode": "1200-ZP03", "plCode": "" }];
+        //{ "PlantCode": "1201", "WorkShopCode": "1221", "plCode": "" };
+
+        function getSql() {
+            var pcMap = new Map();
+            var wcMap = new Map();
+            for (var i = 0; i < data.length; i++) {
+                var pc = data[i].PlantCode;
+                var wc = data[i].WorkShopCode;
+                var plc = data[i].plCode;
+                if (pcMap.get(pc) == undefined) {
+
+                    pcMap.put(pc, "'" + wc + "'");
+                } else {
+                    var wcItem = pcMap.get(pc);
+                    pcMap.put(pc, wcItem + "," + "'" + wc + "'");
+                }
+                if (plc != "") { plc = "," + "'" + plc + "'"; }
+                if (wcMap.get(wc) == undefined) {
+                    wcMap.put(wc, plc);
+                } else {
+
+                    var plcItem = wcMap.get(wc);
+                    wcMap.put(wc, plcItem + plc);
+
+                }
+
+
+            }
+            var sql = "";
+
+            for (var j = 0; j < pcMap.key.length; j++) {
+                var key = pcMap.key[j];
+                var t = " AND ";
+                var w = "";
+                if (j != 0) {
+                    t = " OR (";
+                }
+                var wcCount = pcMap.get(key).split(",");
+
+                sql += t + " PLANT_CODE in ('" + key + "') ";
+                if (wcCount.length > 1) {
+                    sql = sql.replace(" AND ", " AND( ").replace(" OR ", " OR( ");
+                }
+                var sql2 = "";
+                for (var u = 0; u < wcCount.length; u++) {
+                    var key2 = wcCount[u].replace(/'/g, "");
+                    var t2 = "AND(";
+                    if (u > 0) {
+                        t2 = "OR(";
+                    }
+
+
+                    sql2 += t2 + "  WORK_SHOP_CODE IN ('" + key2 + "') "
+                    var val = wcMap.get(key2);
+                    if (val != "") {
+                        sql2 += " AND PROD_LINE_CODE IN(" + val + ")) ";
+                    }
+
+                }
+                sql += sql2 + ")";
+
+            }
+
+
+
+            document.getElementById("result").innerHTML = sql.replace(/OROR/g, "OR");
+        }
+    </script>
+</head>
+<body onload="setControlToPage(corJsonData, 'BODY',null)" style="">
+    <h3>图表配置信息</h3>
+
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>报表配置</title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="../Js/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../Js/themes/icon.css" />
+    <script type="text/javascript" src="../JS/jquery.min.js"></script>
+    <script type="text/javascript" src="../JS/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../JS/common/common.helper.js"></script>
+    <style>
+        .ContainerDiv {
+            margin-left: 20px;
+            margin-bottom: 10px;
+            float: left;
+            width: 40%;
+        }
+
+        .SaveButton {
+            margin-left: 20px;
+            margin-bottom: 10px;
+            float: left;
+            margin-top: 50px;
+        }
+    </style>
+    <script type="text/javascript">
+        var corJsonData = [
+        { "bindName": "NAME", "tText": "报表名称", "tType": "Text", "tVerifyType": "notnull", "tWidth": "120", "tHeight": "20", "isdisplay": "true" },
+        { "bindName": "NAME_EN", "tText": "英文名称", "tType": "Text", "tVerifyType": "notnull", "tWidth": "120", "tHeight": "20", "isdisplay": "true" },
+        { "bindName": "IS_AUTH", "tText": "是否授权", "tType": "Text", "tVerifyType": "len==2&int", "tWidth": "120", "tHeight": "20", "isdisplay": "true" },
+        { "bindName": "REPORT_TYPE", "tText": "报表类型", "tType": "Text", "tVerifyType": "notnull", "tWidth": "120", "tHeight": "20", "isdisplay": "true" },
+        { "bindName": "SQL_STRING", "tText": "查询语句", "tType": "Text", "tVerifyType": "notnull", "tWidth": "120", "tHeight": "20", "isdisplay": "true" },
+        { "bindName": "REMARK", "tText": "其他备注", "tType": "Text", "tVerifyType": "notnull", "tWidth": "120", "tHeight": "20", "isdisplay": "true" },
+        { "bindName": "PLANT", "tText": "所在厂区", "tType": "Text", "tVerifyType": "notnull", "tWidth": "120", "tHeight": "20", "isdisplay": "true" },
+        { "bindName": "SORT_FIELD", "tText": "排序字段", "tType": "Text", "tVerifyType": "int", "tWidth": "120", "tHeight": "20", "isdisplay": "true" },
+        { "bindName": "KEY_FIELD", "tText": "关键字段", "tType": "Text", "tVerifyType": "notnull", "tWidth": "120", "tHeight": "20", "isdisplay": "true" }
+      ];
+        var processUrl = "../HANDLER/MainHandler.ashx";
+        var medthodName = "TS_SYS_REPORT";
+        //默认保存方法
+        function save(operationType) {
+            defalutSave(processUrl, operationType + "-" + medthodName);
+        }
+        //数据处理结果方法
+        function alertResult(result) {
+            alert(result);
+        }
+    </script>
+
+</head>
+<body onload="setControlToPage(corJsonData, 'BODY', null)">
+
+</body>
+</html>

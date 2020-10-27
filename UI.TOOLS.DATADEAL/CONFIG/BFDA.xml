@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Entitys>
+  <!--物料拉动-看板拉动-->
+  <Entity Name="KanbanPartBox" TableName="TM_MPM_KANBAN_PART_BOX" Schema="LES" MenuFlag="true" PathName="物料拉动-看板-零件类" DbCreateType="10"></Entity>
+  <Entity Name="KanbanCard" TableName="TM_MPM_KANBAN_CARD" Schema="LES" MenuFlag="true" PathName="物料拉动-看板-看板卡" DbCreateType="10"></Entity>
+  <Entity Name="KanbanPullOrder" TableName="TT_MPM_KANBAN_PULL_ORDER" Schema="LES" MenuFlag="true" PathName="物料拉动-看板-拉动单" DbCreateType="10"></Entity>
+  <Entity Name="KanbanPullOrderDetail" TableName="TT_MPM_KANBAN_PULL_ORDER_DETAIL" Schema="LES" MenuFlag="false" PathName="物料拉动-看板-拉动单" DbCreateType="10"></Entity>
+  <Entity Name="KanbanPullOrderDetailPage" TableName="" Schema="" MenuFlag="true" PathName="物料拉动-看板-拉动单明细" DbCreateType="10"></Entity>
+  <!--物料拉动-计划拉动-->
+  <Entity Name="PlanPartBox" TableName="TM_MPM_PLAN_PART_BOX" Schema="LES" MenuFlag="true" PathName="物料拉动-计划-零件类" DbCreateType="10"></Entity>
+  <Entity Name="PlanWindowTime" TableName="TT_MPM_PLAN_WINDOW_TIME" Schema="LES" MenuFlag="true" PathName="物料拉动-计划-窗口时间" DbCreateType="10"></Entity>
+  <Entity Name="PlanPullOrder" TableName="TT_MPM_PLAN_PULL_ORDER" Schema="LES" MenuFlag="true" PathName="物料拉动-计划-拉动单" DbCreateType="10"></Entity>
+  <Entity Name="PlanPullOrderDetail" TableName="TT_MPM_PLAN_PULL_ORDER_DETAIL" Schema="LES" MenuFlag="false" PathName="物料拉动-计划-拉动单" DbCreateType="10"></Entity>
+  <Entity Name="PlanPullOrderDetailPage" TableName="" Schema="" MenuFlag="true" PathName="物料拉动-计划-拉动单明细" DbCreateType="10"></Entity>
+  <!--物料拉动-时间窗拉动-->
+  <Entity Name="TwdPartBox" TableName="TM_MPM_TWD_PART_BOX" Schema="LES" MenuFlag="true" PathName="物料拉动-时间窗-零件类" DbCreateType="10"></Entity>
+  <Entity Name="TwdWindowTime" TableName="TT_MPM_TWD_WINDOW_TIME" Schema="LES" MenuFlag="true" PathName="物料拉动-时间窗-窗口时间" DbCreateType="10"></Entity>
+  <Entity Name="TwdCounter" TableName="TT_MPM_TWD_COUNTER" Schema="LES" MenuFlag="true" PathName="物料拉动-时间窗-计数器" DbCreateType="10"></Entity>
+  <Entity Name="TwdCounterUpdate" TableName="" Schema="" MenuFlag="false" PathName="物料拉动-时间窗-计数器" DbCreateType="10"></Entity>
+  <Entity Name="TwdCounterLogPage" TableName="" Schema="" MenuFlag="false" PathName="物料拉动-时间窗-计数器" DbCreateType="10"></Entity>
+  <Entity Name="TwdCounterLog" TableName="TT_MPM_TWD_COUNTER_LOG" Schema="LES" MenuFlag="true" PathName="物料拉动-时间窗-计数器日志" DbCreateType="10"></Entity>
+  <Entity Name="TwdPullOrder" TableName="TT_MPM_TWD_PULL_ORDER" Schema="LES" MenuFlag="true" PathName="物料拉动-时间窗-拉动单" DbCreateType="10"></Entity>
+  <Entity Name="TwdPullOrderDetailPage" TableName="" Schema="" MenuFlag="false" PathName="物料拉动-时间窗-拉动单" DbCreateType="10"></Entity>
+  <Entity Name="TwdPullOrderDetail" TableName="TT_MPM_TWD_PULL_ORDER_DETAIL" Schema="LES" MenuFlag="true" PathName="物料拉动-时间窗-拉动单明细" DbCreateType="10"></Entity>
+  <Entity Name="PcsPullOrder" TableName="TT_MPM_PCS_PULL_ORDER" Schema="LES" MenuFlag="true" PathName="物料拉动-整包消耗-拉动单" DbCreateType="10"></Entity>
+  <Entity Name="PcsPullOrderDetailPage" TableName="" Schema="" MenuFlag="false" PathName="物料拉动-整包消耗-拉动单" DbCreateType="10"></Entity>
+  <Entity Name="PcsPullOrderDetail" TableName="TT_MPM_PCS_PULL_ORDER_DETAIL" Schema="LES" MenuFlag="true" PathName="物料拉动-整包消耗-拉动单明细" DbCreateType="10"></Entity>
+  <!--物料拉动-排序拉动-->
+  <Entity Name="JisPartBox" TableName="TM_MPM_JIS_PART_BOX" Schema="LES" MenuFlag="true" PathName="物料拉动-排序-零件类" DbCreateType="10"></Entity>
+  <Entity Name="JisCounter" TableName="TT_MPM_JIS_COUNTER" Schema="LES" MenuFlag="true" PathName="物料拉动-排序-计数器" DbCreateType="10"></Entity>
+  <Entity Name="JisCounterLogPage" TableName="" Schema="" MenuFlag="false" PathName="物料拉动-排序-计数器" DbCreateType="10"></Entity>
+  <Entity Name="JisCounterLog" TableName="TT_MPM_JIS_COUNTER_LOG" Schema="LES" MenuFlag="true" PathName="物料拉动-排序-计数器日志" DbCreateType="10"></Entity>
+  <Entity Name="JisPullOrder" TableName="TT_MPM_JIS_PULL_ORDER" Schema="LES" MenuFlag="true" PathName="物料拉动-排序-拉动单" DbCreateType="10"></Entity>
+  <Entity Name="JisPullOrderDetailPage" TableName="" Schema="" MenuFlag="false" PathName="物料拉动-排序-拉动单" DbCreateType="10"></Entity>
+  <Entity Name="JisPullOrderDetail" TableName="TT_MPM_JIS_PULL_ORDER_DETAIL" Schema="LES" MenuFlag="true" PathName="物料拉动-排序-拉动单明细" DbCreateType="10"></Entity>
+  <Entity Name="SpsPullOrder" TableName="TT_MPM_SPS_PULL_ORDER" Schema="LES" MenuFlag="true" PathName="物料拉动-成套-拉动单" DbCreateType="10"></Entity>
+  <Entity Name="SpsPullOrderDetailPage" TableName="" Schema="" MenuFlag="false" PathName="物料拉动-成套-拉动单" DbCreateType="10"></Entity>
+  <Entity Name="SpsPullOrderDetail" TableName="TT_MPM_SPS_PULL_ORDER_DETAIL" Schema="LES" MenuFlag="true" PathName="物料拉动-成套-拉动单明细" DbCreateType="10"></Entity>
+  <!--物料拉动-采购订单-->
+  <Entity Name="SapPurchaseOrder" TableName="TT_MPM_SAP_PURCHASE_ORDER" Schema="LES" MenuFlag="true" PathName="物料拉动-采购订单" DbCreateType="10"></Entity>
+  <Entity Name="SapPurchaseOrderDetailPage" TableName="" Schema="" MenuFlag="false" PathName="物料拉动-采购订单" DbCreateType="10"></Entity>
+  <Entity Name="SapPurchaseOrderDetail" TableName="TT_MPM_SAP_PURCHASE_ORDER_DETAIL" Schema="LES" MenuFlag="true" PathName="物料拉动-采购订单明细" DbCreateType="10"></Entity>
+  <!--物料可用性检查-->
+  <Entity Name="SupplyPlan" TableName="TT_ATP_SUPPLY_PLAN" Schema="LES" MenuFlag="true" PathName="物料可用性检查-供货计划" DbCreateType="10"></Entity>
+  <Entity Name="SrmSupplyPlan" TableName="TI_IFM_SRM_SUPPLY_PLAN" Schema="LES" MenuFlag="false" PathName="物料可用性检查-供货计划" DbCreateType="10"></Entity>
+  <Entity Name="PullOrders" TableName="TT_BAS_PULL_ORDERS" Schema="LES" MenuFlag="true" PathName="物料可用性检查-生产订单" DbCreateType="10"></Entity>
+  <Entity Name="PullOrderBom" TableName="" Schema="" MenuFlag="false" PathName="物料可用性检查-生产订单" DbCreateType="10"></Entity>
+  <Entity Name="PullOrderBomPage" TableName="TT_BAS_PULL_ORDER_BOM" Schema="LES" MenuFlag="false" PathName="物料可用性检查-生产订单-物料清单" DbCreateType="10"></Entity>
+  <Entity Name="LackOfInspection" TableName="" Schema="" MenuFlag="true" PathName="物料可用性检查-缺件检查-供货计划" DbCreateType="10"></Entity>
+  <Entity Name="LackOfMaterial" TableName="TT_ATP_LACK_OF_MATERIAL" Schema="LES" MenuFlag="true" PathName="物料可用性检查-缺件表" DbCreateType="10"></Entity>
+  <Entity Name="LackOfMaterialDetail" TableName="TT_ATP_LACK_OF_MATERIAL_DETAIL" Schema="LES" MenuFlag="false" PathName="物料可用性检查-缺件表" DbCreateType="10"></Entity>
+  <Entity Name="PorderLackMaterialDetail" TableName="TT_ATP_PORDER_LACK_MATERIAL" Schema="LES" MenuFlag="false" PathName="物料可用性检查-缺件表" DbCreateType="10"></Entity>
+  <Entity Name="PorderLackMaterialDetail" TableName="TT_ATP_PORDER_LACK_MATERIAL_DETAIL" Schema="LES" MenuFlag="false" PathName="物料可用性检查-缺件表" DbCreateType="10"></Entity>
+  <Entity Name="MesVehiclePointScan" TableName="TI_IFM_MES_VEHICLE_POINT_SCAN" Schema="LES" MenuFlag="true" PathName="物料可用性检查-过点信息" DbCreateType="10"></Entity>
+  <!--仓库管理-->
+  <Entity Name="Receive" TableName="TT_WMM_RECEIVE" Schema="LES" MenuFlag="true" PathName="仓库管理-入库单" DbCreateType="10"></Entity>
+  <Entity Name="ReceiveDetail" TableName="TT_WMM_RECEIVE_DETAIL" Schema="LES" MenuFlag="false" PathName="仓库管理-入库单" DbCreateType="10"></Entity>
+  <Entity Name="Output" TableName="TT_WMM_OUTPUT" Schema="LES" MenuFlag="true" PathName="仓库管理-出库单" DbCreateType="10"></Entity>
+  <Entity Name="OutputDetail" TableName="TT_WMM_OUTPUT_DETAIL" Schema="LES" MenuFlag="false" PathName="仓库管理-出库单" DbCreateType="10"></Entity>
+  <Entity Name="TranDetails" TableName="TT_WMM_TRAN_DETAILS" Schema="LES" MenuFlag="true" PathName="仓库管理-库存交易" DbCreateType="10"></Entity>
+  <Entity Name="Stocks" TableName="TT_WMM_STOCKS" Schema="LES" MenuFlag="true" PathName="仓库管理-物料库存" DbCreateType="10"></Entity>
+  <Entity Name="Barcode" TableName="TT_WMM_BARCODE" Schema="LES" MenuFlag="true" PathName="仓库管理-标签" DbCreateType="10"></Entity>
+  <Entity Name="Barcode" TableName="TT_WMM_BARCODE_STATUS" Schema="LES" MenuFlag="false" PathName="仓库管理-标签" DbCreateType="10"></Entity>
+  <Entity Name="InventoryNoticeOrder" TableName="TT_WMM_INVENTORY_NOTICE_ORDER" Schema="LES" MenuFlag="true" PathName="仓库管理-物料盘点" DbCreateType="10"></Entity>
+  <Entity Name="InventoryOrderPart" TableName="TT_WMM_INVENTORY_ORDER_PART" Schema="LES" MenuFlag="false" PathName="仓库管理-物料盘点" DbCreateType="10"></Entity>
+  <Entity Name="InventoryOrderPartPage" TableName="" Schema="" MenuFlag="true" PathName="仓库管理-盘点差异分析" DbCreateType="10"></Entity>
+  <!--包装器具-->
+  <Entity Name="PackageInbound" TableName="TT_PCM_PACKAGE_INBOUND" Schema="LES" MenuFlag="true" PathName="包装器具-空包装器具入库" DbCreateType="10"></Entity>
+  <Entity Name="PackageInboundDetail" TableName="TT_PCM_PACKAGE_INBOUND_DETAIL" Schema="LES" MenuFlag="false" PathName="包装器具-空包装器具入库" DbCreateType="10"></Entity>
+  <Entity Name="PackageBarcode" TableName="TT_PCM_PACKAGE_BARCODE" Schema="LES" MenuFlag="true" PathName="包装器具-空包装器具组托" DbCreateType="10"></Entity>
+  <Entity Name="PackageBarcodeDetail" TableName="TT_PCM_PACKAGE_BARCODE_DETAIL" Schema="LES" MenuFlag="false" PathName="包装器具-空包装器具组托" DbCreateType="10"></Entity>
+  <Entity Name="PackageOutbound" TableName="TT_PCM_PACKAGE_OUTBOUND" Schema="LES" MenuFlag="true" PathName="包装器具-空包装器具出库" DbCreateType="10"></Entity>
+  <Entity Name="PackageOutboundDetail" TableName="TT_PCM_PACKAGE_OUTBOUND_DETAIL" Schema="LES" MenuFlag="false" PathName="包装器具-空包装器具出库" DbCreateType="10"></Entity>
+  <Entity Name="PackageTranDetail" TableName="TT_PCM_PACKAGE_TRAN_DETAIL" Schema="LES" MenuFlag="true" PathName="包装器具-包装器具交易记录" DbCreateType="10"></Entity>
+  <Entity Name="PackageStocks" TableName="TT_PCM_PACKAGE_STOCKS" Schema="LES" MenuFlag="true" PathName="包装器具-空包装器具库存" DbCreateType="10"></Entity>
+  <!--第三方物流-->
+  <Entity Name="VmiReceive" TableName="TT_WMM_VMI_RECEIVE" Schema="LES" MenuFlag="true" PathName="第三方物流-入库单" DbCreateType="10"></Entity>
+  <Entity Name="VmiReceiveDetail" TableName="TT_WMM_VMI_RECEIVE_DETAIL" Schema="LES" MenuFlag="false" PathName="第三方物流-入库单" DbCreateType="10"></Entity>
+  <Entity Name="VmiPullOrder" TableName="TT_MPM_VMI_PULL_ORDER" Schema="LES" MenuFlag="true" PathName="第三方物流-拉动单" DbCreateType="10"></Entity>
+  <Entity Name="VmiPullOrderDetail" TableName="TT_MPM_VMI_PULL_ORDER_DETAIL" Schema="LES" MenuFlag="false" PathName="第三方物流-拉动单" DbCreateType="10"></Entity>
+  <Entity Name="VmiPullOrderDetailPage" TableName="" Schema="" MenuFlag="true" PathName="第三方物流-预发货" DbCreateType="10"></Entity>
+  <Entity Name="VmiShippingPart" TableName="TE_MPM_VMI_SHIPPING_PART" Schema="LES" MenuFlag="true" PathName="第三方物流-发货" DbCreateType="10"></Entity>
+  <Entity Name="VmiOutput" TableName="TT_WMM_VMI_OUTPUT" Schema="LES" MenuFlag="true" PathName="第三方物流-出库单" DbCreateType="10"></Entity>
+  <Entity Name="VmiOutputDetail" TableName="TT_WMM_VMI_OUTPUT_DETAIL" Schema="LES" MenuFlag="false" PathName="第三方物流-出库单" DbCreateType="10"></Entity>
+  <!--日志中心-->
+  <Entity Name="SapInboundLog" TableName="TI_IFM_SAP_INBOUND_LOG" Schema="LES" MenuFlag="true" PathName="日志中心-SAP-接收" DbCreateType="10"></Entity>
+  <Entity Name="SapOutboundLog" TableName="TI_IFM_SAP_OUTBOUND_LOG" Schema="LES" MenuFlag="true" PathName="日志中心-SAP-发送" DbCreateType="10"></Entity>
+  <Entity Name="SapOutboundDetailLog" TableName="TI_IFM_SAP_OUTBOUND_DETAIL_LOG" Schema="LES" MenuFlag="false" PathName="日志中心-SAP-发送" DbCreateType="10"></Entity>
+  <Entity Name="MesInboundLog" TableName="TI_IFM_MES_INBOUND_LOG" Schema="LES" MenuFlag="true" PathName="日志中心-MES-接收" DbCreateType="10"></Entity>
+  <Entity Name="MesOutboundLog" TableName="TI_IFM_MES_OUTBOUND_LOG" Schema="LES" MenuFlag="true" PathName="日志中心-MES-发送" DbCreateType="10"></Entity>
+  <Entity Name="MesOutboundDetailLog" TableName="TI_IFM_MES_OUTBOUND_DETAIL_LOG" Schema="LES" MenuFlag="false" PathName="日志中心-MES-发送" DbCreateType="10"></Entity>
+  <Entity Name="SrmInboundLog" TableName="TI_IFM_SRM_INBOUND_LOG" Schema="LES" MenuFlag="true" PathName="日志中心-SRM-接收" DbCreateType="10"></Entity>
+  <Entity Name="SrmOutboundLog" TableName="TI_IFM_SRM_OUTBOUND_LOG" Schema="LES" MenuFlag="true" PathName="日志中心-SRM-发送" DbCreateType="10"></Entity>
+  <Entity Name="SrmOutboundDetailLog" TableName="TI_IFM_SRM_OUTBOUND_DETAIL_LOG" Schema="LES" MenuFlag="false" PathName="日志中心-SRM-发送" DbCreateType="10"></Entity>
+  <Entity Name="VmiInboundLog" TableName="TI_IFM_VMI_INBOUND_LOG" Schema="LES" MenuFlag="true" PathName="日志中心-VMI-接收" DbCreateType="10"></Entity>
+  <Entity Name="VmiOutboundLog" TableName="TI_IFM_VMI_OUTBOUND_LOG" Schema="LES" MenuFlag="true" PathName="日志中心-VMI-发送" DbCreateType="10"></Entity>
+  <Entity Name="VmiOutboundDetailLog" TableName="TI_IFM_VMI_OUTBOUND_DETAIL_LOG" Schema="LES" MenuFlag="false" PathName="日志中心-VMI-发送" DbCreateType="10"></Entity>
+  <Entity Name="QmisInboundLog" TableName="TI_IFM_QMIS_INBOUND_LOG" Schema="LES" MenuFlag="true" PathName="日志中心-QMIS-接收" DbCreateType="10"></Entity>
+  <Entity Name="QmisOutboundLog" TableName="TI_IFM_QMIS_OUTBOUND_LOG" Schema="LES" MenuFlag="true" PathName="日志中心-QMIS-发送" DbCreateType="10"></Entity>
+  <Entity Name="QmisOutboundDetailLog" TableName="TI_IFM_QMIS_OUTBOUND_DETAIL_LOG" Schema="LES" MenuFlag="false" PathName="日志中心-QMIS-发送" DbCreateType="10"></Entity>
+  <Entity Name="OperationLog" TableName="TL_SYS_OPERATION_LOG" Schema="dbo" MenuFlag="true" PathName="日志中心-系统操作日志" DbCreateType="10"></Entity>
+  <!--接口数据-->
+  <Entity Name="SapTranOut" TableName="TI_IFM_SAP_TRAN_OUT" Schema="LES" MenuFlag="true" PathName="接口数据-SAP-发送" DbCreateType="10"></Entity>
+  <Entity Name="SapInventoryCheckPlan" TableName="TI_IFM_SAP_INVENTORY_CHECK_PLAN" Schema="LES" MenuFlag="true" PathName="接口数据-SAP-发送" DbCreateType="10"></Entity>
+  <Entity Name="SrmTranOut" TableName="TI_IFM_SRM_TRAN_OUT" Schema="LES" MenuFlag="true" PathName="接口数据-SRM-发送" DbCreateType="10"></Entity>
+  <Entity Name="WmsTranOut" TableName="TI_IFM_WMS_TRAN_OUT" Schema="LES" MenuFlag="true" PathName="接口数据-WMS-发送" DbCreateType="10"></Entity>
+  <!--断点管理-->
+  <Entity Name="BomRepleaceCondition" TableName="TT_BPM_BOM_REPLEACE_CONDITION" Schema="LES" MenuFlag="true" PathName="断点管理-物料替换条件" DbCreateType="10"></Entity>
+  <Entity Name="BomRepleaceConditionVehicle" TableName="TT_BPM_BOM_REPLEACE_CONDITION_VEHICLE" Schema="LES" MenuFlag="false" PathName="断点管理-物料替换条件" DbCreateType="10"></Entity>
+  <Entity Name="PorderBomRepleaceRecord" TableName="TT_BPM_PORDER_BOM_REPLEACE_RECORD" Schema="LES" MenuFlag="true" PathName="断点管理-替换记录" DbCreateType="10"></Entity>
+  <!--基础数据-->
+  <Entity Name="Plant" TableName="TM_BAS_PLANT" Schema="LES" MenuFlag="true" PathName="基础数据-工厂" DbCreateType="10"></Entity>
+  <Entity Name="Workshop" TableName="TM_BAS_WORKSHOP" Schema="LES" MenuFlag="true" PathName="基础数据-车间" DbCreateType="10"></Entity>
+  <Entity Name="AssemblyLine" TableName="TM_BAS_ASSEMBLY_LINE" Schema="LES" MenuFlag="true" PathName="基础数据-生产线" DbCreateType="10"></Entity>
+  <Entity Name="WorkshopSection" TableName="TM_BAS_WORKSHOP_SECTION" Schema="LES" MenuFlag="true" PathName="基础数据-工段" DbCreateType="10"></Entity>
+  <Entity Name="Location" TableName="TM_BAS_LOCATION" Schema="LES" MenuFlag="true" PathName="基础数据-工位" DbCreateType="10"></Entity>
+  <Entity Name="Warehouse" TableName="TM_BAS_WAREHOUSE" Schema="LES" MenuFlag="true" PathName="基础数据-仓库" DbCreateType="10"></Entity>
+  <Entity Name="Zones" TableName="TM_WMM_ZONES" Schema="LES" MenuFlag="true" PathName="基础数据-存储区" DbCreateType="10"></Entity>
+  <Entity Name="WarehouseLocation" TableName="TM_BAS_WAREHOUSE_LOCATION" Schema="LES" MenuFlag="true" PathName="基础数据-库位" DbCreateType="10"></Entity>
+  <Entity Name="Route" TableName="TM_BAS_ROUTE" Schema="LES" MenuFlag="true" PathName="基础数据-路径" DbCreateType="10"></Entity>
+  <Entity Name="WaitingArea" TableName="TM_BAS_WAITING_AREA" Schema="LES" MenuFlag="true" PathName="基础数据-等待区" DbCreateType="10"></Entity>
+  <Entity Name="Dock" TableName="TM_BAS_DOCK" Schema="LES" MenuFlag="true" PathName="基础数据-道口" DbCreateType="10"></Entity>
+  <Entity Name="Supplier" TableName="TM_BAS_SUPPLIER" Schema="LES" MenuFlag="true" PathName="基础数据-供应商" DbCreateType="10"></Entity>
+  <Entity Name="WorkSchedule" TableName="TM_BAS_WORK_SCHEDULE" Schema="LES" MenuFlag="true" PathName="基础数据-工作日历" DbCreateType="10"></Entity>
+  <Entity Name="MaintainParts" TableName="TM_BAS_MAINTAIN_PARTS" Schema="LES" MenuFlag="true" PathName="基础数据-物料信息" DbCreateType="10"></Entity>
+  <Entity Name="MaintainInhouseLogisticStandard" TableName="TM_BAS_MAINTAIN_INHOUSE_LOGISTIC_STANDARD" Schema="LES" MenuFlag="true" PathName="基础数据-物料拉动信息" DbCreateType="10"></Entity>
+  <Entity Name="MaintainInhouseLogisticStandard" TableName="V_ALL_PARTS_BOX" Schema="LES" MenuFlag="false" PathName="基础数据-物料拉动信息" DbCreateType="20"></Entity>
+  <Entity Name="PartsStock" TableName="TM_BAS_PARTS_STOCK" Schema="LES" MenuFlag="true" PathName="基础数据-物料仓储信息" DbCreateType="10"></Entity>
+  <Entity Name="SupplierPartQuota" TableName="TM_BAS_SUPPLIER_PART_QUOTA" Schema="LES" MenuFlag="true" PathName="基础数据-供应商物料包装" DbCreateType="10"></Entity>
+  <Entity Name="VmiSupplier" TableName="TM_BAS_VMI_SUPPLIER" Schema="LES" MenuFlag="true" PathName="基础数据-VMI供应商关系" DbCreateType="10"></Entity>
+  <Entity Name="PackageAppliance" TableName="TM_BAS_PACKAGE_APPLIANCE" Schema="LES" MenuFlag="true" PathName="基础数据-包装器具" DbCreateType="10"></Entity>
+  <Entity Name="PartInspectionMode" TableName="TM_BAS_PART_INSPECTION_MODE" Schema="LES" MenuFlag="true" PathName="基础数据-物料检验模式" DbCreateType="10"></Entity>
+  <Entity Name="ScanPoint" TableName="TM_BAS_SCAN_POINT" Schema="LES" MenuFlag="true" PathName="基础数据-扫描点" DbCreateType="10"></Entity>
+  <Entity Name="StatusPoint" TableName="TM_BAS_STATUS_POINT" Schema="LES" MenuFlag="true" PathName="基础数据-状态点" DbCreateType="10"></Entity>
+  <!--系统管理-->
+  <Entity Name="Menu" TableName="TS_SYS_MENU" Schema="dbo" MenuFlag="true" PathName="系统管理-菜单管理" DbCreateType="10"></Entity>
+  <Entity Name="MenuAction" TableName="TS_SYS_MENU_ACTION" Schema="dbo" MenuFlag="false" PathName="系统管理-菜单管理" DbCreateType="10"></Entity>
+  <Entity Name="Action" TableName="TS_SYS_ACTION" Schema="dbo" MenuFlag="true" PathName="系统管理-动作管理" DbCreateType="10"></Entity>
+  <Entity Name="User" TableName="TS_SYS_USER" Schema="dbo" MenuFlag="true" PathName="系统管理-用户管理" DbCreateType="10"></Entity>
+  <Entity Name="User" TableName="TS_SYS_USER_MOBILE" Schema="dbo" MenuFlag="false" PathName="系统管理-用户管理" DbCreateType="10"></Entity>
+  <Entity Name="User" TableName="TS_SYS_USER_FAVORITES" Schema="dbo" MenuFlag="false" PathName="系统管理-用户管理" DbCreateType="10"></Entity>
+  <Entity Name="UserRole" TableName="TS_SYS_USER_ROLE" Schema="dbo" MenuFlag="false" PathName="系统管理-用户管理" DbCreateType="10"></Entity>
+  <Entity Name="RangeAuth" TableName="TS_SYS_USER_ROLE_RANGE_AUTH" Schema="dbo" MenuFlag="false" PathName="系统管理-用户管理" DbCreateType="10"></Entity>
+  <Entity Name="Role" TableName="TS_SYS_ROLE" Schema="dbo" MenuFlag="true" PathName="系统管理-角色管理" DbCreateType="10"></Entity>
+  <Entity Name="RoleAuth" TableName="TS_SYS_ROLE_AUTH" Schema="dbo" MenuFlag="false" PathName="系统管理-角色管理" DbCreateType="10"></Entity>
+  <Entity Name="Code" TableName="TS_SYS_CODE" Schema="dbo" MenuFlag="true" PathName="系统管理-系统代码" DbCreateType="10"></Entity>
+  <Entity Name="CodeItem" TableName="TS_SYS_CODE_ITEM" Schema="dbo" MenuFlag="false" PathName="系统管理-系统代码" DbCreateType="10"></Entity>
+  <Entity Name="Entity" TableName="TS_SYS_ENTITY" Schema="dbo" MenuFlag="true" PathName="系统管理-数据模型" DbCreateType="10"></Entity>
+  <Entity Name="EntityField" TableName="TS_SYS_ENTITY_FIELD" Schema="dbo" MenuFlag="false" PathName="系统管理-数据模型" DbCreateType="10"></Entity>
+  <Entity Name="SearchModel" TableName="TS_SYS_SEARCH_MODEL" Schema="dbo" MenuFlag="true" PathName="系统管理-检索条件" DbCreateType="10"></Entity>
+  <Entity Name="SearchModelCondition" TableName="TS_SYS_SEARCH_MODEL_CONDITION" Schema="dbo" MenuFlag="false" PathName="系统管理-检索条件" DbCreateType="10"></Entity>
+  <Entity Name="SeqDefine" TableName="TS_SYS_SEQ_DEFINE" Schema="dbo" MenuFlag="true" PathName="系统管理-序列号管理" DbCreateType="10"></Entity>
+  <Entity Name="SeqSection" TableName="TS_SYS_SEQ_SECTION" Schema="dbo" MenuFlag="false" PathName="系统管理-序列号管理" DbCreateType="10"></Entity>
+  <Entity Name="SeqSection" TableName="TS_SYS_SEQ_CURRENT_VALUE" Schema="dbo" MenuFlag="false" PathName="系统管理-序列号管理" DbCreateType="10"></Entity>
+  <Entity Name="ProcessSchedule" TableName="TS_SYS_PROCESS_SCHEDULE" Schema="dbo" MenuFlag="true" PathName="系统管理-服务管理" DbCreateType="10"></Entity>
+  <Entity Name="Message" TableName="TS_SYS_MESSAGE" Schema="dbo" MenuFlag="true" PathName="系统管理-提示信息" DbCreateType="10"></Entity>
+  <Entity Name="Config" TableName="TS_SYS_CONFIG" Schema="dbo" MenuFlag="true" PathName="系统管理-系统配置" DbCreateType="10"></Entity>
+  <Entity Name="InterfaceConfig" TableName="TS_SYS_INTERFACE_CONFIG" Schema="dbo" MenuFlag="true" PathName="系统管理-接口配置" DbCreateType="10"></Entity>
+  <Entity Name="RangeAuthCondition" TableName="TS_SYS_RANGE_AUTH_CONDITION" Schema="dbo" MenuFlag="true" PathName="系统管理-权限条件" DbCreateType="10"></Entity>
+  <Entity Name="Organization" TableName="TS_SYS_ORGANIZATION" Schema="dbo" MenuFlag="true" PathName="系统管理-组织结构" DbCreateType="10"></Entity>
+  <Entity Name="Handler" TableName="TS_SYS_HANDLER" Schema="dbo" MenuFlag="true" PathName="系统管理-路由配置" DbCreateType="10"></Entity>
+  <Entity Name="PrintConfig" TableName="TS_SYS_PRINT_CONFIG" Schema="dbo" MenuFlag="true" PathName="系统管理-打印配置" DbCreateType="10"></Entity>
+  <Entity Name="PrintConfigUpload" TableName="" Schema="" MenuFlag="false" PathName="系统管理-打印配置" DbCreateType="10"></Entity>
+  <Entity Name="ImageResource" TableName="TS_SYS_IMAGE_RESOURCE" Schema="dbo" MenuFlag="true" PathName="系统管理-图片资源" DbCreateType="10"></Entity>
+</Entitys>

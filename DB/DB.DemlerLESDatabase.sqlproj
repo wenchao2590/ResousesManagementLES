@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>DB.DemlerLESDatabase</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{ba3f1786-539b-4426-9427-ff7a624d8765}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>DB</RootNamespace>
+    <AssemblyName>DB</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="LES\" />
+    <Folder Include="LES\Tables\" />
+    <Folder Include="GJS\" />
+    <Folder Include="GJS\Tables\" />
+    <Folder Include="LES\Views\" />
+    <Folder Include="Security\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="Assemblies\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\TT_SYS_USER_TOKEN.sql" />
+    <Build Include="dbo\Tables\TS_SYS_USER_ROLE_CONDITION.sql" />
+    <Build Include="dbo\Tables\TS_SYS_USER_ROLE.sql" />
+    <Build Include="dbo\Tables\TS_SYS_USER_FAVORITES.sql" />
+    <Build Include="dbo\Tables\TS_SYS_USER.sql" />
+    <Build Include="dbo\Tables\TS_SYS_SEQ_SECTION.sql" />
+    <Build Include="dbo\Tables\TS_SYS_SEQ_DEFINE.sql" />
+    <Build Include="dbo\Tables\TS_SYS_SEQ_CURRENT_VALUE.sql" />
+    <Build Include="dbo\Tables\TS_SYS_SEARCH_MODEL_CONDITION.sql" />
+    <Build Include="dbo\Tables\TS_SYS_SEARCH_MODEL.sql" />
+    <Build Include="dbo\Tables\TS_SYS_ROLE_USER_CONDITION.sql" />
+    <Build Include="dbo\Tables\TS_SYS_ROLE_AUTH.sql" />
+    <Build Include="dbo\Tables\TS_SYS_ROLE.sql" />
+    <Build Include="dbo\Tables\TS_SYS_REPORT_COLUMN.sql" />
+    <Build Include="dbo\Tables\TS_SYS_REPORT.sql" />
+    <Build Include="dbo\Tables\TS_SYS_PROCESS_SCHEDULE.sql" />
+    <Build Include="dbo\Tables\TS_SYS_ORGANIZATION.sql" />
+    <Build Include="dbo\Tables\TS_SYS_MESSAGE.sql" />
+    <Build Include="dbo\Tables\TS_SYS_MENU_ACTION.sql" />
+    <Build Include="dbo\Tables\TS_SYS_MENU.sql" />
+    <Build Include="dbo\Tables\TS_SYS_INTERFACE_CONFIG.sql" />
+    <Build Include="dbo\Tables\TS_SYS_IMAGE_SOURCE.sql" />
+    <Build Include="dbo\Tables\TS_SYS_HELP.sql" />
+    <Build Include="dbo\Tables\TS_SYS_HANDLER.sql" />
+    <Build Include="dbo\Tables\TS_SYS_ENTITY_FIELD.sql" />
+    <Build Include="dbo\Tables\TS_SYS_ENTITY.sql" />
+    <Build Include="dbo\Tables\TS_SYS_CONFIG.sql" />
+    <Build Include="dbo\Tables\TS_SYS_CODE_ITEM.sql" />
+    <Build Include="dbo\Tables\TS_SYS_CODE.sql" />
+    <Build Include="dbo\Tables\TS_SYS_CHART.sql" />
+    <Build Include="dbo\Tables\TS_SYS_ACTION.sql" />
+    <Build Include="dbo\Tables\TM_BAS_COMPANY.sql" />
+    <Build Include="dbo\Tables\TL_SYS_OPERATION_LOG.sql" />
+    <Build Include="dbo\Tables\T_DeductPayApply.sql" />
+    <Build Include="dbo\Tables\Sheet1_.sql" />
+    <Build Include="LES\Tables\TM_BAS_DOCK.sql" />
+    <Build Include="LES\Tables\TT_TWD_RUNSHEET.sql" />
+    <Build Include="LES\Tables\TM_BAS_WORKSHOP.sql" />
+    <Build Include="LES\Tables\TM_BAS_WAREHOUSE.sql" />
+    <Build Include="LES\Tables\TL_TWD_MATERIAL_CONSUME_LOG.sql" />
+    <Build Include="LES\Tables\TM_BAS_WORK_SCHEDULE.sql" />
+    <Build Include="LES\Tables\TT_CMM_WM_RFID_DOOR.sql" />
+    <Build Include="LES\Tables\TM_BAS_WAREHOUSE_LOCATION.sql" />
+    <Build Include="LES\Tables\TT_CMM_PLANT_ENTRY_LOG.sql" />
+    <Build Include="LES\Tables\TT_PCS_DELIVERY_SCHEDULE.sql" />
+    <Build Include="LES\Tables\TI_MID_PTL_MATERIAL_REDUCE_HISTORY.sql" />
+    <Build Include="LES\Tables\TM_PCS_REGION.sql" />
+    <Build Include="LES\Tables\TM_BAS_VMI_SUPPLIER.sql" />
+    <Build Include="LES\Tables\TM_PCS_ROUTE_BOX_PARTS.sql" />
+    <Build Include="LES\Tables\TT_SPS_RUNSHEET_DETAIL.sql" />
+    <Build Include="LES\Tables\TM_BAS_PLANT.sql" />
+    <Build Include="LES\Tables\TT_SPS_CALCULATE_POINT.sql" />
+    <Build Include="LES\Tables\TM_BAS_ROUTE.sql" />
+    <Build Include="LES\Tables\TI_EPS_BUTTON_REQUEST.sql" />
+    <Build Include="LES\Tables\TM_BAS_PLANT_ZONE.sql" />
+    <Build Include="LES\Tables\TT_SPM_DELIVERY_RUNSHEET_BARCODE.sql" />
+    <Build Include="LES\Tables\TT_TWD_SUPPLIER_SENDTIME.sql" />
+    <Build Include="LES\Tables\TM_BAS_PARTS_STOCK.sql" />
+    <Build Include="LES\Tables\TM_BAS_MEASURING_UNIT.sql" />
+    <Build Include="LES\Tables\TM_BAS_MAINTAIN_PARTS.sql" />
+    <Build Include="LES\Tables\TE_TWD_SUPPLIER_SENDTIME.sql" />
+    <Build Include="LES\Tables\TM_BAS_MAINTAIN_INHOUSE_LOGISTIC_STANDARD.sql" />
+    <Build Include="LES\Tables\TM_BAS_LOCATION.sql" />
+    <Build Include="LES\Tables\TT_JIS_RUNSHEET.sql" />
+    <Build Include="LES\Tables\TM_RPM_DIFFANALYSE_REPORT.sql" />
+    <Build Include="LES\Tables\TM_BAS_DCP_POINT.sql" />
+    <Build Include="LES\Tables\TM_BAS_ASSEMBLY_LINE.sql" />
+    <Build Include="LES\Tables\TT_SPS_RUNSHEET.sql" />
+    <Build Include="LES\Tables\TM_SPS_BOX_PARTS.sql" />
+    <Build Include="LES\Tables\TT_TWD_CONSUME_COUNTER.sql" />
+    <Build Include="LES\Tables\TT_EPS_TASK.sql" />
+    <Build Include="LES\Tables\TM_TWD_BOX_PARTS.sql" />
+    <Build Include="LES\Tables\TM_RPM_PACKAGE_STOCKS_ADJUST.sql" />
+    <Build Include="LES\Tables\TM_JIS_RACK.sql" />
+    <Build Include="LES\Tables\TM_RPM_PACKAGE_APPLIANCE.sql" />
+    <Build Include="LES\Tables\TT_SPM_TRAY_INFO.sql" />
+    <Build Include="LES\Tables\TM_BAS_ONBOARD_EQUIPMENT.sql" />
+    <Build Include="LES\Tables\TT_WMM_ONBOARD_TASK.sql" />
+    <Build Include="LES\Tables\TM_BAS_ONBOARD_TASK_GROUP.sql" />
+    <Build Include="LES\Tables\TM_BAS_SIMULATE_PASS_CONFIG.sql" />
+    <Build Include="LES\Tables\TT_WMM_TRAN_HEAD.sql" />
+    <Build Include="LES\Tables\TT_PCS_RUNSHEET.sql" />
+    <Build Include="LES\Tables\TT_SPM_SUPPLIER_PART_QUOTA.sql" />
+    <Build Include="LES\Tables\TI_PCS_MATERIAL_REQUESTS.sql" />
+    <Build Include="LES\Tables\TM_BAS_INHOUSE_BREAKPOINT_PART.sql" />
+    <Build Include="LES\Tables\TL_PCS_VECHILE_CONSUME_LOG.sql" />
+    <Build Include="LES\Tables\TT_WMM_REPACKAGE_HEAD.sql" />
+    <Build Include="LES\Tables\TT_WMM_REPACKAGE_SCHEDULE.sql" />
+    <Build Include="LES\Tables\TM_WMS_DIFFANALYSE_REPORTS.sql" />
+    <Build Include="LES\Tables\TT_WMM_NOTIFICATION_HEAD.sql" />
+    <Build Include="LES\Tables\TM_BAS_SUPPLIER.sql" />
+    <Build Include="LES\Tables\TR_BAS_PART_TRAY_STOCK.sql" />
+    <Build Include="LES\Tables\TT_WMM_OUTBOUNDDELIVERYRETURN.sql" />
+    <Build Include="LES\Tables\TT_WMM_OUTBOUNDDELIVERY.sql" />
+    <Build Include="LES\Tables\TM_BAS_WBS.sql" />
+    <Build Include="LES\Tables\TT_SPM_DELIVERY_RUNSHEET_DETAIL.sql" />
+    <Build Include="LES\Tables\TM_WMM_TRAN_DETAILS_LOG.sql" />
+    <Build Include="LES\Tables\TT_SPM_DELIVERY_RUNSHEET.sql" />
+    <Build Include="LES\Tables\TM_BAS_INTERNAL_ORDER.sql" />
+    <Build Include="LES\Tables\TT_BAS_PULL_ORDERS.sql" />
+    <Build Include="LES\Tables\TI_VEHICLE_STATUS.sql" />
+    <Build Include="LES\Tables\TM_BAS_FINANCIAL_ACCOUNT.sql" />
+    <Build Include="LES\Tables\TC_SYS_CODE_DETAIL.sql" />
+    <Build Include="LES\Tables\TT_WMM_RETURN.sql" />
+    <Build Include="LES\Tables\TM_BAS_COST_CENTER.sql" />
+    <Build Include="LES\Tables\TT_PCS_COUNTER.sql" />
+    <Build Include="LES\Tables\TT_RPM_PACKAGE_BARCODE.sql" />
+    <Build Include="LES\Tables\TM_WMM_ZONES.sql" />
+    <Build Include="LES\Tables\TT_WMS_STOCKS.sql" />
+    <Build Include="LES\Tables\TR_BAS_PART_DYNAMIC_STOCK.sql" />
+    <Build Include="LES\Tables\TT_WMM_OUTPUT.sql" />
+    <Build Include="LES\Tables\TT_RPM_PACKAGE_TRAN.sql" />
+    <Build Include="LES\Tables\TM_BAS_VEHICLE_STATUS.sql" />
+    <Build Include="LES\Tables\TM_RPM_PACKAGE_NOTIFICATION_HEAD.sql" />
+    <Build Include="LES\Tables\TM_RPM_PACKAGE_STOCKS.sql" />
+    <Build Include="LES\Tables\TM_EPS_PART_PULL.sql" />
+    <Build Include="LES\Tables\TT_WMM_RECEIVE.sql" />
+    <Build Include="LES\Tables\TM_EPS_BUTTON.sql" />
+    <Build Include="LES\Tables\TM_BAS_WAITING_AREA.sql" />
+    <Build Include="LES\Tables\TM_BAS_WORKSHOP_SECTION.sql" />
+    <Build Include="GJS\Tables\TT_WMS_CLJCK.sql" />
+    <Build Include="GJS\Tables\TT_WMS_CLJCD.sql" />
+    <Build Include="GJS\Tables\TM_BAS_UOM.sql" />
+    <Build Include="GJS\Tables\TM_BAS_STORE_LOC.sql" />
+    <Build Include="GJS\Tables\TM_BAS_DB1.sql" />
+    <Build Include="GJS\Tables\TM_BAS_CLK.sql" />
+    <Build Include="GJS\Tables\TM_BAS_CLCDDM.sql" />
+    <Build Include="GJS\Tables\TM_BAS_CKDMK.sql" />
+    <Build Include="LES\Views\V_SPS_MODELQUERY.sql" />
+    <Build Include="LES\Views\V_TT_WMM_TRAN_RECEIVE_DETAIL_VIEW.sql" />
+    <Build Include="LES\Views\V_TM_RPM_PACKAGE_STOCKS_VIEW.sql" />
+    <Build Include="LES\Views\V_TR_BAS_PART_DYNAMIC_STOCK_VM.sql" />
+    <Build Include="Security\LES-LINSHI_Administrator.sql" />
+    <Build Include="dbo\Functions\ToUpper.sql" />
+    <Build Include="dbo\Functions\ToLower.sql" />
+    <Build Include="Security\LES.sql" />
+    <Build Include="Security\GJS.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assemblies\StringHelper.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="StringHelper">
+      <HintPath>Assemblies\StringHelper.dll</HintPath>
+      <SqlAssemblyName>StringHelper</SqlAssemblyName>
+      <IsModelAware>True</IsModelAware>
+      <GenerateSqlClrDdl>False</GenerateSqlClrDdl>
+      <SqlOwnerName>dbo</SqlOwnerName>
+      <SqlPermissionSet>SAFE</SqlPermissionSet>
+    </Reference>
+  </ItemGroup>
+</Project>

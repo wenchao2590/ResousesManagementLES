@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="../JS/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../JS/themes/icon.css" />
+    <script type="text/javascript" src="../JS/jquery.min.js"></script>
+    <script type="text/javascript" src="../JS/jquery.easyui.min.js"></script>
+    <script type="text/javascript">
+        //acceptObj:接收对象控件ID
+        //tId:按钮ID
+        //DISPLAY_NAME_CN:字段描述
+        //CONTROL_TYPE:控件类型
+        //REGEX:验证类型
+        //tColType:字段类型
+        //EDIT_DISPLAY_WIDTH:宽
+        //tHeight:高
+       var corJsonData = [
+        { "FieldName": "NAME", "DisplayNameCn": "图表名称", "ControlType": "Text", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+        { "FieldName": "NAME_EN", "DisplayNameCn": "英文名称", "ControlType": "Text", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+        { "FieldName": "RECEIVER_LAYER", "DisplayNameCn": "接收层id", "ControlType": "Text", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+        { "FieldName": "IS_AUTH", "DisplayNameCn": "是否授权", "ControlType": "Text", "Regex": "int", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+        { "FieldName": "CHART_TYPE", "DisplayNameCn": "图表类型", "ControlType": "Text", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+        { "FieldName": "MIX_CONDITION", "DisplayNameCn": "混合条件", "ControlType": "Text", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+        { "FieldName": "CHART_LABEL_NAME", "DisplayNameCn": "标签名称", "ControlType": "Text", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+        { "FieldName": "CHART_STYLE", "DisplayNameCn": "图表样式", "ControlType": "Text", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+        { "FieldName": "TIP_FORMAT", "DisplayNameCn": "类型格式", "ControlType": "Text", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+        { "FieldName": "CHART_WIDTH", "DisplayNameCn": "图表宽度", "ControlType": "Text", "Regex": "int", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+        { "FieldName": "CHART_HIGHT", "DisplayNameCn": "图表高度", "ControlType": "Text", "Regex": "int", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+        { "FieldName": "CHART_COLUMN_NAME", "DisplayNameCn": "横坐标名", "ControlType": "Text", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+        { "FieldName": "CHART_ROW_NAME", "DisplayNameCn": "纵坐标名", "ControlType": "Text", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+        { "FieldName": "SQL_STRING", "DisplayNameCn": "数据SQL", "ControlType": "Text", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+        { "FieldName": "CHART_OTHER_FORMAT", "DisplayNameCn": "其他样式", "ControlType": "Text", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" },
+        { "FieldName": "REMARK", "DisplayNameCn": "其他备注", "ControlType": "Text", "Regex": "notnull", "EditDisplayWidth": "120", "Editable": "true", "Extend3": "", "DefaultValue": "" }
+        ];
+        var processUrl = "../HANDLER/MainHandler.ashx";
+        var medthodName = "TS_SYS_CHART";
+        //默认保存方法
+        function save(operationType) {
+            defalutSave(processUrl, operationType + "-" + medthodName);
+        }
+         //数据处理结果方法
+        function alertResult(result) {
+            alert(result);
+        }
+    </script>
+</head>
+<body onload="setControlToPage(corJsonData, 'BODY',null)" style="">
+    <h3>图表配置信息</h3>
+</body>
+</html>

@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="../../JS/hCharts/HCHenryGantt.js"></script>
+    <script src="../../JS/hCharts/HighChartsConfig.js"></script>
+    <script src="../../JS/hCharts/ShowChart.js"></script>
+
+    <script type="text/javascript">
+        chartConfigJson = [{
+            "NAME": "生产统计图",
+            "NAME_EN": "Production Statistics",
+            "RECEIVER_LAYER": "container",
+            "CHART_TYPE": "column",
+            "MIX_CONDITION": "",
+            "CHART_LABEL_NAME": "车间生产统计图",
+            "CHART_STYLE": "",
+            "TIP_FORMAT": "",
+            "CHART_WIDTH": "800",
+            "CHART_HIGHT": "600",
+            "CHART_COLUMN_NAME": "'车灯', '灯罩', '饰圈', '衬框', '反射镜'",
+            "CHART_ROW_NAME": "数量个数",
+            "SQL_STRING": "js:ChartJon()",
+
+        }];
+        function ChartJon() {
+            DataJson = {
+                "xAxis": "'车灯2', '灯罩2', '饰圈2', '衬框2', '反射镜2'",
+                "dataItem": [
+                 {
+                     "name": "小糸车灯车间100",
+                     "data": "3000, 2222, 11111, 3233, 12345",
+                     "rowID": "1",
+                     "type": "column"
+                 },
+                 {
+                     "name": "小糸车灯车间200",
+                     "data": "3232, 2231, 1233, 6333, 34335",
+                     "rowID": "1",
+                     "type": "column"
+                 },
+
+                ]
+            };
+
+            return DataJson;
+        }
+
+
+
+    </script>
+</head>
+<body onload="getChartJosn('../HANDLER/MainHandler.ashx','生产统计图')">
+   <span style=""></span>
+
+</body>
+</html>

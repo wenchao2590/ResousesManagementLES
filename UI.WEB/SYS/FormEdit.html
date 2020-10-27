@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../Js/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="../Js/themes/icon.css" />
+    <script type="text/javascript" src="../JS/jquery.min.js"></script>
+    <script type="text/javascript" src="../JS/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../JS/common/common.helper.js"></script>
+
+    <meta charset="utf-8" />
+    <style>
+        .ContainerDiv {
+            margin-left: 20px;
+            margin-bottom: 10px;
+            float: left;
+            width: 40%;
+        }
+
+        .SaveButton {
+            margin-left: 20px;
+            margin-bottom: 10px;
+            float: left;
+            margin-top: 50px;
+        }
+    </style>
+   <script type="text/javascript">
+        //acceptObj:接收对象控件ID
+        //tId:按钮ID
+        //tText:字段描述
+        //tType:控件类型
+        //tVerifyType:验证类型
+        //tColType:字段类型
+        //tWidth:宽
+        //tHeight:高
+       var corJsonData = [
+       { "FIELd_NAME": "FIELd_NAME", "DISPLAY_NAME_CN": "字段名", "CONTROL_TYPE": "Text", "REGEX": "notnull", "EDIT_DISPLAY_WIDTH": "120", "EDITABLE": "true", "EXTEND3": "", "DEFAULT_VALUE": "" },
+       { "FIELd_NAME": "DISPLAY_NAME_CN", "DISPLAY_NAME_CN": "中文名", "CONTROL_TYPE": "Text", "REGEX": "notnull", "EDIT_DISPLAY_WIDTH": "120", "EDITABLE": "true", "EXTEND3": "", "DEFAULT_VALUE": "" },
+       { "FIELd_NAME": "DISPLAY_NAME_EN", "DISPLAY_NAME_CN": "英文名", "CONTROL_TYPE": "Text", "REGEX": "notnull", "EDIT_DISPLAY_WIDTH": "120", "EDITABLE": "true", "EXTEND3": "", "DEFAULT_VALUE": "" },
+       { "FIELd_NAME": "CONTROL_TYPE", "DISPLAY_NAME_CN": "控件类型", "CONTROL_TYPE": "Text", "REGEX": "int", "EDIT_DISPLAY_WIDTH": "120", "EDITABLE": "true", "EXTEND3": "", "DEFAULT_VALUE": "" },
+       { "FIELd_NAME": "PRECISION", "DISPLAY_NAME_CN": "小数精度", "CONTROL_TYPE": "Text", "REGEX": "notnull", "EDIT_DISPLAY_WIDTH": "120", "EDITABLE": "true", "EXTEND3": "", "DEFAULT_VALUE": "" },
+       { "FIELd_NAME": "DEFAULT_VALUE", "DISPLAY_NAME_CN": "默认值", "CONTROL_TYPE": "Text", "REGEX": "notnull", "EDIT_DISPLAY_WIDTH": "120", "EDITABLE": "true", "EXTEND3": "", "DEFAULT_VALUE": "" },
+       { "FIELd_NAME": "REG", "DISPLAY_NAME_CN": "验证类型", "CONTROL_TYPE": "Text", "REGEX": "notnull", "EDIT_DISPLAY_WIDTH": "120", "EDITABLE": "true", "EXTEND3": "", "DEFAULT_VALUE": "" },
+       { "FIELd_NAME": "EDITABLE", "DISPLAY_NAME_CN": "编辑显示", "CONTROL_TYPE": "Text", "REGEX": "notnull", "EDIT_DISPLAY_WIDTH": "120", "EDITABLE": "true", "EXTEND3": "", "DEFAULT_VALUE": "" },
+       { "FIELd_NAME": "EDIT_DISPLAY_WIDTH", "DISPLAY_NAME_CN": "显示宽度", "CONTROL_TYPE": "Text", "REGEX": "notnull", "EDIT_DISPLAY_WIDTH": "120", "EDITABLE": "true", "EXTEND3": "", "DEFAULT_VALUE": "" },
+       { "FIELd_NAME": "EXTEND3", "DISPLAY_NAME_CN": "绑定数据", "CONTROL_TYPE": "Text", "REGEX": "int", "EDIT_DISPLAY_WIDTH": "120", "EDITABLE": "true", "EXTEND3": "", "DEFAULT_VALUE": "" },
+       ];
+
+        var processUrl = "../HANDLER/MainHandler.ashx";
+        var medthodName = "TS_SYS_ENTITY_FIELD";
+        //默认保存方法
+        function save(operationType) {
+            defaultSave(processUrl, operationType + "-" + medthodName);
+        }
+         //数据处理结果方法
+        function alertResult(result) {
+            alert(result);
+        }
+    </script>
+</head>
+<body onload="setControlToPage(corJsonData, 'BODY', null)">
+
+</body>
+</html>

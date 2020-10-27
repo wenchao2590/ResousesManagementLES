@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc12="http://www.w3.org/2003/05/soap-encoding" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope" xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tns="http://getAsnNum.lesService.service.webservice.bjjh.com.cn" xmlns:soapenc11="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://bean.lesService.service.webservice.bjjh.com.cn" targetNamespace="http://getAsnNum.lesService.service.webservice.bjjh.com.cn" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://getAsnNum.lesService.service.webservice.bjjh.com.cn">
+      <xsd:complexType name="ArrayOfBdAsnInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="BdAsnInfo" nillable="true" type="tns:BdAsnInfo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BdAsnInfo">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="arrivalDate" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="asnNo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="checkMode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="factory" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="id" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="orderNo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="partNo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="purchaseGroup" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="supplierNo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="targetPlace" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="totalNo" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getAsninfo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="in0" nillable="true" type="tns:ArrayOfBdAsnInfo" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getAsninfoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="ns1:ArrayOfReturnMessage" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+    <xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://bean.lesService.service.webservice.bjjh.com.cn">
+      <xsd:complexType name="ArrayOfReturnMessage">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ReturnMessage" nillable="true" type="ns1:ReturnMessage" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ReturnMessage">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="errorInfo" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="id" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="message" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" name="status" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getAsninfoRequest">
+    <wsdl:part name="parameters" element="tns:getAsninfo" />
+  </wsdl:message>
+  <wsdl:message name="getAsninfoResponse">
+    <wsdl:part name="parameters" element="tns:getAsninfoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILesToQmisServicePortType">
+    <wsdl:operation name="getAsninfo">
+      <wsdl:input name="getAsninfoRequest" message="tns:getAsninfoRequest" />
+      <wsdl:output name="getAsninfoResponse" message="tns:getAsninfoResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ILesToQmisServiceHttpBinding" type="tns:ILesToQmisServicePortType">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getAsninfo">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getAsninfoRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getAsninfoResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ILesToQmisService">
+    <wsdl:port name="ILesToQmisServiceHttpPort" binding="tns:ILesToQmisServiceHttpBinding">
+      <wsdlsoap:address location="http://172.24.132.106:7004/QMIS_JOB/service/lesToQmisService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

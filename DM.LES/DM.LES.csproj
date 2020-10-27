@@ -1,0 +1,1025 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C8E22C5F-01CF-4026-8885-CFBE1C5A5B8D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DM.LES</RootNamespace>
+    <AssemblyName>DM.LES</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyLineInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BarcodeInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BarcodeStatusConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BarcodeStatusInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BarcodeTypeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BasPackageApplianceInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BomChangeOrderDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BomChangeOrderInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BomRepleaceConditionInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BomRepleaceConditionVehicleInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BreakPointOrderStatusConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BreakPointOrderTypeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessExpenseInInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessExpenseOutInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessFollowInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChangeFlagConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContractInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CreateStatusConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CUSTOMIZED\SHGX\BusinessExpenseInBillingInfo.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\BusinessExpenseInPageInfo.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\BusinessExpenseInWriteoffInfo.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\BusinessExpenseInVerifyInfo.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\BusinessExpenseOutCheckInfo.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\BusinessExpenseOutPageInfo.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\BusinessExpenseOutWriteoffInfo.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\BusinessExpenseOutVerifyInfo.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\CurrencyInfo.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\InspectionModeInfo.cs" />
+    <Compile Include="CUSTOMIZED\SHGX\PlanPullOrderInfo.cs" />
+    <Compile Include="CustReceiveInfoInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmergencyPullingCartInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmergencyPullModeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExecuteResultConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExpenseItemInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IFM\SrmDeliveryNoteInfo.cs" />
+    <Compile Include="IFM\WmsVmiTranDetailInfo.cs" />
+    <Compile Include="InboundReturnStateConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InboundTypeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InspectionFlagConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InspectionModeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryNoticeOrderInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryOrderPartInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryOrderStatusConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryPartBarcodeInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JisAccumulativeTypeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JisCounterInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JisCounterLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JisCounterStatusConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JisPartBoxInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JisPullOrderDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JisPullOrderInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JisPullModeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KanbanCardInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KanbanCardUseStatusConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KanbanPartBoxInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KanbanPullOrderDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KanbanPullOrderInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LackOfMaterialDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LackOfMaterialInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LackOfMaterialStatusConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MenuActionInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MesBreakpointReplacementRecordInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MesInboundLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MesProductionOrderLackMaterialInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MPM\TwdCounterInfo.cs" />
+    <Compile Include="MstaeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderStatusConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutboundOrderStatusConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageInvnoticeOrderInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PCMInventoryOrderPartInfo.cs" />
+    <Compile Include="MesInformationPointBasicInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MesMissingpartsDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MesMissingpartsInfluenceOrderscopeInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MesMissingpartsMainInfo.cs" />
+    <Compile Include="MesMissingpartsMainInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MesProductionlineProcessOrderInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MesVehiclePointScanInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MPM\MaterialPullingOrderDetailInfo.cs" />
+    <Compile Include="MPM\MaterialPullingOrderInfo.cs" />
+    <Compile Include="MesOutboundDetailLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MesOutboundLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MPM\TwdCounterUpdateInfo.cs" />
+    <Compile Include="OrderBomInInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutboundReturnStateConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutboundTypeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutputDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutputOrderStatusConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageBarcodeDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageBarcodeStatusConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageInboundDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageInboundInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageInboundStatusConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageMaterialConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageOutboundDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageOutboundInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageResourceConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageStocksInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageTranDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageTranStateConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageTranTypeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageTypeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartInspectionModeInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PcsPullOrderDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PcsPullOrderInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanPartBoxInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanPullCreateStatusInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanPullOrderDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanPullOrderInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlantZoneInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanWindowTimeInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartsBoxInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PorderBomRepleaceRecordInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PorderLackMaterialDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PorderLackMaterialInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProcessFlagResuitsConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PullModeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PullOrderBomInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PullOrderStatusConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PullOrderTypeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QmisAsnPullSheetInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QmisCheckModeInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QmisCheckResultInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QmisInboundLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QmisInspectionModeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QmisOutboundDetailLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QmisOutboundLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReceiveAndOutputInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReceiveDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReceiveSourceCreateTypeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RequirementAccumulateModeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoundnessModeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapBreakpointChangesInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapBreakpointReplaceInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapBreakpointSupplyPlanInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapInventoryCheckPlanInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapInventoryCheckReportInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapMaterialReservationInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapPlantStructureInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapProductionOrderLackMaterialInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapPurchaseOrderDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapPurchaseOrderInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapPurchaseOrderTypeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapTranTypeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScanPointInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shgx001Info.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shgx002Info.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shgx003Info.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shgx004Info.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shgx005Info.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SimulatePassConfigInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmsInboundLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmsOutboundDetailLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmsOutboundLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmsSupplyPlanInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpsPullOrderDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpsPullOrderInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmAsnRunsheetDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmAsnRunsheetInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmDeliveryNoteDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmDeliveryNoteInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmJisPullOrderDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmJisPullOrderInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmOrderTypeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmPullingOrderDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmPullingOrderInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmTranOutInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StatusPointInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TwdCounterInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TwdCounterLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TwdCounterSourceDataTypeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TwdPartBoxInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TwdPullModeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TwdPullOrderDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TwdPullOrderInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TwdWindowTimeInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VehiclePointStatusInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleStatusTypeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiDeliveryNoteDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiDeliveryNoteInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiJisPullOrderReturnInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiOutputDetailInfo.cs" />
+    <Compile Include="VmiOutputDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiOutputInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiOutputTypeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiPullOrderDetailInfo.cs" />
+    <Compile Include="VmiPullOrderDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiPullOrderDetailViewInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiPullOrderInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiReceiveDetailInfo.cs" />
+    <Compile Include="VmiReceiveInfo.cs" />
+    <Compile Include="VmiReceiveTypeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiShippingPartInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiSupplierInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiTransDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiTransInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WMM\ReceiveInfo.cs" />
+    <Compile Include="ReceiveInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReceiveOrderStatusConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RouteMidInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RunsheetInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapInboundLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapOutboundDetailLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapOutboundLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapPartsInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapProductOrderBomInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapProductOrderInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapSupplierQuotaInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapTranOutInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapWorkCalendarInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SendTimeStatusConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CUSTOMIZED\SIOM\EquipmentTypeInfo.cs" />
+    <Compile Include="CUSTOMIZED\SIOM\OutboundTypeInfo.cs" />
+    <Compile Include="CUSTOMIZED\SIOM\InboundTypeInfo.cs" />
+    <Compile Include="CUSTOMIZED\SIOM\OutputDetailInfo.cs" />
+    <Compile Include="CUSTOMIZED\SIOM\PartGroupInfo.cs" />
+    <Compile Include="CUSTOMIZED\SIOM\BusinessAccountProjectInfo.cs" />
+    <Compile Include="CUSTOMIZED\SIOM\PlaceOfOriginInfo.cs" />
+    <Compile Include="CUSTOMIZED\SIOM\ReceiveDetailInfo.cs" />
+    <Compile Include="SrmBarcodeInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmInboundLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmOutboundDetailLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmOutboundLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmPartReturnSheetDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmPartReturnSheetInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmPrevSupplyPlanInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmSupplyPlanInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmVmiShippingNoteDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmVmiShippingNoteInfo.cs" />
+    <Compile Include="SrmVmiShippingNoteInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmVmiSupplierPartInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierPartQuotaInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierTypeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SupplyPlanInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TranDetailsInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ButtonInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ButtonRequestInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CostCenterInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CounterInfo.cs" />
+    <Compile Include="DcpPointInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CounterInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeliveryRunsheetBarcodeInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeliveryScheduleInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DiffanalyseReportsInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DockInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FinancialAccountInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InhouseBreakpointPartInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InternalOrderInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LocationInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaintainInhouseLogisticStandardInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaintainPartsInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialConsumeLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MeasuringUnitInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialRequestsInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelqueryInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationHeadInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OnboardEquipmentInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OnboardTaskGroupInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OnboardTaskInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderInfo.cs" />
+    <Compile Include="OutbounddeliveryInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutbounddeliveryreturnInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutputInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageApplianceInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageBarcodeInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageNotificationHeadInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageStocksAdjustInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageTranInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartBoxInfo.cs" />
+    <Compile Include="PartPullInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartsStockInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartTrayStockInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlantEntryLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlantInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PtlMaterialReduceHistoryInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PullOrdersInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RackInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RegionInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepackageHeadInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepackageScheduleInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RequirementInfo.cs" />
+    <Compile Include="ReturnInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RouteBoxPartsInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RouteInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RpmPackageStocksViewInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StocksInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TranDetailsLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TranHeadInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrayInfoInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ValidFlagConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VechileConsumeLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleStatusInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiBasSupplierInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiInboundLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiOutboundDetailLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiOutboundLogInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiPrevSupplyPlanInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiReceiveDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiReceiveInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WaitingAreaInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseTypeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WbsInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmmOrderStatusConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmmTranReceiveDetailViewInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmmTranStateConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmmTranTypeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WMM\StocksInfo.cs" />
+    <Compile Include="WmRfidDoorInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsInboundDataInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsIsManageConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsOrderTypeConstants.Gen.cs">
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsTranOutInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiAsnRunsheetDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiAsnRunsheetInfo.cs" />
+    <Compile Include="WmsVmiAsnRunsheetInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiBarcodeInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiInboundDataInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiInboundOrderDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiInboundOrderInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiJisPullOrderDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiJisPullOrderInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiJisPullOrderReturnInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiPackageInboundInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiPackageInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiPackageOutboundInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiPartStockLockInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiProductOrderInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiPullingOrderDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiPullingOrderInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiSupplyPlanInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiTranDetailInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiTransitInventoryInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkScheduleInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkshopInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkshopSectionInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseLocationInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ZonesInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SysMgrDBEntityGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SysMgrDBEntityGenerator.txt</LastGenOutput>
+    </Content>
+    <Content Include="SysMgrDBEntityGenerator.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="SystemCodeGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SystemCodeGenerator.txt</LastGenOutput>
+    </Content>
+    <Content Include="SystemCodeGenerator.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SystemCodeGenerator.tt</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CC.Infrustructure\CC.Infrustructure.csproj">
+      <Project>{6cb35a05-6b20-4ca4-a262-c7e5c7ce98a6}</Project>
+      <Name>CC.Infrustructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

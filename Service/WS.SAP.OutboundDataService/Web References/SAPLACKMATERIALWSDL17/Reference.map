@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="file:///C:/TFS/相关文件夹/WSDL/SAPLACKMATERIALWSDL-17.xml" filename="SAPLACKMATERIALWSDL-17.wsdl" />
+  </Results>
+</DiscoveryClientResultsFile>

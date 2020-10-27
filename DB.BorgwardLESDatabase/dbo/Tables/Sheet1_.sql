@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Sheet1$] (
+    [PART_NO]      NVARCHAR (255) NULL,
+    [SUPPLIER_NUM] NVARCHAR (255) NULL
+);
+

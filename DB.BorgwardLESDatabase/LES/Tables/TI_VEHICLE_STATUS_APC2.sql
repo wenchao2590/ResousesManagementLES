@@ -1,0 +1,26 @@
+﻿CREATE TABLE [LES].[TI_VEHICLE_STATUS_APC2] (
+    [ID]             INT            NOT NULL,
+    [ORDER_ID]       NVARCHAR (36)  NOT NULL,
+    [WERK]           NVARCHAR (4)   NULL,
+    [SPJ]            NVARCHAR (8)   NULL,
+    [KNR]            NVARCHAR (16)  NULL,
+    [PASS_TIME]      DATETIME       NULL,
+    [SCHICHT]        NVARCHAR (1)   NULL,
+    [VEHICLE_STATUS] NVARCHAR (15)  NOT NULL,
+    [SHIFT]          INT            NULL,
+    [DCP_POINT]      NVARCHAR (15)  NULL,
+    [VIN]            NVARCHAR (20)  NULL,
+    [RUNNING_NO]     NVARCHAR (12)  NOT NULL,
+    [ASSEMBLY_LINE]  NVARCHAR (10)  NULL,
+    [PLANT]          NVARCHAR (5)   NULL,
+    [MODEL_NO]       NVARCHAR (18)  NULL,
+    [PROCESS_FLAG]   INT            NULL,
+    [PROCESS_TIME]   DATETIME       NULL,
+    [COMMENTS]       NVARCHAR (200) NULL,
+    [CREATE_USER]    NVARCHAR (50)  NOT NULL,
+    [CREATE_DATE]    DATETIME       NULL,
+    [UPDATE_USER]    NVARCHAR (50)  NULL,
+    [UPDATE_DATE]    DATETIME       NULL,
+    CONSTRAINT [IDX_PK_VEHICLE_STATUS_ID2] PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+

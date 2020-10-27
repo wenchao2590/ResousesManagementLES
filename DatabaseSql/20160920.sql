@@ -1,0 +1,1 @@
+﻿alter table dbo.TS_SYS_ENTITY_FIELD add SORTABLE bit

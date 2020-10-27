@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Entitys>
+  <!--系统管理-->
+  <Entity Name="Menu" TableName="TS_SYS_MENU" Schema="dbo" MenuFlag="true" PathName="系统管理-菜单管理" DbCreateType="10"></Entity>
+  <Entity Name="MenuAction" TableName="TS_SYS_MENU_ACTION" Schema="dbo" MenuFlag="false" PathName="系统管理-菜单管理" DbCreateType="10"></Entity>
+  <Entity Name="Action" TableName="TS_SYS_ACTION" Schema="dbo" MenuFlag="true" PathName="系统管理-动作管理" DbCreateType="10"></Entity>
+  <Entity Name="User" TableName="TS_SYS_USER" Schema="dbo" MenuFlag="true" PathName="系统管理-用户管理" DbCreateType="10"></Entity>
+  <Entity Name="User" TableName="TS_SYS_USER_MOBILE" Schema="dbo" MenuFlag="false" PathName="系统管理-用户管理" DbCreateType="10"></Entity>
+  <Entity Name="User" TableName="TS_SYS_USER_FAVORITES" Schema="dbo" MenuFlag="false" PathName="系统管理-用户管理" DbCreateType="10"></Entity>
+  <Entity Name="UserRole" TableName="TS_SYS_USER_ROLE" Schema="dbo" MenuFlag="false" PathName="系统管理-用户管理" DbCreateType="10"></Entity>
+  <Entity Name="RangeAuth" TableName="TS_SYS_USER_ROLE_RANGE_AUTH" Schema="dbo" MenuFlag="false" PathName="系统管理-用户管理" DbCreateType="10"></Entity>
+  <Entity Name="Role" TableName="TS_SYS_ROLE" Schema="dbo" MenuFlag="true" PathName="系统管理-角色管理" DbCreateType="10"></Entity>
+  <Entity Name="RoleAuth" TableName="TS_SYS_ROLE_AUTH" Schema="dbo" MenuFlag="false" PathName="系统管理-角色管理" DbCreateType="10"></Entity>
+  <Entity Name="Code" TableName="TS_SYS_CODE" Schema="dbo" MenuFlag="true" PathName="系统管理-系统代码" DbCreateType="10"></Entity>
+  <Entity Name="CodeItem" TableName="TS_SYS_CODE_ITEM" Schema="dbo" MenuFlag="false" PathName="系统管理-系统代码" DbCreateType="10"></Entity>
+  <Entity Name="Entity" TableName="TS_SYS_ENTITY" Schema="dbo" MenuFlag="true" PathName="系统管理-数据模型" DbCreateType="10"></Entity>
+  <Entity Name="EntityField" TableName="TS_SYS_ENTITY_FIELD" Schema="dbo" MenuFlag="false" PathName="系统管理-数据模型" DbCreateType="10"></Entity>
+  <Entity Name="SearchModel" TableName="TS_SYS_SEARCH_MODEL" Schema="dbo" MenuFlag="true" PathName="系统管理-检索条件" DbCreateType="10"></Entity>
+  <Entity Name="SearchModelCondition" TableName="TS_SYS_SEARCH_MODEL_CONDITION" Schema="dbo" MenuFlag="false" PathName="系统管理-检索条件" DbCreateType="10"></Entity>
+  <Entity Name="SeqDefine" TableName="TS_SYS_SEQ_DEFINE" Schema="dbo" MenuFlag="true" PathName="系统管理-序列号管理" DbCreateType="10"></Entity>
+  <Entity Name="SeqSection" TableName="TS_SYS_SEQ_SECTION" Schema="dbo" MenuFlag="false" PathName="系统管理-序列号管理" DbCreateType="10"></Entity>
+  <Entity Name="SeqSection" TableName="TS_SYS_SEQ_CURRENT_VALUE" Schema="dbo" MenuFlag="false" PathName="系统管理-序列号管理" DbCreateType="10"></Entity>
+  <Entity Name="ProcessSchedule" TableName="TS_SYS_PROCESS_SCHEDULE" Schema="dbo" MenuFlag="true" PathName="系统管理-服务管理" DbCreateType="10"></Entity>
+  <Entity Name="Message" TableName="TS_SYS_MESSAGE" Schema="dbo" MenuFlag="true" PathName="系统管理-提示信息" DbCreateType="10"></Entity>
+  <Entity Name="Config" TableName="TS_SYS_CONFIG" Schema="dbo" MenuFlag="true" PathName="系统管理-系统配置" DbCreateType="10"></Entity>
+  <Entity Name="InterfaceConfig" TableName="TS_SYS_INTERFACE_CONFIG" Schema="dbo" MenuFlag="true" PathName="系统管理-接口配置" DbCreateType="10"></Entity>
+  <Entity Name="RangeAuthCondition" TableName="TS_SYS_RANGE_AUTH_CONDITION" Schema="dbo" MenuFlag="true" PathName="系统管理-权限条件" DbCreateType="10"></Entity>
+  <Entity Name="Organization" TableName="TS_SYS_ORGANIZATION" Schema="dbo" MenuFlag="true" PathName="系统管理-组织结构" DbCreateType="10"></Entity>
+  <Entity Name="Handler" TableName="TS_SYS_HANDLER" Schema="dbo" MenuFlag="true" PathName="系统管理-路由配置" DbCreateType="10"></Entity>
+  <Entity Name="PrintConfig" TableName="TS_SYS_PRINT_CONFIG" Schema="dbo" MenuFlag="true" PathName="系统管理-打印配置" DbCreateType="10"></Entity>
+  <Entity Name="PrintConfigUpload" TableName="" Schema="" MenuFlag="false" PathName="系统管理-打印配置" DbCreateType="10"></Entity>
+  <Entity Name="ImageResource" TableName="TS_SYS_IMAGE_RESOURCE" Schema="dbo" MenuFlag="true" PathName="系统管理-图片资源" DbCreateType="10"></Entity>
+  <Entity Name="OperationLog" TableName="TL_SYS_OPERATION_LOG" Schema="dbo" MenuFlag="true" PathName="日志中心-系统操作日志" DbCreateType="10"></Entity>
+</Entitys>

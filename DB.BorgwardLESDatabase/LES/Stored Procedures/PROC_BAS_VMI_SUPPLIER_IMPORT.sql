@@ -1,0 +1,31 @@
+﻿Create PROCEDURE [LES].[PROC_BAS_VMI_SUPPLIER_IMPORT]
+ 
+AS
+
+BEGIN
+
+INSERT INTO [LES].[TM_BAS_VMI_SUPPLIER]
+	(
+	    [PLANT]
+        ,[WM_NO]
+        ,[ZONE_NO]
+        ,[SUPPLIER_NUM]
+        ,[SUPPLIER_NAME]
+		,[COMMENTS]
+		,[CREATE_USER]
+		,[CREATE_DATE]
+	)
+	SELECT 
+		b.[PLANT]
+        ,b.[WM_NO]
+        ,b.[ZONE_NO]
+        ,b.[SUPPLIER_NUM]
+		,t.SUPPLIER_NAME
+        ,b.[COMMENTS]
+		,b.[CREATE_USER]
+		,b.[CREATE_DATE]
+	FROM [LES].[TE_BAS_VMI_SUPPLIER_TEMP] b (NOLOCK) 
+	inner join [LES].[TM_BAS_SUPPLIER] t (NOLOCK) 
+	on b.[SUPPLIER_NUM] = t.[SUPPLIER_NUM]
+
+END

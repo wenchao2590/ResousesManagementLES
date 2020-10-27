@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+ 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="../../scripts/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../scripts/themes/icon.css">
+
+    <!--<script type="text/javascript" src="scripts/jquery.min.js"></script>-->
+
+
+    <script src="../../scripts/hCharts/HCHenryGantt.js"></script>
+    <script src="../../scripts/hCharts/HighChartsConfig.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#container').highcharts({
+                chart: {
+                },
+                title: {
+                    text: '车间生产统计图'
+                },
+                xAxis: {
+                    categories: ['车灯', '灯罩', '饰圈', '衬框', '反射镜']
+                }, credits: {
+                    enabled: false
+                },
+                tooltip: {
+                    formatter: function () {
+                        var s;
+                        if (this.point.name) { // the pie chart                   
+                            s = '' +
+                                this.point.name + ': ' + this.y + ' fruits';
+                        } else {
+                            s = '' +
+                                this.x + ': ' + this.y;
+                        }
+                        return s;
+                    }
+                },
+                labels: {
+                    items: [{
+                        html: '车间生产统计图',
+                        style: {
+                            left: '40px',
+                            top: '8px',
+                            color: 'black'
+                        }
+                    }]
+                },
+                series: [{
+                    type: 'column',
+                    name: '小糸车灯车间1',
+                    data: [3000, 2222, 11111, 3233, 1234]
+                }, {
+                    type: 'column',
+                    name: '小糸车灯车间2',
+                    data: [2123, 3321, 2315, 3127, 3326]
+                }, {
+                    type: 'column',
+                    name: '小糸车灯车间3',
+                    data: [4123, 3123, 3213, 3219, 1202]
+                }, {
+                    type: 'spline',
+                    name: '小糸车灯车间4',
+                    data: [3232, 2231, 1233, 6333, 3433],
+                    marker: {
+                        lineWidth: 2,
+                        lineColor: Highcharts.getOptions().colors[3],
+                        fillColor: 'white'
+                    }
+                }, {
+                    type: 'spline',
+                    name: '小糸车灯车间5',
+                    data: [1233, 2267,3233, 6333, 3223],
+                    marker: {
+                        lineWidth: 2,
+                        lineColor: Highcharts.getOptions().colors[3],
+                        fillColor: 'white'
+                    }
+                }]
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <div id="container"></div>
+
+</body>
+</html>

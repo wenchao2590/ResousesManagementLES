@@ -1,0 +1,75 @@
+﻿
+-- =============================================
+-- Author:		shenjinkui
+-- Create date: 2012-03-30
+-- Description:	插入EPS消耗
+-- =============================================
+CREATE proc [LES].[PROC_TWD_INSERT_EPS_CONSUME]
+
+as
+
+begin tran
+
+	--set nocount on
+	
+	DECLARE @MaxID int
+	SELECT @MaxID=MAX(INTERFACE_ID)
+	FROM [LES].[TI_TWD_INHOUSE_CONSUME]
+	
+	--插入消耗
+	INSERT INTO [LES].[TI_TWD_MATERIAL_CONSUME]
+           ([PLANT_ZONE]
+           ,[WORKSHOP]
+           ,[ASSEMBLY_LINE]
+           ,[PLANT]
+           ,[LOCATION]
+           ,[REQUEST_TIME]
+           ,[INTERFACE_STATUS]
+           ,[PROCESS_TIME]
+           ,[PART_NO]
+           ,[INDENTIFY_PART_NO]
+           ,[PART_CNAME]
+           ,[PART_ENAME]
+           ,[SUPPLIER_NUM]
+           ,[DOCK]
+           ,[BOX_PARTS]
+           ,[INTERFACE_TYPE]
+           ,[PACK_COUNT]
+           ,[INBOUND_PACKAGE_MODEL]
+           ,[INBOUND_PACKAGE]
+           ,[MEASURING_UNIT_NO]
+           ,[EXPECTED_ARRIVAL_TIME]
+           ,[RDC_DLOC]
+           ,[PICKUP_SEQ_NO]
+           ,[SEQUENCE_NO]
+           ,[IS_ORGANIZE_SHEET]
+           ,[SEND_STATUS]
+           ,[SEND_TIME]
+           ,[IS_CANCEL]
+           ,[UPDATE_DATE]
+           ,[UPDATE_USER]
+           ,[CREATE_DATE]
+           ,[CREATE_USER]
+           ,[COMMENTS]
+           )
+	SELECT a.PLANT_ZONE,a.WORKSHOP,a.ASSEMBLY_LINE,a.PLANT,
+	a.LOCATION,a.REQUEST_TIME,a.INTERFACE_STATUS,a.PROCESS_TIME,
+	a.PART_NO, b.INDENTIFY_PART_NO,a.PART_CNAME,a.PART_ENAME,c.SUPPLIER_NUM,
+	c.DOCK,c.BOX_PARTS,a.INTERFACE_TYPE,a.INHOUSE_PACKAGE,a.INHOUSE_PACKAGE_MODEL,
+	a.INHOUSE_PACKAGE,b.MEASURING_UNIT_NO,
+	NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,NULL,NULL,GETDATE(),'PROC_TWD_INSERT_EPS_CONSUME',NULL
+	
+	FROM [LES].[TI_TWD_INHOUSE_CONSUME]  a
+	JOIN [LES].TM_BAS_INBOUND_PULL_LOGISTIC_STANDARD b
+	ON a.PLANT=b.PLANT AND a.ASSEMBLY_LINE=b.ASSEMBLY_LINE AND a.PART_NO=b.PART_NO 
+	JOIN LES.TM_TWD_BOX_PARTS c
+	ON a.PLANT=c.PLANT AND a.ASSEMBLY_LINE=c.ASSEMBLY_LINE AND c.CACULATE_TYPE=2
+	AND b.INBOUND_PART_CLASS=c.BOX_PARTS 
+	
+WHERE a.[INTERFACE_TYPE]=1 AND a.INTERFACE_ID<=@MaxID AND a.INTERFACE_STATUS=0 
+	AND c.BOX_PARTS_STATE <> 3  -- 3 mean that Rack is invalid
+
+--更新状态
+UPDATE [LES].[TI_TWD_INHOUSE_CONSUME] SET INTERFACE_STATUS=1 WHERE INTERFACE_ID<=@MaxID
+
+commit tran

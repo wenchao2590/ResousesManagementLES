@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="gb2312" />
+    <title>运单标签</title>
+    <!--media=print 这个属性可以在打印时有效-->
+    <style media=print>
+        .Noprint {
+            display: none;
+        }
+
+        .PageNext {
+            page-break-after: always;
+        }
+    </style>
+    <style type="text/css">
+        body {
+            font-family: 'Microsoft YaHei';
+            margin: 0mm 0mm;
+            width: 264.56px;
+            height: 377.95px;
+        }
+
+        #details {
+            margin: 0 auto;
+            padding: 0;
+            font-size: 12px;
+            font-family: Arial, 宋体, Helvetica, sans-serif;
+            display: block;
+            width: 98%;
+            height: 80%;
+        }
+
+            #details > #detail, .detailcss {
+                display: block;
+                width: 100%;
+                float: left;
+                overflow: hidden;
+                border-bottom: 1px solid;
+                border-left: 1px solid;
+                border-right: 1px solid;
+                height: 30px;
+            }
+
+        .detailcell {
+            display: block;
+            float: left;
+            height: 100%;
+            overflow: hidden;
+            line-height: 30px;
+        }
+
+        #Top {
+            width: 98%;
+            height: 50%;
+            margin: 0 auto;
+            padding: 0;
+            font-size: 12px;
+            display: table;
+            border-collapse: collapse;
+        }
+
+
+
+        .table-tr {
+            width: 100%;
+            display: table-row;
+            height: 30px;
+        }
+
+        .table-th {
+            width: 100%;
+            display: table-cell;
+            /*font-weight: bold;*/
+            height: 100%;
+            border: 1px solid gray;
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        .table-td {
+            display: table-cell;
+            height: 100%;
+            border: 1px solid gray;
+            text-align: left;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div id="maindiv">
+        <div id="Top">
+            <div class="table-tr">
+                <div class="table-th" style="font-size:12px;">公司名称：<strong></strong></div>
+            </div>
+            <div class="table-tr">
+                <div class="table-td" style="font-size:12px;">运单号：<strong>$OutputNo$</strong></div>
+            </div>
+            <div class="table-tr">
+                <div class="table-td" style="font-size:12px;">委托编号：<strong>$RunsheetNo$</strong></div>
+            </div>
+            <div class="table-tr">
+                <div class="table-td" style="height:20px;"><a style="width:50%;float:left;font-size:12px;">出发：<strong>$ZoneNo$</strong></a><a style="width:50%;float:right;font-size:12px;">目地：<strong>$TZoneNo$</strong></a></div>
+            </div>
+            <div class="table-tr">
+                <div class="table-td" style="text-align:center;">
+                    <div>
+                        <img src="$OutputNoBarcode$" style="margin-top:5px;" />
+                    </div>
+                    <div style="line-height:5px;height:20px;">
+                        <a>
+                            $OutputNo$
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="PageNext"></div>
+        <div id="details">
+            <div class="detailcss" style="border-top:1px solid;">
+                <div class="detailcell" style="width:30px;height:30px;text-align: center;border-right:1px solid;font-size:12px;">序号</div>
+                <div class="detailcell" style="width:160px;height:30px;text-align: center;border-right:1px solid;font-size:12px;">品名</div>
+                <div class="detailcell" style="width:40px;height:30px;text-align: center;font-size:12px;">数量</div>
+            </div>
+            <div id="detail">
+                <div class="detailcell" style="width:30px;height:30px;text-align:center;border-right:1px solid;">&nbsp;<a>$RowId$</a></div>
+                <div class="detailcell" style="width:160px;height:30px;text-align:left;border-right:1px solid;">&nbsp;<a>$PartCname$</a></div>
+                <div class="detailcell" style="width:40px;height:30px;text-align:left;">&nbsp;<a>$RequiredBoxNum$</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

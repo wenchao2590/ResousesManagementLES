@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="gb2312" />
+    <title>
+        整包消耗拉动单
+    </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <!--media=print 这个属性可以在打印时有效-->
+    <style media=print>
+        .Noprint {
+            display: none;
+        }
+
+        .PageNext {
+            page-break-after: always;
+        }
+    </style>
+    <style type="text/css">
+        body {
+            font-family: 'Microsoft YaHei';
+            margin-top: 0mm 0mm;
+            width: 848px;
+            height: 724px;
+        }
+
+        #details {
+            margin: 0 auto;
+            padding: 0;
+            font-size: 8pt;
+            font-family: Arial, 宋体, Helvetica, sans-serif;
+            display: block;
+            width: 98%;
+            height: 50%;
+        }
+
+            #details > #detail, .detailcss {
+                display: block;
+                width: 98%;
+                height: 15%;
+                float: left;
+                overflow: hidden;
+                border-bottom: 1px solid;
+                border-left: 1px solid;
+                border-right: 1px solid;
+            }
+
+        .detailcell {
+            display: block;
+            float: left;
+            overflow: hidden;
+        }
+
+            .detailcell > span {
+                line-height: 9.4mm;
+                text-align: center;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+            }
+
+        #Top {
+            height: 20%;
+            margin: 0 auto;
+            padding: 0;
+            font-size: 10pt;
+            width: 98%;
+        }
+
+        #footer {
+            font-size: 8pt;
+            font-family: Arial, 宋体, Helvetica, sans-serif;
+            margin: 0 auto;
+            height: 20%;
+            width: 98%;
+            text-align: center;
+            font-size: 10pt;
+        }
+    </style>
+    <script src="../../../JS/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <div id="maindiv">
+        <div id="Top">
+            <div>
+                <div style="width:75%;height:30%;text-align:center;vertical-align:middle;font-size:20px;float:left;">
+                    整包消耗拉动单
+                    <br />
+                    TWD Pull Note
+                    <!--Supplyer Delivery Note-->
+
+                </div>
+                <div style="width:20%;height:30%;text-align:center;font-size:10px;vertical-align:top;float:right;">
+                    共$PageCount$页第$PageThis$页
+                </div>
+            </div>
+
+            <div style="width:33%;height:30%;font-size:13px;vertical-align:middle;float:left;">
+                <p>
+                    <strong><span>路径：</span><span>$RouteCode$</span></strong>
+                    <span style="font-size:7pt;display:block">Part Box Code</span>
+                </p>
+            </div>
+            <div style="width:33%;height:30%;font-size:10pt;vertical-align:middle;float:left;">
+                <p>
+                    <strong><span>零部件类名称：</span><span>$PartBoxName$</span></strong>
+                    <span style="font-size:7pt;display:block">Keeper</span>
+                </p>
+            </div>
+
+            <div style="float:left;width:70%;">
+                <div style="width:36%;height:5%;font-size:7pt;vertical-align:middle;float:left;">
+                    <p>
+                        <span>来源存储区：</span><span>$SZoneNo$</span>
+                        <span style="font-size:7pt;display:block">Origin storage</span>
+                    </p>
+                </div>
+
+                <div style="width:36%;height:30%;font-size:7pt;vertical-align:middle;float:left;">
+                    <p>
+                        <span>目标存储区：</span><span>$TZoneNo$</span>
+                        <span style="font-size:7pt;display:block">Des. Storage</span><span></span>
+                    </p>
+                </div>
+
+                <div style="width:36%;height:30%;font-size:7pt;vertical-align:middle;float:left;">
+                    <p>
+                        <span>生成时间：</span><span>$CreateDate$</span>
+                        <span style="font-size:7pt;display:block">Application Time</span><span></span>
+                    </p>
+                </div>
+                <div style="width:36%;height:30%;font-size:7pt;vertical-align:middle;float:left;">
+                    <p>
+                        <span>分拣时间：</span><span></span>
+                        <span style="font-size:7pt;display:block">Sorting Time</span><span></span>
+                    </p>
+                </div>
+
+                <div style="width:36%;height:30%;font-size:7pt;vertical-align:middle;float:left;">
+                    <p>
+                        <span>送达时间：</span><span>$ActualArrivalTime$</span>
+                        <span style="font-size:7pt;display:block">Arrival Time</span><span></span>
+                    </p>
+                </div>
+                <div style="width:36%;height:30%;font-size:7pt;vertical-align:middle;float:left;">
+                    <p>
+                        <span>单据类型：</span><span>$OrderType$</span>
+                        <span style="font-size:7pt;display:block">Order Type</span><span></span>
+                    </p>
+                </div>
+            </div>
+
+            <div style="width:30%;text-align:center;vertical-align:middle;float:right;margin-top:4%;">
+                <span style="font-size:18px;">$OrderCode$</span>
+                <br />
+                <img src="$OrderCodeBarcode$" style="width:198px;height:70px;" />
+            </div>
+
+        </div>
+        <div id="details">
+            <div class="detailcss" style="border-top:1px solid;">
+                <div class="detailcell" style="width:5%;text-align: center;border-right:1px solid;font-size:8pt;">序号<br />NO</div>
+                <div class="detailcell" style="width:15%;text-align: center;border-right:1px solid;font-size:8pt;">零件号<br />Part No.</div>
+                <div class="detailcell" style="width:15%;text-align: center;border-right:1px solid;font-size:8pt;">零件名称<br />Part-Name-CHN</div>
+                <div class="detailcell" style="width:10%;text-align: center;border-right:1px solid;font-size:8pt;">包装型号<br />Cont.Number</div>
+                <div class="detailcell" style="width:10%;text-align: center;border-right:1px solid;font-size:8pt;">收容数<br />SNP</div>
+                <div class="detailcell" style="width:8%;text-align: center;border-right:1px solid;font-size:8pt;">需求箱<br />Req Qty</div>
+                <div class="detailcell" style="width:8%;text-align: center;border-right:1px solid;font-size:8pt;">需求数<br />Req Qty</div>
+                <div class="detailcell" style="width:8%;text-align: center;border-right:1px solid;font-size:8pt;">实收箱<br />Cont.Qty</div>
+                <div class="detailcell" style="width:8%;text-align: center;border-right:1px solid;font-size:8pt;">实收数<br />Parts Qty</div>
+                <!--<div class="detailcell" style="width:8%;text-align: center;border-right:1px solid;font-size:8pt;">库位<br />Parts Qty</div>-->
+                <div class="detailcell" style="width:8%;text-align: center;font-size:8pt;">备注<br />Remarks</div>
+            </div>
+            <div id="detail">
+                <div class="detailcell" style="width:5%;text-align:center;border-right:1px solid;float:left   ">&nbsp;<span class="p">$RowId$</span></div>
+                <div class="detailcell" style="width:15%;text-align:center;border-right:1px solid;float:left;">&nbsp;<span class="p">$PartNo$</span></div>
+                <div class="detailcell" style="width:15%;text-align:center;border-right:1px solid;float:left">&nbsp;<span class="p">$PartCname$</span></div>
+                <div class="detailcell" style="width:10%;text-align: center;border-right:1px solid;float:left">&nbsp;<span class="p">$PackageModel$</span></div>
+                <div class="detailcell" style="width:10%;text-align: center;border-right:1px solid;float:left">&nbsp;<span class="p">$Package$</span></div>
+                <div class="detailcell" style="width:8%;text-align: center;border-right:1px solid;float:left">&nbsp;<span class="p">$RequiredBoxNum$</span></div>
+                <div class="detailcell" style="width:8%;text-align: center;border-right:1px solid;float:left">&nbsp;<span class="p">$RequiredQty$</span></div>
+                <div class="detailcell" style="width:8%;text-align: center;border-right:1px solid;float:left">&nbsp;<span class="p">$ActualBoxNum$</span></div>
+                <div class="detailcell" style="width:8%;text-align: center;border-right:1px solid;float:left">&nbsp;<span class="p">$ActualQty$</span></div>
+                <!--<div class="detailcell" style="width:8%;text-align: left;border-right:1px solid;float:left">&nbsp;<span class="p">$TargetDloc$</span></div>-->
+                <div class="detailcell" style="width:8%;text-align: center;float:left">&nbsp;<span class="p">$Comments$</span></div>
+            </div>
+        </div>
+        <div id="footer">
+            <div>
+                <div style="width:33%;float:left;margin-top: 3%;">
+                    供应商Supplier:
+                    <br />
+                    日期Date:
+                </div>
+                <div style="width:33%;float:left;margin-top: 3%;">
+                    承运商Carrier:
+                    <br />
+                    日期Date:
+                </div>
+                <div style="width:31%;float:left;margin-top: 3%;">
+                    收货人Receiver:
+                    <br />
+                    日期Date:
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+
+        $(function () {
+
+            var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+            if (userAgent.indexOf("Firefox") > -1) {
+                alert("FF");
+            } //判断是否Firefox浏览器
+            else if (userAgent.indexOf("Chrome") > -1) {
+                $(".p").each(function () {
+                    this.style.marginTop = '-1.3mm';
+                });
+
+            }
+            else {
+                $(".p").each(function () {
+                    this.style.lineHeight = '9.95mm';
+                });
+            }//IE
+        })
+
+    </script>
+</body>
+</html>

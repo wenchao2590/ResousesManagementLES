@@ -1,0 +1,12 @@
+﻿
+【LES-PDA】 项目
+	
+····【Forms】 窗体集合，用于存放所有PDA窗体页面
+······【FrmLogin】 PDA登录窗体
+······【FrmMain】 PDA菜单主页面
+······【FrmPaperBoard】 纸质看板卡扫描，生成拉动需求
+······【FrmLogin】 基础窗体
+
+
+FrmLogin  PDA登录窗体
+FrmMain   PDA主菜单窗体

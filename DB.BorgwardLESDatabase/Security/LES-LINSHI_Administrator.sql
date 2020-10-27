@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [LES-LINSHI\Administrator]
+    FROM WINDOWS WITH DEFAULT_LANGUAGE = [简体中文];
+

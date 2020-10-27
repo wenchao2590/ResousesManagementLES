@@ -1,0 +1,898 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EC97326F-9562-4427-8052-89EF490C6E7D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DAL.LES</RootNamespace>
+    <AssemblyName>DAL.LES</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=4.1.0.0, Culture=neutral, PublicKeyToken=e44a2bc38ed2c13c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+      <HintPath>..\Reference\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BomChangeOrderDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BomChangeOrderDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BomRepleaceConditionDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BomRepleaceConditionVehicleDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmergencyPullingCartDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IFM\MesInboundLogDAL.cs" />
+    <Compile Include="IFM\QmisInboundLogDAL.cs" />
+    <Compile Include="IFM\SrmInboundLogDAL.cs" />
+    <Compile Include="IFM\VmiInboundLogDAL.cs" />
+    <Compile Include="MenuActionDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MesProductionOrderLackMaterialDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageInvnoticeOrderDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PCMInventoryOrderPartDAL.cs" />
+    <Compile Include="BasPackageApplianceDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAS\VehiclePointStatusDAL.cs" />
+    <Compile Include="BusinessExpenseInDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessExpenseOutDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessFollowDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustReceiveInfoDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FIM\ExpenseItemDAL.cs" />
+    <Compile Include="IFM\QmisOutboundLogDAL.cs" />
+    <Compile Include="IFM\SapInboundLogDAL.cs" />
+    <Compile Include="IFM\WorkshopDAL.cs" />
+    <Compile Include="InventoryNoticeOrderDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryOrderPartDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryPartBarcodeDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JisCounterDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JisCounterLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JisPartBoxDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JisPullOrderDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JisPullOrderDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MesBreakpointReplacementRecordDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MesInformationPointBasicDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MesMissingpartsDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MesMissingpartsInfluenceOrderscopeDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MesMissingpartsMainDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MesProductionlineProcessOrderDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MesVehiclePointScanDAL.cs" />
+    <Compile Include="MesVehiclePointScanDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MPM\JisCounterDAL.cs" />
+    <Compile Include="MPM\PlanPullOrderDAL.cs" />
+    <Compile Include="MPM\TwdPartBoxDAL.cs" />
+    <Compile Include="PackageBarcodeDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MPM\SapPurchaseOrderDAL.cs" />
+    <Compile Include="MPM\SapPurchaseOrderDetailDAL.cs" />
+    <Compile Include="PackageInboundDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageInboundDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageOutboundDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageOutboundDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageStocksDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PCM\PackageTranDetailDAL.cs" />
+    <Compile Include="PackageTranDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PcsPullOrderDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PcsPullOrderDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlantZoneDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PorderBomRepleaceRecordDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PorderLackMaterialDAL.cs" />
+    <Compile Include="PorderLackMaterialDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PorderLackMaterialDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapBreakpointChangesDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapBreakpointReplaceDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapBreakpointSupplyPlanDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapInventoryCheckPlanDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapInventoryCheckReportDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapMaterialReservationDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapPlantStructureDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapProductionOrderLackMaterialDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapPurchaseOrderDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapPurchaseOrderDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScanPointDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shgx001DAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shgx002DAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shgx003DAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shgx004DAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Shgx005DAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SimulatePassConfigDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmsInboundLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmsOutboundDetailLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmsOutboundLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmsSupplyPlanDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpsPullOrderDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SpsPullOrderDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmAsnRunsheetDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmAsnRunsheetDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmDeliveryNoteDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmDeliveryNoteDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmJisPullOrderDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmJisPullOrderDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmPullingOrderDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmPullingOrderDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmTranOutDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StatusPointDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StocksDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MPM\TwdCounterDAL.cs" />
+    <Compile Include="TwdCounterDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TwdCounterLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TwdPartBoxDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TwdPullOrderDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TwdPullOrderDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TwdWindowTimeDAL.cs" />
+    <Compile Include="TwdWindowTimeDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VehiclePointStatusDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiJisPullOrderReturnDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiOutputDAL.cs" />
+    <Compile Include="VmiOutputDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiOutputDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiPrevSupplyPlanDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiPullOrderDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiPullOrderDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiPullOrderDetailViewDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiReceiveDAL.cs" />
+    <Compile Include="VmiReceiveDetailDAL.cs" />
+    <Compile Include="VmiShippingPartDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiSupplierDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiTransDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiTransDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WbsDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WMM\BarcodeDAL.cs" />
+    <Compile Include="BarcodeStatusDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ExpenseItemDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MesInboundLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PCM\PackageApplianceDAL.cs" />
+    <Compile Include="AssemblyLineDAL.cs" />
+    <Compile Include="AssemblyLineDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BarcodeDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAS\LocationDAL.cs" />
+    <Compile Include="BAS\PartsStockDAL.cs" />
+    <Compile Include="BAS\RouteDAL.cs" />
+    <Compile Include="BAS\VmiSupplierDAL.cs" />
+    <Compile Include="ContractDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KanbanCardDAL.cs" />
+    <Compile Include="KanbanCardDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KanbanPartBoxDAL.cs" />
+    <Compile Include="KanbanPartBoxDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KanbanPullOrderDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KanbanPullOrderDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LackOfMaterialDAL.cs" />
+    <Compile Include="LackOfMaterialDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LackOfMaterialProductionOrderDAL.cs" />
+    <Compile Include="LackOfMaterialDetailDAL.cs" />
+    <Compile Include="LackOfMaterialDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaintainInhouseLogisticStandardDAL.cs" />
+    <Compile Include="BAS\MaintainPartsDAL.cs" />
+    <Compile Include="MaterialPullingCommonDAL.cs" />
+    <Compile Include="MesOutboundDetailLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IFM\MesOutboundLogDAL.cs" />
+    <Compile Include="MesOutboundLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderBomInDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutputDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageStocksAdjustDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAS\PartInspectionModeDAL.cs" />
+    <Compile Include="PartInspectionModeDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartsBoxDAL.cs" />
+    <Compile Include="PartsBoxDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanPartBoxDAL.cs" />
+    <Compile Include="PlanPartBoxDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanPullCreateStatusDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanPullOrderDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlanPullOrderDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlantDAL.cs" />
+    <Compile Include="PlanWindowTimeDAL.cs" />
+    <Compile Include="PlanWindowTimeDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QmisAsnPullSheetDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QmisCheckModeDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QmisCheckResultDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QmisInboundLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReceiveAndOutputDAL.cs" />
+    <Compile Include="ReceiveAndOutputDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReceiveDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RouteMidDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapProductOrderBomDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapProductOrderDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapSupplierQuotaDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapTranOutDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapWorkCalendarDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SIOM\OutputDetailDAL.cs" />
+    <Compile Include="SIOM\ReceiveDetailDAL.cs" />
+    <Compile Include="SrmBarcodeDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmInboundLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IFM\SrmPrevSupplyPlanDAL.cs" />
+    <Compile Include="SrmPartReturnSheetDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProductOrderBomDAL.cs" />
+    <Compile Include="ProductOrderDAL.cs" />
+    <Compile Include="PullOrderBomDAL.cs" />
+    <Compile Include="PullOrderBomDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PullOrdersDAL.cs" />
+    <Compile Include="QmisOutboundDetailLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QmisOutboundLogDAL.cs" />
+    <Compile Include="QmisOutboundLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WMM\OutputDAL.cs" />
+    <Compile Include="WMM\ReceiveDAL.cs" />
+    <Compile Include="ReceiveDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapInboundLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapOutboundDetailLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IFM\SapOutboundLogDAL.cs" />
+    <Compile Include="SapOutboundLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SapPartsDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmOutboundDetailLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IFM\SrmOutboundLogDAL.cs" />
+    <Compile Include="SrmOutboundLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmPartReturnSheetDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmPrevSupplyPlanDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmSupplyPlanDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmVmiShippingNoteDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmVmiShippingNoteDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SrmVmiSupplierPartDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StocksDAL.cs" />
+    <Compile Include="BAS\SupplierDAL.cs" />
+    <Compile Include="SupplierPartQuotaDAL.cs" />
+    <Compile Include="SupplierPartQuotaDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SupplyPlanDAL.cs" />
+    <Compile Include="SupplyPlanDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TranDetailsDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ButtonDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ButtonRequestDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CostCenterDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CounterDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DcpPointDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeliveryRunsheetBarcodeDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DeliveryScheduleDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DiffanalyseReportsDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DockDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FinancialAccountDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InhouseBreakpointPartDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InternalOrderDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LocationDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaintainInhouseLogisticStandardDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaintainPartsDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialConsumeLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialRequestsDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MeasuringUnitDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelqueryDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NotificationHeadDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OnboardEquipmentDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OnboardTaskDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OnboardTaskGroupDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutbounddeliveryDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutbounddeliveryreturnDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OutputDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageApplianceDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageBarcodeDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageNotificationHeadDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageTranDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartPullDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartsStockDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PartTrayStockDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlantDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PlantEntryLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PtlMaterialReduceHistoryDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PullOrdersDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RackDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RegionDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepackageHeadDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepackageScheduleDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReturnDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RouteBoxPartsDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RouteDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RpmPackageStocksViewDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaskDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TranDetailsLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TranHeadDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrayInfoDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VechileConsumeLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleStatusDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiBasSupplierDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiInboundLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiOutboundDetailLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IFM\VmiOutboundLogDAL.cs" />
+    <Compile Include="VmiOutboundLogDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IFM\VmiPrevSupplyPlanDAL.cs" />
+    <Compile Include="VmiReceiveDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VmiReceiveDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WaitingAreaDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAS\WarehouseDAL.cs" />
+    <Compile Include="WarehouseDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BAS\WarehouseLocationDAL.cs" />
+    <Compile Include="WarehouseLocationDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmmTranReceiveDetailViewDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WMM\ReceiveDetailDAL.cs" />
+    <Compile Include="WmRfidDoorDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WmsInboundDataDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsTranOutDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiAsnRunsheetDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiAsnRunsheetDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiBarcodeDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiInboundDataDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiInboundOrderDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiInboundOrderDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiJisPullOrderDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiJisPullOrderDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiJisPullOrderReturnDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiPackageDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiPackageInboundDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiPackageOutboundDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiPartStockLockDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiProductOrderDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiPullingOrderDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiPullingOrderDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiSupplyPlanDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiTranDetailDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WmsVmiTransitInventoryDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkScheduleDAL.cs" />
+    <Compile Include="WorkScheduleDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkshopDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WorkshopSectionDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ZonesDAL.cs" />
+    <Compile Include="ZonesDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CC.Infrustructure\CC.Infrustructure.csproj">
+      <Project>{6cb35a05-6b20-4ca4-a262-c7e5c7ce98a6}</Project>
+      <Name>CC.Infrustructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL.SYS\DAL.SYS.csproj">
+      <Project>{FD656692-C34D-405B-BA88-A4B45FC0724B}</Project>
+      <Name>DAL.SYS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DM.LES\DM.LES.csproj">
+      <Project>{c8e22c5f-01cf-4026-8885-cfbe1c5a5b8d}</Project>
+      <Name>DM.LES</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DM.SYS\DM.SYS.csproj">
+      <Project>{4c291eb1-e4e3-431c-937c-c056483f891d}</Project>
+      <Name>DM.SYS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DAL.CommonMgrGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DAL.CommonMgrGenerator1.txt</LastGenOutput>
+    </Content>
+    <Content Include="DAL.CommonMgrGenerator.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Content>
+    <Content Include="DAL.CommonMgrGenerator1.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

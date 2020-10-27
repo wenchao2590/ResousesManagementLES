@@ -1,0 +1,52 @@
+﻿
+/*body {
+    background-image: url('../IMG/BFDA_LOGIN.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width: 99%;
+    height: 99%;
+    margin: 0px 0px 0px 0px;
+}*/
+body {
+    background: url(../IMG/login_bg.jpg) top no-repeat #e9edf1;
+    background-size: cover;
+    padding: 0;
+    margin: 0;
+    /*width: 90%;
+    height: 100%;
+    -moz-background-size: 100% 100%;*/
+    background-position: 0 0;
+    background-size: 100% 100%;
+}
+
+.loginImage {
+    /*vertical-align: middle;*/
+   float:right;
+    text-align: center;
+    margin-top:10%;
+}
+
+.loginBox {
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+    padding-top: 140px;
+    padding-left: 60px;
+}
+
+.loginDiv {
+    padding: 20px 0px 40px 80px;
+    box-shadow: 0 2px 3px rgba(0,0,0,.55);
+    border: 1px solid rgba(0,0,0,.4);
+    background-color: #fff;
+    width: 290px;
+    height:200px;
+}
+
+.loginLogo {
+    height: 80px;
+    width: 200px;
+    background-image: url('../../CSS/img/MS_LES.JPG');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}

@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6CB35A05-6B20-4CA4-A262-C7E5C7CE98A6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Infrustructure</RootNamespace>
+    <AssemblyName>Infrustructure</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EPPlus, Version=2.9.0.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.84.0.0, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Reference\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\Reference\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\Reference\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\Reference\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\Reference\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="zxing">
+      <HintPath>..\Reference\zxing.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Access\DataReaderHelper.cs" />
+    <Compile Include="Access\DataTableExtensions.cs" />
+    <Compile Include="Access\ExtandOleDbConnectionClass.cs" />
+    <Compile Include="Access\OleDbFactory.cs" />
+    <Compile Include="Barcode\Barcode.cs" />
+    <Compile Include="Barcode\BarcodeCommon.cs" />
+    <Compile Include="Barcode\Blank.cs" />
+    <Compile Include="Barcode\Code128.cs" />
+    <Compile Include="Barcode\IBarcode.cs" />
+    <Compile Include="Barcode\BarcodePng.cs" />
+    <Compile Include="BaseClass\BaseIdentity.cs" />
+    <Compile Include="BaseClass\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaseClass\BaseType.cs" />
+    <Compile Include="BaseClass\BaseUser.cs" />
+    <Compile Include="BaseClass\BaseUserControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BaseClass\IEventLog.cs" />
+    <Compile Include="BaseClass\IMenu.cs" />
+    <Compile Include="BaseClass\IUser.cs" />
+    <Compile Include="BaseClass\IUserResource.cs" />
+    <Compile Include="BaseClass\User.cs" />
+    <Compile Include="BaseClass\UserUtil.cs" />
+    <Compile Include="Cache\CacheDictionary.cs" />
+    <Compile Include="Cache\CacheItem.cs" />
+    <Compile Include="Configuration\BOLogSettings.cs" />
+    <Compile Include="Configuration\BOLogCollection.cs" />
+    <Compile Include="Configuration\BOLog.cs" />
+    <Compile Include="Config\Config.cs" />
+    <Compile Include="Customization\LSEDataTransfer.cs" />
+    <Compile Include="Data\BulkWriteReader.cs" />
+    <Compile Include="Data\BusinessObject.cs" />
+    <Compile Include="Data\BusinessObjectCollection.cs" />
+    <Compile Include="Data\BusinessObjectProvider.cs" />
+    <Compile Include="Data\BusinessObjectService.cs" />
+    <Compile Include="Data\DataExtend.cs" />
+    <Compile Include="Data\JsonHelper.cs" />
+    <Compile Include="Data\WorkOrderAssemblyScanType.cs" />
+    <Compile Include="Data\ExcelReader.cs" />
+    <Compile Include="Data\Integration\ConstNames.cs" />
+    <Compile Include="Data\Integration\DatabaseStorage.cs" />
+    <Compile Include="Data\Integration\DataFixMode.cs" />
+    <Compile Include="Data\Integration\DataItem.cs" />
+    <Compile Include="Data\Integration\DataItemArgs.cs" />
+    <Compile Include="Data\Integration\DataItemCollection.cs" />
+    <Compile Include="Data\Integration\DataItemField.cs" />
+    <Compile Include="Data\Integration\DataSchema.cs" />
+    <Compile Include="Data\Integration\DataSchemaField.cs" />
+    <Compile Include="Data\Integration\DataSchemaRule.cs" />
+    <Compile Include="Data\Integration\DataSchemaRuleCommand.cs" />
+    <Compile Include="Data\Integration\DataTableStorage.cs" />
+    <Compile Include="Data\Integration\DelimitedFileStorage.cs" />
+    <Compile Include="Data\Integration\ExcelStorage.cs" />
+    <Compile Include="Data\Integration\ExecutionResult.cs" />
+    <Compile Include="Data\Integration\FixedLengthFileStorage.cs" />
+    <Compile Include="Data\Integration\IntegrationContext.cs" />
+    <Compile Include="Data\Integration\IntegrationEngine.cs" />
+    <Compile Include="Data\Integration\IntegrationMode.cs" />
+    <Compile Include="Data\Integration\StorageProviderBase.cs" />
+    <Compile Include="Data\Integration\Utilities.cs" />
+    <Compile Include="Data\Integration\ValidationResult.cs" />
+    <Compile Include="Data\Integration\ValidationResults.cs" />
+    <Compile Include="Data\Integration\ValidationUtils.cs" />
+    <Compile Include="Data\TableColumn.cs" />
+    <Compile Include="Data\TableColumnDAL.cs" />
+    <Compile Include="EnumHelper.cs" />
+    <Compile Include="Event\EventID.cs" />
+    <Compile Include="Event\EventLevel.cs" />
+    <Compile Include="Event\EventLogInfo.cs" />
+    <Compile Include="Event\EventState.cs" />
+    <Compile Include="Event\EventType.cs" />
+    <Compile Include="Extensions\ConvertionExtensions.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="IContext.cs" />
+    <Compile Include="IProvider.cs" />
+    <Compile Include="IService.cs" />
+    <Compile Include="Linq\DynamicQueryable.cs" />
+    <Compile Include="Logging\Log4NetHelper.cs" />
+    <Compile Include="Logging\LoggerBLL.cs" />
+    <Compile Include="Logging\EventLogger.cs" />
+    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Logging\InfomationanderrorsInfo.cs" />
+    <Compile Include="Logging\Log.cs" />
+    <Compile Include="Logging\Log4NetLogger.cs" />
+    <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Logging\NullLogger.cs" />
+    <Compile Include="Logging\OperationlogInfo.cs" />
+    <Compile Include="Logging\Proxy\MessageCodeInfoProxy.cs" />
+    <Compile Include="Logging\Proxy\InterfaceLogInfoProxy.cs" />
+    <Compile Include="Logging\Proxy\IOEventType.cs" />
+    <Compile Include="Logging\Proxy\UserLogInfoProxy.cs" />
+    <Compile Include="Logging\Proxy\SysInfoProxy.cs" />
+    <Compile Include="Mail\AlarmMail.cs" />
+    <Compile Include="Mail\AlarmMailDAL.cs" />
+    <Compile Include="Net\FtpClient.cs" />
+    <Compile Include="Net\FtpDirectoryInfo.cs" />
+    <Compile Include="Net\FtpFileInfo.cs" />
+    <Compile Include="Print\BarcodePrintHelper.cs" />
+    <Compile Include="Print\HTMLPrinter.cs" />
+    <Compile Include="Serialization\Serializer.cs" />
+    <Compile Include="OperationResult.cs" />
+    <Compile Include="Print\JISPrintConfigDAL.cs" />
+    <Compile Include="Print\JISPrintConfigInfo.cs" />
+    <Compile Include="Print\PrintHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProviderCollection.cs" />
+    <Compile Include="Scheduling\IScheduleTask.cs" />
+    <Compile Include="Scheduling\ScheduleService.cs" />
+    <Compile Include="Scheduling\ScheduleTask.cs" />
+    <Compile Include="Scheduling\TmpFilesCleanupTask.cs" />
+    <Compile Include="Security\AnonymousUser.cs" />
+    <Compile Include="Security\IUser.cs" />
+    <Compile Include="Security\MembershipManager.cs" />
+    <Compile Include="Security\LESIdentity.cs" />
+    <Compile Include="Service\CertificateValidator.cs" />
+    <Compile Include="Service\ClientMessageInspector.cs" />
+    <Compile Include="Service\IServiceAddressing.cs" />
+    <Compile Include="Service\IServiceModelReader.cs" />
+    <Compile Include="Service\ServiceAgent.cs" />
+    <Compile Include="Service\ServiceConfiguration.cs" />
+    <Compile Include="Service\ServiceInfoAttribute.cs" />
+    <Compile Include="Service\ServiceManager.cs" />
+    <Compile Include="Service\ServiceModelReader.cs" />
+    <Compile Include="Service\WCFService.cs" />
+    <Compile Include="Thread\ProcessScheduleDAL.cs" />
+    <Compile Include="Thread\ProcessScheduleInfo.cs" />
+    <Compile Include="Thread\ThreadBase.cs" />
+    <Compile Include="Utilities\AppConst.cs" />
+    <Compile Include="Utilities\AppSettings.cs" />
+    <Compile Include="Utilities\CSVFileHelper.cs" />
+    <Compile Include="Utilities\Exception\MESBusinessException.cs" />
+    <Compile Include="Utilities\CryptTools.cs" />
+    <Compile Include="Utilities\DateTimeUtil.cs" />
+    <Compile Include="Utilities\ErrorCode.cs" />
+    <Compile Include="Utilities\EventOperationWrite.cs" />
+    <Compile Include="Utilities\ExcelHelper.cs" />
+    <Compile Include="Utilities\Exception\AuthenticationException.cs" />
+    <Compile Include="Utilities\Exception\BaseException.cs" />
+    <Compile Include="Utilities\Exception\ExceptionRecs.Designer.cs" />
+    <Compile Include="Utilities\Exception\ExceptionUtility.cs" />
+    <Compile Include="Utilities\Exception\MPSBusinessException.cs" />
+    <Compile Include="Utilities\Exception\MPSSystemException.cs" />
+    <Compile Include="Utilities\FileUtil.cs" />
+    <Compile Include="Utilities\FormBinding.cs" />
+    <Compile Include="Utilities\MiscUtil.cs" />
+    <Compile Include="Utilities\MPSCache.cs" />
+    <Compile Include="Utilities\PlantAndWorkShop.cs" />
+    <Compile Include="Utilities\RelectionHelper.cs" />
+    <Compile Include="Utilities\SearchListItem.cs" />
+    <Compile Include="Utilities\ServiceConfiguration.cs" />
+    <Compile Include="Utilities\SignatureHelper.cs" />
+    <Compile Include="Utilities\SqlHelper.cs" />
+    <Compile Include="Utilities\SqlUtil.cs" />
+    <Compile Include="Utilities\StringUtil.cs" />
+    <Compile Include="Utilities\StringWriterWithEncoding.cs" />
+    <Compile Include="Utilities\TypeHelper.cs" />
+    <Compile Include="Utilities\WebServiceAuth.cs" />
+    <Compile Include="Utilities\WebUtil.cs" />
+    <Compile Include="Utilities\WebUtilities\Controls\GenericControl.cs" />
+    <Compile Include="Utilities\WebUtilities\Controls\TemplatedWebControl.cs" />
+    <Compile Include="Utilities\WebUtilities\MessageCode.cs" />
+    <Compile Include="Utilities\WebUtilities\MessageManager.cs" />
+    <Compile Include="Utilities\WebUtilities\MessageResc.Designer.cs" />
+    <Compile Include="Utilities\WebUtilities\ToolbarCommandConstants.cs" />
+    <Compile Include="Utilities\XmlWrapper.cs" />
+    <Compile Include="Web\HttpHandlers\FileHttpHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Utilities\Exception\ExceptionRecs.resx" />
+    <EmbeddedResource Include="Utilities\WebUtilities\MessageResc.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Web\HttpModules\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
