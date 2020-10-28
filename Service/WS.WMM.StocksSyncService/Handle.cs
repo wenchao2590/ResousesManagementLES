@@ -400,6 +400,7 @@
                     if (string.IsNullOrEmpty(sapPurchaseOrderDetailInfo.SapKostl))
                         return string.Empty;
 
+
                     ///采购订单中有SAP采购订单号的需要生成101入库交易
                     if (!string.IsNullOrEmpty(sapPurchaseOrderDetailInfo.SapEbeln))
                     {
