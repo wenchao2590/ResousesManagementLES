@@ -25,7 +25,7 @@
 <#@ import namespace="Microsoft.VisualStudio.TextTemplating"#>
 <#+ 
 
-const string ConnectionString =  @"User ID=sa;Initial Catalog=LES_PRD;Data Source=DESKTOP-S6HNI48\MSSQLSERVER_2017;Password=sa";
+const string ConnectionString =  @"User ID=sa;Initial Catalog=HOSPITAL_DMS_2018;Data Source=localhost\MSSQLSERVER_2017;Password=sa";
 //const string ConnectionString =  @"User ID=LES;Initial Catalog=T_LES_SHGX;Data Source=118.89.248.153,7832;Password=E7D85732E37B452A891AB12A0FAF20D0;";
 const bool DeleteOriginalFile = false;
 
