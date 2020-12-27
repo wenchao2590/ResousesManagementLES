@@ -111,6 +111,9 @@
     <Compile Include="CustReceiveInfoInfo.Gen.cs">
       <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
     </Compile>
+    <Compile Include="DeviceInfo.Gen.cs">
+      <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
+    </Compile>
     <Compile Include="EmergencyPullingCartInfo.Gen.cs">
       <DependentUpon>SysMgrDBEntityGenerator.tt</DependentUpon>
     </Compile>
@@ -985,6 +988,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DAL.CommonMgrGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DAL.CommonMgrGenerator.txt</LastGenOutput>
+    </Content>
+    <Content Include="DAL.CommonMgrGenerator.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Content>
     <Content Include="SysMgrDBEntityGenerator.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SysMgrDBEntityGenerator.txt</LastGenOutput>

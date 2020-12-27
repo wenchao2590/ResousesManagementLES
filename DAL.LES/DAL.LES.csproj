@@ -62,6 +62,9 @@
     <Compile Include="BomRepleaceConditionVehicleDAL.Gen.cs">
       <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
     </Compile>
+    <Compile Include="DeviceDAL.Gen.cs">
+      <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
+    </Compile>
     <Compile Include="EmergencyPullingCartDAL.Gen.cs">
       <DependentUpon>DAL.CommonMgrGenerator.tt</DependentUpon>
     </Compile>

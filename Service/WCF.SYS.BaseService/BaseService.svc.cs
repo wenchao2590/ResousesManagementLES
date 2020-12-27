@@ -55,7 +55,7 @@ namespace WCF.SYS.BaseService
                 info.ErrCode = string.Empty;
                 info.Msg = string.Empty;
                 ///登录后的TOKEN
-                info.Token = new UserTokenBLL().GetNewToken(user.Id);
+                info.Token = new UserTokenBLL().GetNewToken(user.Fid.Value);
             }
             return info;
         }
